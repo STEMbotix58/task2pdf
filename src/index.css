@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+.header {
+  @apply pb-4 mb-6 border-b border-gray-100 flex items-center justify-between;
+}
+
+.title {
+  @apply text-2xl font-bold text-gray-900 tracking-tight;
+}
+
+.labelClass {
+  @apply block text-[14px] uppercase font-bold text-gray-600 mb-2 ml-1;
+}
+
+.inputClass {
+  @apply w-full px-4 py-3 bg-white border border-gray-300 rounded-xl 
+         transition-all duration-200 ease-in-out
+         placeholder:text-gray-400 text-gray-700 text-sm
+         focus:ring-4 focus:ring-[#78D5D7]/20 focus:border-[#78D5D7] focus:outline-none;
+}
+
+.selectClass {
+  @apply appearance-none w-full px-4 py-3 bg-white border border-gray-300 rounded-xl
+         transition-all duration-200 ease-in-out
+         text-gray-700 text-sm
+         focus:ring-4 focus:ring-[#78D5D7]/20 focus:border-[#78D5D7] focus:outline-none
+         cursor-pointer;
+}
+
+.textareaClass {
+  @apply w-full px-4 py-3 bg-white border border-gray-300 rounded-xl transition-all duration-200 ease-in-out placeholder:text-gray-400 text-gray-700 text-sm focus:ring-4 focus:ring-[#78D5D7]/20 focus:border-[#78D5D7] focus:outline-none resize-none;
+}
+
+.fileInputClass {
+  @apply w-full text-slate-600 font-medium text-sm bg-gray-200 file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-800 file:hover:bg-gray-700 file:text-white rounded;
+}
+
+/* Specific styling for the form container if needed */
+.form-container {
+  @apply max-w-4xl mx-auto p-8 bg-white rounded-2xl shadow-sm border border-gray-100;
+}
