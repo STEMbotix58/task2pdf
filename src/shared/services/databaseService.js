@@ -53,7 +53,6 @@ export const saveProposalSubmission = async (formData) => {
     if (!supabase) {
       throw new Error("Supabase client not initialized");
     }
-
     const { data, error } = await supabase
       .from("proposal")
       .insert([
