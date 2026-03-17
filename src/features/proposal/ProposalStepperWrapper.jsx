@@ -20,7 +20,6 @@ const ProposalStepperWrapper = () => {
 
     console.log("✅ Proposal submission saved:");
   };
-
   const steps = [
     { component: CSVUploadForm },
     { component: ProposalForm },

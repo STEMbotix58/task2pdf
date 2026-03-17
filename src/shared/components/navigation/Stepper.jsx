@@ -8,12 +8,11 @@ const Stepper = ({
   fileName = "document.pdf",
   containerClass = "",
   extraContext = {},
-  onBeforeGenerate, // New prop: async function to call before PDF generation (e.g., to save to database)
+  onBeforeGenerate,
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
-  const storeDataHook = useStore();
-  const storeData = useStore ? storeDataHook : null;
+  const getLatestStoreData = () => useStore.getState();
 
   const totalSteps = useMemo(() => steps.length - 1, [steps]);
 
@@ -30,36 +29,21 @@ const Stepper = ({
   const prevStep = () => {
     setCurrentStep((prev) => (prev > 0 ? prev - 1 : prev));
   };
-  // Old PDF Generation Handler
-  {
-    /*
-    const generatePDF = () => {
-      if (!PDFComponent) return;
-  
-      setIsGenerating(true);
-  
-      // small delay ensures PDF component mounts fully
-      setTimeout(() => {
-        const btn = document.getElementById("pdf-download-btn");
-        btn?.click();
-        setIsGenerating(false);
-      }, 300);
-    };
-  */
-  }
-  // New PDF Generation Handler with optional database save
+
+  // PDF Generation Handler with optional database save
   const generatePDF = async () => {
     if (!PDFComponent) return;
 
     setIsGenerating(true);
 
     try {
-      // 🎯 NEW: If a save function is provided, save to database first
+      // If a save function is provided, save to database first
       if (onBeforeGenerate) {
-        await onBeforeGenerate(storeData);
+        const latestData = getLatestStoreData(); // ALWAYS FRESH
+        await onBeforeGenerate(latestData);
       }
 
-      // ✅ EXISTING: Then generate PDF (unchanged)
+      // EXISTING: Then generate PDF (unchanged)
       setTimeout(() => {
         const btn = document.getElementById("pdf-download-btn");
         btn?.click();
@@ -68,14 +52,13 @@ const Stepper = ({
     } catch (err) {
       console.error("Error during submission:", err);
       setIsGenerating(false);
-      // PDF generation still works even if database save fails
-      // Decide: retry, notify user, or proceed anyway
       alert(
         "Warning: Could not save to database, but PDF will still generate.\n\nError: " +
           err.message,
       );
     }
   };
+
   return (
     <div
       className={`max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-2xl relative ${containerClass}`}
@@ -97,7 +80,9 @@ const Stepper = ({
         <Suspense fallback={null}>
           <PDFDownloadLink
             id="pdf-download-btn"
-            document={<PDFComponent data={storeData} {...extraContext} />}
+            document={
+              <PDFComponent data={getLatestStoreData()} {...extraContext} />
+            }
             fileName={fileName}
             style={{ display: "none" }}
           >
