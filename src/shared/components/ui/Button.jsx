@@ -9,6 +9,7 @@ const Button = ({
   style = {},
   textStyle = {},
   type = "button",
+  children,
   ...rest
 }) => {
   const baseClasses =
@@ -17,6 +18,7 @@ const Button = ({
   const variants = {
     primary: "bg-[#0F172A] text-white hover:opacity-90",
     secondary: "bg-gray-600 text-white hover:opacity-90",
+    green: "bg-green-600 text-white hover:opacity-90",
     danger: "bg-red-600 text-white hover:opacity-90",
     outline:
       "border border-[#0F172A] text-[#0F172A] bg-transparent hover:bg-gray-100",
@@ -47,6 +49,7 @@ const Button = ({
       ) : (
         <span style={textStyle}>{title}</span>
       )}
+      {children}
     </button>
   );
 };
