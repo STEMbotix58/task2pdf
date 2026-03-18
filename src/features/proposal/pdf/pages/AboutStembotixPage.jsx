@@ -131,12 +131,6 @@ export const AboutStembotixPage = () => {
             </Text>
           </View>
         </View>
-        {/* <View style={aboutStembotixStyles.signatureSection}>
-          <Text style={{ fontSize: 9, color: "#1e293b", fontWeight: "bold" }}>
-            Dhruvil Patel
-          </Text>
-          <Text style={{ fontSize: 8, color: "#64748b" }}>CTO, STEMbotix</Text>
-        </View> */}
       </View>
     </PDFPageLayout>
   );
