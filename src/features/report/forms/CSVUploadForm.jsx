@@ -7,6 +7,7 @@ import ButtonGroup from "@/shared/components/ui/ButtonGroup";
 import CSVUploadField from "@/shared/components/ui/CSVUploadField";
 import { useReportStore } from "@/features/report/model/reportStore";
 import { normalizeReportCSV } from "@/shared/utils/normalizeCSV";
+import { handleReportCSVDownload } from "@/shared/utils/handleCSVDownload";
 
 const CSVUploadForm = ({ nextStep, isFirstStep }) => {
   const handleSubmit = (e) => {
@@ -36,7 +37,11 @@ const CSVUploadForm = ({ nextStep, isFirstStep }) => {
 
       <form onSubmit={handleSubmit} className="space-y-8">
         <CSVUploadField onDataParsed={handleCSVParsed} required={false} />
-        <ButtonGroup nextStep={nextStep} isFirstStep={isFirstStep} />
+        <ButtonGroup
+          nextStep={nextStep}
+          isFirstStep={isFirstStep}
+          handleCSVDownload={handleReportCSVDownload}
+        />
       </form>
     </FormContainer>
   );

@@ -7,6 +7,7 @@ import ButtonGroup from "@/shared/components/ui/ButtonGroup";
 import CSVUploadField from "@/shared/components/ui/CSVUploadField";
 import { useProposalStore } from "@/features/proposal/model/proposalStore";
 import { normalizeProposalCSV } from "@/shared/utils/normalizeCSV";
+import { handleProposalCSVDownload } from "@/shared/utils/handleCSVDownload";
 
 const CSVUploadForm = ({ nextStep, isFirstStep }) => {
   const handleSubmit = (e) => {
@@ -38,7 +39,11 @@ const CSVUploadForm = ({ nextStep, isFirstStep }) => {
 
       <form onSubmit={handleSubmit} className="space-y-8">
         <CSVUploadField onDataParsed={handleCSVParsed} required={false} />
-        <ButtonGroup nextStep={nextStep} isFirstStep={isFirstStep} />
+        <ButtonGroup
+          nextStep={nextStep}
+          isFirstStep={isFirstStep}
+          handleCSVDownload={handleProposalCSVDownload}
+        />
       </form>
     </FormContainer>
   );
