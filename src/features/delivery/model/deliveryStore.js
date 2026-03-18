@@ -34,7 +34,7 @@ export const useDeliveryStore = create((set) => ({
     printers: [""],
     laptops: [""],
   },
-  items: [],
+  items: [{ id: null, itemName: "", quantity: null, received: null }],
 
   // Generic field updater for any section
   setSection: (section, data) =>
