@@ -1,10 +1,12 @@
 import React from "react";
 import Button from "@/shared/components/ui/Button";
+import { FaDownload } from "react-icons/fa";
 
 const ButtonGroup = ({
   prevStep,
   nextStep,
   generatePDF,
+  handleCSVDownload,
   isFirstStep = false,
   isLastStep = false,
   isGenerating = false,
@@ -22,7 +24,6 @@ const ButtonGroup = ({
           style={{ flex: 1 }}
         />
       )}
-
       {/* Next / Generate */}
       {isLastStep ? (
         <Button
@@ -42,6 +43,18 @@ const ButtonGroup = ({
           disabled={isGenerating}
           style={{ flex: 1 }}
         />
+      )}
+      {isFirstStep && (
+        <Button
+          title="Download Template"
+          variant="green"
+          type="button"
+          onClick={handleCSVDownload}
+          disabled={isGenerating}
+          style={{ flex: 1 }}
+        >
+          <FaDownload className="ml-2" />
+        </Button>
       )}
     </div>
   );
