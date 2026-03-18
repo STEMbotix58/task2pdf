@@ -56,7 +56,8 @@ export const handleProposalCSVDownload = () => {
       designation: "Program Manager",
       email: "contact@example.com",
       phone: "9000000000",
-      signatureImg: "https://example.com/signature.png",
+      signatureImg:
+        "https://images.unsplash.com/photo-1650619112959-7e1340365ce2?ixid=M3w4MjcwNjd8MHwxfHNlYXJjaHw4fHxzaWduYXR1cmV8ZW58MHx8fHwxNzczODI1OTQ1fDA&ixlib=rb-4.1.0&fit=max&q=80",
     }),
 
     financial_proposal: JSON.stringify([
@@ -280,8 +281,14 @@ export const handleReportCSVDownload = () => {
     }),
 
     photographs: JSON.stringify([
-      "https://example.com/photo1.jpg",
-      "https://example.com/photo2.jpg",
+      "https://images.unsplash.com/photo-1509770293056-483fcbd13e30?ixid=M3w4MjcwNjd8MHwxfHNlYXJjaHwxfHxTVEVNJTIwbGFifGVufDB8fHx8MTc3MzgyNTgxN3ww&ixlib=rb-4.1.0&fit=max&q=80",
+      "https://unsplash.com/photos/woman-welding-grey-metal-plate-yctiRnbY7w4?utm_source=randomimage&utm_medium=referral",
+      "https://images.unsplash.com/photo-1574803442176-70d4b465c920?ixid=M3w4MjcwNjd8MHwxfHNlYXJjaHwyfHxTVEVNJTIwbGFifGVufDB8fHx8MTc3MzgyNTgxN3ww&ixlib=rb-4.1.0&fit=max&q=80",
+      "https://unsplash.com/photos/yellow-and-black-4-wheeled-robot-vehicle-toy-j2ExxxnN_w8?utm_source=randomimage&utm_medium=referral",
+      "https://images.unsplash.com/photo-1586370392767-5ce4de129388?ixid=M3w4MjcwNjd8MHwxfHNlYXJjaHwzfHxTVEVNJTIwbGFifGVufDB8fHx8MTc3MzgyNTgxN3ww&ixlib=rb-4.1.0&fit=max&q=80",
+      "https://unsplash.com/photos/woman-in-white-long-sleeve-shirt-wearing-eyeglasses-8gYNmkKh9f0?utm_source=randomimage&utm_medium=referral",
+      "https://images.unsplash.com/photo-1766297248047-6ec337099802?ixid=M3w4MjcwNjd8MHwxfHNlYXJjaHw0fHxTVEVNJTIwbGFifGVufDB8fHx8MTc3MzgyNTgxN3ww&ixlib=rb-4.1.0&fit=max&q=80",
+      "https://unsplash.com/photos/scientist-holding-flask-with-liquid-in-laboratory-oCAsj5Tslic?utm_source=randomimage&utm_medium=referral",
     ]),
   };
 
