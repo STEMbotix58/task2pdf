@@ -21,7 +21,7 @@ export const handleProposalCSVDownload = () => {
       salutation: "Dear Sir/Madam",
     }),
 
-    projectProposal: JSON.stringify({
+    project_proposal: JSON.stringify({
       title: "STEM Lab Implementation Program",
       intro:
         "The program focuses on setting up STEM labs and enabling hands-on learning for students through modern tools and technologies.",
@@ -59,20 +59,20 @@ export const handleProposalCSVDownload = () => {
       signatureImg: "https://example.com/signature.png",
     }),
 
-    financialProposal: JSON.stringify([
+    financial_proposal: JSON.stringify([
       {
         particular: "STEM Kit Package",
         description: "Includes robotics kits, 3D printers, and accessories",
         amount: 100000,
         specification: "Per institution",
-        boq: "1 Unit",
+        boq: "8",
       },
       {
         particular: "Training Services",
         description: "Teacher training and onboarding sessions",
         amount: 20000,
         specification: "Per institution",
-        boq: "1 Session",
+        boq: "5",
       },
     ]),
   };
@@ -97,7 +97,7 @@ export const handleDeliveryCSVDownload = () => {
     basic_info: JSON.stringify({
       date: "2024-01-01",
       subject: "Delivery of STEM Kits",
-      purchaseOrderNo: "PO12345",
+      purchaseOrderNo: "12345",
       purchaseOrderDate: "2024-01-01",
       projectName: "STEM Education Project",
     }),
@@ -147,11 +147,11 @@ export const handleReportCSVDownload = () => {
   const row = {
     id: "report-001",
 
-    projectOverview: JSON.stringify({
+    project_overview: JSON.stringify({
       projectTitle: "STEM Learning Enhancement Program",
       implementingOrganization: "ABC Implementing Agency",
       partnerSponsor: "XYZ Foundation",
-      projectDuration: "6 Months",
+      projectDuration: "6",
       location: "Multiple Schools - Urban Region",
       targetBeneficiaries: "Students (Grade 6–10)",
       problemStatement:
@@ -170,12 +170,12 @@ export const handleReportCSVDownload = () => {
       sdgAlignment: "SDG 4 - Quality Education",
     }),
 
-    beneficiaryProfile: JSON.stringify({
+    beneficiary_profile: JSON.stringify({
       totalBeneficiaries: 500,
-      ageGroup: "11-16 years",
+      ageGroup: "11-16",
       genderDistribution: {
-        female: 240,
-        male: 250,
+        female: 40,
+        male: 40,
         other: 10,
       },
       educationBackground: "Secondary School Students",
@@ -183,7 +183,7 @@ export const handleReportCSVDownload = () => {
       geographicCoverage: "Urban and Semi-Urban Areas",
     }),
 
-    baselineEndline: JSON.stringify([
+    baseline_endline: JSON.stringify([
       {
         parameter: "STEM Knowledge Score",
         baselineValue: 45,
@@ -192,7 +192,7 @@ export const handleReportCSVDownload = () => {
       },
     ]),
 
-    quantitativeImpact: JSON.stringify({
+    quantitative_impact: JSON.stringify({
       participantsTrained: 500,
       attendanceRate: 85,
       completionRate: 78,
@@ -200,7 +200,7 @@ export const handleReportCSVDownload = () => {
       assessmentImprovement: 25,
     }),
 
-    qualitativeImpact: JSON.stringify({
+    qualitative_impact: JSON.stringify({
       confidenceImprovement:
         "Students showed improved confidence in problem-solving.",
       leadershipSkills: "Group activities enhanced leadership qualities.",
@@ -211,7 +211,7 @@ export const handleReportCSVDownload = () => {
         "Participants reported increased interest in STEM subjects.",
     }),
 
-    learningOutcomes: JSON.stringify({
+    learning_outcomes: JSON.stringify({
       technicalSkillsGained:
         "Basic robotics, 3D printing, and programming concepts.",
       softSkillsDeveloped: "Communication, teamwork, and critical thinking.",
@@ -219,7 +219,7 @@ export const handleReportCSVDownload = () => {
       handsOnLearningHours: 120,
     }),
 
-    institutionalImpact: JSON.stringify({
+    institutional_impact: JSON.stringify({
       teacherCapacityBuilding: "Teachers trained to use STEM kits effectively.",
       infrastructureUse: "Existing labs utilized more efficiently.",
       curriculumEnhancement:
@@ -227,7 +227,7 @@ export const handleReportCSVDownload = () => {
       sustainabilityMeasures: "Schools encouraged to continue STEM practices.",
     }),
 
-    socialImpact: JSON.stringify({
+    social_impact: JSON.stringify({
       inclusionAndEquity: "Equal participation across gender and backgrounds.",
       communityEngagement:
         "Parents and local communities involved in awareness sessions.",
@@ -235,20 +235,20 @@ export const handleReportCSVDownload = () => {
       digitalDivideReduction: "Improved access to digital learning tools.",
     }),
 
-    economicImpact: JSON.stringify({
+    economic_impact: JSON.stringify({
       employabilityEnhancement: "Students exposed to future-ready skills.",
       incomeOpportunities: "Awareness of STEM career opportunities increased.",
-      costPerBeneficiary: "200 USD",
-      roi: "High long-term educational impact",
+      costPerBeneficiary: "200",
+      roi: "20",
     }),
 
-    innovationImpact: JSON.stringify({
+    innovation_impact: JSON.stringify({
       newTechnologies: "Introduction to robotics, AI basics, and 3D printing.",
       innovationProjects: "Students developed small-scale working prototypes.",
       research: "Encouraged exploratory and project-based learning.",
     }),
 
-    caseStudy: JSON.stringify({
+    case_study: JSON.stringify({
       beneficiaryBackground:
         "Student from a non-technical background with limited exposure.",
       interventionDetails:
@@ -259,7 +259,7 @@ export const handleReportCSVDownload = () => {
         "The program helped me understand science in a practical way.",
     }),
 
-    challengesAndLearnings: JSON.stringify({
+    challenges_and_learnings: JSON.stringify({
       keyChallenges: "Initial resistance to adopting new teaching methods.",
       mitigationStrategies:
         "Conducted orientation sessions and continuous support.",
@@ -273,7 +273,7 @@ export const handleReportCSVDownload = () => {
         "Framework can be adapted for different education systems.",
     }),
 
-    monitoringEvaluation: JSON.stringify({
+    monitoring_evaluation: JSON.stringify({
       dataCollectionTools: "Surveys, assessments, attendance tracking",
       assessmentMethods: "Pre and post evaluation tests",
       monitoringFrequency: "Monthly",
