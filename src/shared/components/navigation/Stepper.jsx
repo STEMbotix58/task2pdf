@@ -1,5 +1,6 @@
 import React, { useState, Suspense, useMemo } from "react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
+import { useNavigate } from "react-router-dom";
 
 const Stepper = ({
   steps = [],
@@ -13,6 +14,8 @@ const Stepper = ({
   const [currentStep, setCurrentStep] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
   const getLatestStoreData = () => useStore.getState();
+
+  const navigate = useNavigate();
 
   const totalSteps = useMemo(() => steps.length - 1, [steps]);
 
@@ -57,6 +60,7 @@ const Stepper = ({
           err.message,
       );
     }
+    navigate("/");
   };
 
   return (
