@@ -4,6 +4,7 @@ import { useNavigate, Navigate, Link } from "react-router-dom";
 import { FiMail, FiLock, FiEye, FiEyeOff, FiAlertCircle } from "react-icons/fi";
 import { CgSpinner } from "react-icons/cg";
 import { MdLogin } from "react-icons/md";
+import STEMLogo from "@/shared/assets/images/STEMbotix-Logo.png";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -41,13 +42,13 @@ const Login = () => {
     <div className="min-h-screen bg-[#eee] flex flex-col items-center justify-center px-4 font-sans">
       <div className="max-w-md w-full">
         {/* Header Section */}
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-600 text-white mb-4 shadow-xl shadow-indigo-100">
-            <MdLogin size={28} />
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center  rounded-2xl mb-5">
+            <img src={STEMLogo} alt="" className="w-70 h-full" />
+
+            {/* <MdLogin size={28} /> */}
           </div>
-          <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
-            Admin Portal
-          </h2>
+          {/* <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Admin Portal</h2> */}
         </div>
 
         <div className="bg-white rounded-3xl shadow-2xl shadow-slate-200/50 p-10 border border-slate-100">
@@ -66,7 +67,7 @@ const Login = () => {
                 Email
               </label>
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-600 transition-colors">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-blue-600 transition-colors">
                   <FiMail size={18} />
                 </div>
                 <input
@@ -75,7 +76,7 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@company.com"
                   required
-                  className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-400"
+                  className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:bg-white focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all placeholder:text-slate-400"
                 />
               </div>
             </div>
@@ -88,7 +89,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-600 transition-colors">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-blue-600 transition-colors">
                   <FiLock size={18} />
                 </div>
                 <input
@@ -97,7 +98,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
-                  className="w-full pl-11 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all"
+                  className="w-full pl-11 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:bg-white focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all"
                 />
                 <button
                   type="button"
@@ -113,7 +114,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex justify-center items-center py-3.5 px-4 rounded-2xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 shadow-lg shadow-indigo-200 hover:shadow-indigo-300 transition-all active:scale-[0.97] disabled:opacity-70 disabled:pointer-events-none"
+              className="w-full flex justify-center items-center py-3.5 px-4 rounded-2xl font-bold text-white bg-blue-950 hover:bg-blue-800 shadow-lg shadow-blue-200 hover:shadow-blue-300 transition-all active:scale-[0.97] disabled:opacity-70 disabled:pointer-events-none"
             >
               {loading ? (
                 <CgSpinner className="w-6 h-6 animate-spin" />
