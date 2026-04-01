@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaChartBar, FaRegFileAlt } from "react-icons/fa";
+import { FaChartBar, FaRegFileAlt, FaRegFileWord } from "react-icons/fa";
 import { FaFileCircleCheck } from "react-icons/fa6";
 
 const Home = () => {
@@ -8,6 +8,31 @@ const Home = () => {
     <>
       {/* MODE SELECT UI */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        {/* Project OPTION */}
+        <Link
+          to="/project"
+          className="group cursor-pointer bg-white border border-slate-200 rounded-2xl p-8 hover:border-[#B027F5] hover:shadow-xl hover:shadow-[#B027F5]/10 transition-all duration-300 relative overflow-hidden block"
+        >
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#B027F5]/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110" />
+
+          <div className="relative z-10">
+            <div className="w-12 h-12 bg-[#B027F5] rounded-xl mb-6 flex items-center justify-center shadow-lg shadow-[#B027F5]/50">
+              <FaRegFileWord color="white" size={24} />
+            </div>
+
+            <h2 className="text-2xl font-bold text-slate-800 mb-3">
+              Project Report
+            </h2>
+
+            <div className="mt-8 flex items-center text-[#B027F5] font-bold text-sm">
+              Start Building{" "}
+              <span className="ml-2 group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </div>
+          </div>
+        </Link>
+
         {/* PROPOSAL OPTION */}
         <Link
           to="/proposal"

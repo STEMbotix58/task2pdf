@@ -36,7 +36,6 @@ const PhotographsForm = ({
 
   const [formData, setFormData] = useState(() => [...(storePhotographs || [])]);
   const [uploading, setUploading] = useState(false);
-  console.log(storePhotographs);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
