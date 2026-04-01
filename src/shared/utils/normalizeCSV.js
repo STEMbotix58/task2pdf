@@ -61,8 +61,6 @@ export function normalizeProposalCSV(row) {
 }
 
 export function normalizeReportCSV(row) {
-  console.log(parseArray(row.photographs));
-
   return {
     projectOverview: parseJSON(row.project_overview),
     objectives: parseJSON(row.objectives),
@@ -80,5 +78,19 @@ export function normalizeReportCSV(row) {
     sustainability: parseJSON(row.sustainability),
     monitoringEvaluation: parseJSON(row.monitoring_evaluation),
     photographs: parseArray(row.photographs),
+  };
+}
+
+export function normalizeProjectCSV(row) {
+  return {
+    basicInfo: parseJSON(row.basic_info),
+    summary: row.summary,
+    preface: parseJSON(row.preface),
+    project: parseJSON(row.project),
+    photographs: parseArray(row.photographs),
+    conclusion: row.conclusion,
+    contact: parseJSON(row.contact),
+    qrCodeImg: parseArray(row.qr_code_img),
+    qrCodeVid: parseArray(row.qr_code_vid),
   };
 }

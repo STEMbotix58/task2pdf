@@ -304,3 +304,86 @@ export const handleReportCSVDownload = () => {
   link.click();
   document.body.removeChild(link);
 };
+
+export const handleProjectCSVDownload = () => {
+  const row = {
+    id: "project-001",
+
+    // BASIC INFO
+    basicInfo: JSON.stringify({
+      partnerLogo: "",
+      stemLogo: "",
+      preparedBy: "ABC Implementing Agency",
+      date: "2024-01-01",
+      homeImages: [
+        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
+        "",
+        "",
+        "",
+      ],
+    }),
+
+    // SUMMARY
+    summary: "Enhance STEM education through hands-on learning tools.",
+
+    // PREFACE (MULTIPLE)
+    preface: JSON.stringify({
+      name: "XYZ Foundation",
+      designation: "Partner",
+      testimonial: "Improve teacher capability and student engagement.",
+      img: "",
+    }),
+
+    // PROJECT
+    project: JSON.stringify({
+      title: "STEM Learning Enhancement Program",
+      overview:
+        "Limited access to practical STEM learning resources in schools.",
+      implementation:
+        "Increased participation and interest in STEM activities.",
+      outcomesImpact: "Improved academic performance and innovation mindset.",
+
+      roboticsKits: ["Basic Robotics Kit", "Advanced STEM Kit"],
+      hardware: ["Arduino Boards", "Sensors", "Motors"],
+      software: ["Scratch", "Python", "Arduino IDE"],
+      infrastructure: ["STEM Lab Setup", "Workstations"],
+
+      amount: 500000,
+      image: ["https://images.unsplash.com/photo-1574803442176-70d4b465c920"],
+    }),
+
+    // PHOTOGRAPHS
+    photographs: JSON.stringify([
+      "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
+      "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+    ]),
+
+    // CONCLUSION
+    conclusion: "Hands-on learning significantly improves engagement.",
+
+    // CONTACT (SINGLE OBJECT)
+    contact: JSON.stringify({
+      name: "ABC Implementing Agency",
+      address: "Multiple Schools - Urban Region",
+      phone: "",
+      email: "",
+      website: "",
+    }),
+
+    // QR CODE (ARRAYS)
+    qrCodeImg: ["https://images.unsplash.com/photo-1574803442176-70d4b465c920"],
+    qrCodeVid: ["https://images.unsplash.com/photo-1574803442176-70d4b465c920"],
+  };
+
+  const csv = generateCSV(row);
+
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "sample_project_data_template.csv";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};

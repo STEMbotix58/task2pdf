@@ -5,6 +5,7 @@ import MainLayout from "@/shared/components/layout/MainLayout";
 import ProposalStepperWrapper from "@/features/proposal/ProposalStepperWrapper";
 import ReportStepperWrapper from "@/features/report/ReportStepperWrapper";
 import DeliveryStepperWrapper from "@/features/delivery/DeliveryStepperWrapper";
+import ProjectStepperWrapper from "@/features/project/ProjectStepperWrapper";
 import AdminPanel from "@/features/admin/AdminPanel";
 import Login from "@/shared/auth/Login";
 import Home from "@/pages/Home";
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "/delivery",
         element: <DeliveryStepperWrapper />,
+      },
+      {
+        path: "/project",
+        element: <ProjectStepperWrapper />,
       },
     ],
   },

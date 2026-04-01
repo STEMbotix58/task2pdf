@@ -13,10 +13,10 @@ const Stepper = ({
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
-  const getLatestStoreData = () => useStore.getState();
 
   const navigate = useNavigate();
 
+  const getLatestStoreData = () => useStore.getState();
   const totalSteps = useMemo(() => steps.length - 1, [steps]);
 
   if (!steps.length) return null;
@@ -33,34 +33,41 @@ const Stepper = ({
     setCurrentStep((prev) => (prev > 0 ? prev - 1 : prev));
   };
 
-  // PDF Generation Handler with optional database save
   const generatePDF = async () => {
     if (!PDFComponent) return;
 
     setIsGenerating(true);
 
     try {
-      // If a save function is provided, save to database first
+      const latestData = getLatestStoreData();
+
       if (onBeforeGenerate) {
-        const latestData = getLatestStoreData(); // ALWAYS FRESH
         await onBeforeGenerate(latestData);
       }
 
-      // EXISTING: Then generate PDF (unchanged)
+      // Give React time to re-render PDFDownloadLink with fresh data
       setTimeout(() => {
         const btn = document.getElementById("pdf-download-btn");
-        btn?.click();
+
+        if (!btn) {
+          console.error("Download button not found");
+          setIsGenerating(false);
+          return;
+        }
+
+        btn.click();
         setIsGenerating(false);
-      }, 500);
+        // navigate("/");
+      }, 300);
     } catch (err) {
-      console.error("Error during submission:", err);
+      console.error("Error before PDF generation:", err);
       setIsGenerating(false);
-      alert(
-        "Warning: Could not save to database, but PDF will still generate.\n\nError: " +
-          err.message,
-      );
+      alert(`PDF generation failed: ${err.message}`);
+    } finally {
+      setTimeout(() => {
+        navigate("/");
+      }, [300]);
     }
-    navigate("/");
   };
 
   return (
@@ -80,19 +87,18 @@ const Stepper = ({
         />
       </Suspense>
 
+      {/* ✅ ONLY ONE PDF SYSTEM */}
       {PDFComponent && (
-        <Suspense fallback={null}>
-          <PDFDownloadLink
-            id="pdf-download-btn"
-            document={
-              <PDFComponent data={getLatestStoreData()} {...extraContext} />
-            }
-            fileName={fileName}
-            style={{ display: "none" }}
-          >
-            Download
-          </PDFDownloadLink>
-        </Suspense>
+        <PDFDownloadLink
+          id="pdf-download-btn"
+          document={
+            <PDFComponent data={getLatestStoreData()} {...extraContext} />
+          }
+          fileName={fileName}
+          style={{ display: "none" }}
+        >
+          {({ loading }) => (loading ? "Preparing..." : "Download")}
+        </PDFDownloadLink>
       )}
 
       {isGenerating && (
