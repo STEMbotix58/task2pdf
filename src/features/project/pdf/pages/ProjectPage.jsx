@@ -72,7 +72,7 @@ export const ProjectPage = () => {
               </Text>
               <Text style={projectStyles.boxText}>
                 <Text style={projectStyles.boxTextBold}>Robotics Kits: </Text>
-                {roboticsKits ||
+                {roboticsKits.join(", ") ||
                   "Starter, Intermediate, Advanced, AI & IoT, Humanoid, 3D Pens, Mechanical Construction, AR Kits"}
               </Text>
             </View>
@@ -87,7 +87,8 @@ export const ProjectPage = () => {
               </Text>
               <Text style={projectStyles.boxText}>
                 <Text style={projectStyles.boxTextBold}>Hardware: </Text>
-                {hardware || "Sensors, Actuator Interfaces, Microcontrollers"}
+                {hardware.join(", ") ||
+                  "Sensors, Actuator Interfaces, Microcontrollers"}
               </Text>
             </View>
           </View>
@@ -105,7 +106,7 @@ export const ProjectPage = () => {
               </Text>
               <Text style={projectStyles.boxText}>
                 <Text style={projectStyles.boxTextBold}>Software: </Text>
-                {software || "Simulation Environments"}
+                {software.join(", ") || "Simulation Environments"}
               </Text>
             </View>
             <View style={projectStyles.boxRow}>
@@ -119,7 +120,7 @@ export const ProjectPage = () => {
               </Text>
               <Text style={projectStyles.boxText}>
                 <Text style={projectStyles.boxTextBold}>Infrastructure: </Text>
-                {infrastructure ||
+                {infrastructure.join(", ") ||
                   "Collaboration Spaces, Furniture, IT Infrastructure (DesktopServer, Thin Client Nodes)"}
               </Text>
             </View>
