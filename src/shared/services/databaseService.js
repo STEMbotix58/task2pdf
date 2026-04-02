@@ -311,3 +311,34 @@ export const fetchAllReports = async () => {
     };
   }
 };
+
+/* Fetch all project submissions for admin */
+export const fetchAllProjects = async () => {
+  try {
+    if (!supabase) {
+      throw new Error("Supabase client not initialized");
+    }
+    const { data, error } = await supabase
+      .from("project")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("Supabase fetch error:", error);
+      throw new Error(`Database error: ${error.message}`);
+    }
+
+    return {
+      success: true,
+      data: data || [],
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error fetching reports:", error);
+    return {
+      success: false,
+      data: [],
+      error: error.message || "Unknown error occurred",
+    };
+  }
+};
