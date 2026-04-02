@@ -6,11 +6,11 @@ import {
   getSortableTimestamp,
   compareValues,
 } from "@/features/admin/utils/adminTableUtils";
-import AdminControls from "./layout/AdminControls"; // ✅ adjust path if needed
+import AdminControls from "./layout/AdminControls";
 import AdminTable from "./AdminTable";
 import Pagination from "./Pagination";
-import AdminDashboard from "./dashboard/AdminDashboard"; // ✅ was missing
-import DashboardSkeleton from "./ui/DashboardSkeleton"; // ✅ was missing
+import AdminDashboard from "./dashboard/AdminDashboard";
+import DashboardSkeleton from "./ui/DashboardSkeleton";
 
 const ITEMS_PER_PAGE = 10;
 

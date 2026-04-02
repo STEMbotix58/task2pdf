@@ -2,6 +2,8 @@
 export const getSearchableValue = (item, activeTab) => {
   if (!item || typeof item !== "object") return "";
   switch (activeTab) {
+    case "projects":
+      return item.project?.title || "";
     case "reports":
       return item.project_overview?.projectTitle || "";
     case "proposals":
@@ -16,6 +18,8 @@ export const getSearchableValue = (item, activeTab) => {
 export const getItemDateValues = (item, activeTab) => {
   if (!item || typeof item !== "object") return [];
   switch (activeTab) {
+    case "projects":
+      return [item.created_at];
     case "reports":
       return [item.created_at];
     case "proposals":

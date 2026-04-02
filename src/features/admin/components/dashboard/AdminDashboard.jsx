@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const AdminDashboard = ({ stats, recentActivity }) => {
   return (
     <div className="space-y-8 animate-fade-in-up">
-      {/* 🔹 Header Section */}
+      {/* Header Section */}
       {/* <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
@@ -24,16 +24,17 @@ const AdminDashboard = ({ stats, recentActivity }) => {
         </button>
       </div> */}
 
-      {/* 🔹 Top Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Top Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StatCard title="Total Projects" value={stats.project} />
         <StatCard title="Total Reports" value={stats.reports} isHighlighted />
         <StatCard title="Total Proposals" value={stats.proposals} />
         <StatCard title="Total Deliveries" value={stats.deliveries} />
       </div>
 
-      {/* 🔹 Main Content Split */}
+      {/* Main Content Split */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* 🟢 Recent Activity Feed */}
+        {/* Recent Activity Feed */}
         <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
           {/* <div className="flex justify-between items-center mb-6">
             <h2 className="text-lg font-bold text-gray-900">Recent Activity</h2>
@@ -77,7 +78,7 @@ const AdminDashboard = ({ stats, recentActivity }) => {
           </div>
         </div>
 
-        {/* 🔵 Quick Actions Panel */}
+        {/* Quick Actions Panel */}
         <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
           <h2 className="text-lg font-bold text-gray-900 mb-6">
             Quick Actions

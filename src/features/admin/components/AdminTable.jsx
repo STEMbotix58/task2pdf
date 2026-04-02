@@ -7,6 +7,21 @@ const AdminTable = ({ items, activeTab }) => {
   const handleExport = (item) => {
     let formattedData = {};
 
+    if (activeTab === "projects") {
+      formattedData = {
+        basic_info: item.basic_info,
+        summary: item.summary,
+        preface: item.preface,
+        project: item.project,
+        photographs: item.photographs,
+        conclusion: item.conclusion,
+        contact: item.contact,
+        qr_code_img: item.qr_code_img,
+        qr_code_vid: item.qr_code_vid,
+        createdAt: item.created_at,
+      };
+    }
+
     if (activeTab === "reports") {
       formattedData = {
         project_overview: item.project_overview,
@@ -55,6 +70,8 @@ const AdminTable = ({ items, activeTab }) => {
 
   const getTableHeaders = () => {
     switch (activeTab) {
+      case "projects":
+        return ["Project Title", "Prepared By", "Created At", "Action"];
       case "reports":
         return [
           "Project Title",
@@ -89,7 +106,7 @@ const AdminTable = ({ items, activeTab }) => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-50">
-            {/* ✅ was checking !visibleItems which never fires since it's always an array */}
+            {/* was checking !visibleItems which never fires since it's always an array */}
             {items.length === 0 && (
               <tr>
                 <td
@@ -100,90 +117,107 @@ const AdminTable = ({ items, activeTab }) => {
                 </td>
               </tr>
             )}
-            {items.map(
-              (
-                item, // ✅ was visibleItems — that var no longer exists here
-              ) => (
-                <tr
-                  key={item.id}
-                  className="hover:bg-gray-50/30 transition-colors"
-                >
-                  {activeTab === "reports" && (
-                    <>
-                      <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
-                        {item.project_overview?.projectTitle || "N/A"}
-                      </td>
-                      <td className="py-4 px-6 text-sm text-gray-500">
-                        {item.project_overview?.implementingOrganization ||
-                          "N/A"}
-                      </td>
-                      <td className="py-4 px-6 text-sm text-gray-500">
-                        {item.project_overview?.projectDuration || "N/A"}
-                      </td>
-                      <td className="py-4 px-6 text-sm text-gray-500">
-                        {new Date(item.created_at).toLocaleDateString()}
-                      </td>
-                      <td className="py-4 px-6">
-                        <button
-                          onClick={() => handleExport(item)}
-                          className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
-                          title="Export CSV"
-                        >
-                          <FiDownload size={16} />
-                        </button>
-                      </td>
-                    </>
-                  )}
-                  {activeTab === "proposals" && (
-                    <>
-                      <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
-                        {item.proposal?.subject || "N/A"}
-                      </td>
-                      <td className="py-4 px-6 text-sm text-gray-900">
-                        {item.spoc?.name || "N/A"}
-                      </td>
-                      <td className="py-4 px-6 text-sm text-gray-500">
-                        {formattedDate(item.proposal_date) || "N/A"}
-                      </td>
-                      <td className="py-4 px-6 text-sm text-gray-500">
-                        {formattedDate(new Date(item.created_at))}
-                      </td>
-                      <td className="py-4 px-6">
-                        <button
-                          onClick={() => handleExport(item)}
-                          className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
-                          title="Export CSV"
-                        >
-                          <FiDownload size={16} />
-                        </button>
-                      </td>
-                    </>
-                  )}
-                  {activeTab === "deliveries" && (
-                    <>
-                      <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
-                        {item.basic_info?.subject || "N/A"}
-                      </td>
-                      <td className="py-4 px-6 text-sm text-gray-500">
-                        {item.school_delivery?.schoolName || "N/A"}
-                      </td>
-                      <td className="py-4 px-6 text-sm text-gray-500">
-                        {formattedDate(new Date(item.created_at))}
-                      </td>
-                      <td className="py-4 px-6">
-                        <button
-                          onClick={() => handleExport(item)}
-                          className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
-                          title="Export CSV"
-                        >
-                          <FiDownload size={16} />
-                        </button>
-                      </td>
-                    </>
-                  )}
-                </tr>
-              ),
-            )}
+            {items.map((item) => (
+              <tr
+                key={item.id}
+                className="hover:bg-gray-50/30 transition-colors"
+              >
+                {activeTab === "projects" && (
+                  <>
+                    <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
+                      {item.project?.title || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {item.basic_info?.preparedBy || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {new Date(item.created_at).toLocaleDateString()}
+                    </td>
+                    <td className="py-4 px-6">
+                      <button
+                        onClick={() => handleExport(item)}
+                        className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
+                        title="Export CSV"
+                      >
+                        <FiDownload size={16} />
+                      </button>
+                    </td>
+                  </>
+                )}
+                {activeTab === "reports" && (
+                  <>
+                    <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
+                      {item.project_overview?.projectTitle || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {item.project_overview?.implementingOrganization || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {item.project_overview?.projectDuration || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {new Date(item.created_at).toLocaleDateString()}
+                    </td>
+                    <td className="py-4 px-6">
+                      <button
+                        onClick={() => handleExport(item)}
+                        className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
+                        title="Export CSV"
+                      >
+                        <FiDownload size={16} />
+                      </button>
+                    </td>
+                  </>
+                )}
+                {activeTab === "proposals" && (
+                  <>
+                    <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
+                      {item.proposal?.subject || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-900">
+                      {item.spoc?.name || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {formattedDate(item.proposal_date) || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {formattedDate(new Date(item.created_at))}
+                    </td>
+                    <td className="py-4 px-6">
+                      <button
+                        onClick={() => handleExport(item)}
+                        className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
+                        title="Export CSV"
+                      >
+                        <FiDownload size={16} />
+                      </button>
+                    </td>
+                  </>
+                )}
+                {activeTab === "deliveries" && (
+                  <>
+                    <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
+                      {item.basic_info?.subject || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {item.school_delivery?.schoolName || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {formattedDate(new Date(item.created_at))}
+                    </td>
+                    <td className="py-4 px-6">
+                      <button
+                        onClick={() => handleExport(item)}
+                        className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
+                        title="Export CSV"
+                      >
+                        <FiDownload size={16} />
+                      </button>
+                    </td>
+                  </>
+                )}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

@@ -34,8 +34,7 @@ const AdminControls = ({
           <h2 className="text-2xl font-semibold text-gray-900 tracking-tight flex items-center gap-3">
             {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} List
             <span className="px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold">
-              {filteredCount}{" "}
-              {/* ✅ was filteredItems.length — that var doesn't exist here */}
+              {filteredCount}
             </span>
           </h2>
         </div>

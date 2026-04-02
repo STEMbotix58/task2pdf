@@ -24,6 +24,7 @@ export const useAdminPanel = () => {
 
   const stats = useMemo(() => {
     return {
+      project: safeData.filter((item) => item?.type === "project").length,
       reports: safeData.filter((item) => item?.type === "report").length,
       proposals: safeData.filter((item) => item?.type === "proposal").length,
       deliveries: safeData.filter((item) => item?.type === "delivery").length,
@@ -36,6 +37,14 @@ export const useAdminPanel = () => {
     }
 
     return safeData.slice(0, 5).map((item) => {
+      if (item?.type === "project") {
+        return {
+          title: item.project?.title || "Untitled Project",
+          time: formatActivityTime(item.created_at),
+          type: "project",
+        };
+      }
+
       if (item?.type === "report") {
         return {
           title: item.project_overview?.projectTitle || "Untitled Report",

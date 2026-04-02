@@ -3,6 +3,7 @@ import {
   fetchAllDeliveries,
   fetchAllProposals,
   fetchAllReports,
+  fetchAllProjects,
 } from "@/shared/services/databaseService";
 
 const validateItemStructure = (item, type) => {
@@ -14,6 +15,10 @@ const validateItemStructure = (item, type) => {
       actualType: item?.type,
       item,
     });
+  }
+
+  if (type === "project" && !item?.project) {
+    console.warn("[useAdminData] Project missing project", item);
   }
 
   if (type === "report" && !item?.project_overview) {
@@ -60,6 +65,17 @@ export const useAdminData = (activeTab) => {
         let normalizedData = [];
 
         switch (requestedTab) {
+          case "projects":
+            {
+              const response = await fetchAllProjects();
+
+              if (!response.success) {
+                throw new Error(response.error);
+              }
+
+              normalizedData = normalizeItems(response.data, "project");
+            }
+            break;
           case "deliveries":
             {
               const response = await fetchAllDeliveries();
@@ -95,14 +111,20 @@ export const useAdminData = (activeTab) => {
             break;
           case "all":
             {
-              const [reportsResponse, proposalsResponse, deliveriesResponse] =
-                await Promise.all([
-                  fetchAllReports(),
-                  fetchAllProposals(),
-                  fetchAllDeliveries(),
-                ]);
+              const [
+                projectsResponse,
+                reportsResponse,
+                proposalsResponse,
+                deliveriesResponse,
+              ] = await Promise.all([
+                fetchAllProjects(),
+                fetchAllReports(),
+                fetchAllProposals(),
+                fetchAllDeliveries(),
+              ]);
 
               const failedResponse = [
+                projectsResponse,
                 reportsResponse,
                 proposalsResponse,
                 deliveriesResponse,
@@ -113,6 +135,7 @@ export const useAdminData = (activeTab) => {
               }
 
               normalizedData = [
+                ...normalizeItems(projectsResponse.data, "project"),
                 ...normalizeItems(reportsResponse.data, "report"),
                 ...normalizeItems(proposalsResponse.data, "proposal"),
                 ...normalizeItems(deliveriesResponse.data, "delivery"),
