@@ -9,6 +9,7 @@ import TextareaInput from "@/shared/components/ui/TextareaInput";
 import ButtonGroup from "@/shared/components/ui/ButtonGroup";
 import ImageUploadField from "@/shared/components/ui/ImageUploadField";
 import { uploadImagesToCloudinary } from "@/shared/services/uploadService";
+import Button from "@/shared/components/ui/Button";
 
 const PrefaceForm = ({
   nextStep,
@@ -72,7 +73,10 @@ const PrefaceForm = ({
       <form onSubmit={handleSubmit}>
         <div className="space-y-8">
           {preface.map((item, index) => (
-            <div key={index} className="border p-4 rounded-xl space-y-4">
+            <div
+              key={index}
+              className="mb-4 p-4 border-l-4 border-blue-500 bg-blue-50/30 rounded"
+            >
               <Input
                 label="Name"
                 id="name"
@@ -114,27 +118,26 @@ const PrefaceForm = ({
               />
 
               {preface.length > 1 && (
-                <button
-                  type="button"
-                  onClick={() => removeEntry(index)}
-                  className="text-red-500 text-sm"
-                >
-                  Remove
-                </button>
+                <div className="flex justify-end">
+                  <Button
+                    type="button"
+                    variant="danger"
+                    title="Remove"
+                    onClick={() => removeEntry(index)}
+                  />
+                </div>
               )}
             </div>
           ))}
         </div>
 
-        <div className="mt-6">
-          <button
-            type="button"
-            onClick={addEntry}
-            className="px-4 py-2 border rounded-lg"
-          >
-            + Add Preface
-          </button>
-        </div>
+        <Button
+          type="button"
+          variant="outline"
+          style={{ borderColor: "blue", color: "blue" }}
+          title="+ Add Preface"
+          onClick={addEntry}
+        />
 
         <div className="mt-10">
           <ButtonGroup

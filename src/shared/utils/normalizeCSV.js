@@ -94,3 +94,37 @@ export function normalizeProjectCSV(row) {
     qrCodeVid: parseArray(row.qr_code_vid),
   };
 }
+
+export function normalizeSTEMLabCSV(row) {
+  return {
+    basicInfo: parseJSON(row.basic_info),
+    preface: parseArray(row.preface),
+    phase: parseArray(row.phase),
+    outcomes: parseJSON(row.outcomes),
+    project: parseJSON(row.project),
+    impactAnalysis: parseJSON(row.impact_analysis),
+    labSetupAndComponents: parseJSON(row.lab_setup_and_components),
+    implementationAndMilestones: parseJSON(row.implementation_and_milestones),
+    strengths: parseJSON(row.strengths),
+    challengesAndMitigation: parseJSON(row.challenges_and_mitigation),
+    conclusion: row.conclusion,
+  };
+}
+
+export function normalizeFLPReportCSV(row) {
+  return {
+    basicInfo: parseJSON(row.basic_info),
+    summary: parseJSON(row.summary),
+    objective: parseJSON(row.objective),
+    implementationAndDelivery: parseJSON(row.implementation_and_delivery),
+    reachAndCoverage: parseJSON(row.reach_and_coverage),
+    financialOverview: parseJSON(row.financial_overview),
+    studentCertification: parseJSON(row.student_certification),
+    outcomesAndImpact: parseJSON(row.outcomes_and_impact),
+    impactAnalysis: parseJSON(row.impact_analysis),
+    projectStrengths: parseJSON(row.project_strengths),
+    challengesAndMigration: parseJSON(row.challenges_and_migration),
+    keyOutcomes: parseJSON(row.key_outcomes),
+    conclusion: parseJSON(row.conclusion),
+  };
+}

@@ -10,6 +10,8 @@ import AdminPanel from "@/features/admin/AdminPanel";
 import Login from "@/shared/auth/Login";
 import Home from "@/pages/Home";
 import ProtectedRoute from "@/shared/auth/ProtectedRoute";
+import STEMlabReportStepperWrapper from "@/features/stemlab_report/STEMlabReportStepperWrapper";
+import FLPReportStepperWrapper from "@/features/flp_report/FLPReportStepperWrapper";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ export const router = createBrowserRouter([
       {
         path: "/proposal",
         element: <ProposalStepperWrapper />,
+      },
+      {
+        path: "/flp-report",
+        element: <FLPReportStepperWrapper />,
+      },
+      {
+        path: "/stemlab-report",
+        element: <STEMlabReportStepperWrapper />,
       },
       {
         path: "/report",

@@ -10,7 +10,6 @@ const MainLayout = () => {
 
   const isHomePage = location.pathname === "/";
   const { user } = useAuth();
-  console.log(useAuth());
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4 flex justify-center">
       <div className="w-full max-w-5xl">
@@ -49,7 +48,7 @@ const MainLayout = () => {
                 {!user ? (
                   <Link
                     to="/login"
-                    className="group relative flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:-translate-y-0.5 active:scale-95"
+                    className="group relative flex items-center gap-2 px-6 py-2.5 rounded-full bg-linear-to-r from-blue-600 to-blue-700 text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:-translate-y-0.5 active:scale-95"
                   >
                     <span>Login</span>
                     <MdLogin size={16} />
