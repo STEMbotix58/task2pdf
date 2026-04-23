@@ -18,10 +18,12 @@ const CSVUploadForm = ({ nextStep, isFirstStep }) => {
   const importSTEMLabReportData = useStemLabStore(
     (s) => s.importSTEMLabReportData,
   );
+
   const handleCSVParsed = (row) => {
     try {
       const normalized = normalizeSTEMLabCSV(row);
       importSTEMLabReportData(normalized);
+      
       nextStep();
     } catch (error) {
       console.error("Error parsing CSV data:", error);

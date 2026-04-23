@@ -1,7 +1,7 @@
 import React, { lazy } from "react";
 import Stepper from "@/shared/components/navigation/Stepper";
-import { saveStemLabReportSubmission } from "@/shared/services/databaseService";
 import { useStemLabStore } from "./model/stemLabReportStore";
+import { saveSTEMLabReportSubmission } from "@/shared/services/databaseService";
 
 const CSVUploadForm = lazy(() => import("./forms/CSVUploadForm"));
 const LabSetupComponentsForm = lazy(
@@ -21,19 +21,15 @@ const ChallengesAndMitigationForm = lazy(
 const ImpactAnalysisForm = lazy(() => import("./forms/ImpactAnalysisForm"));
 const ProjectForm = lazy(() => import("./forms/ProjectForm"));
 const ConclusionForm = lazy(() => import("./forms/ConclusionForm"));
-
-const StemLabReportDocumentPDF = lazy(
-  () => import("./pdf/StemLabReportDocumentPDF"),
-);
+const STEMLabReportDocumentPDF = lazy(() => import("./pdf/StemLabReportDocumentPDF"));
 
 const STEMLabReportStepperWrapper = () => {
   const handleBeforeGenerate = async (formData) => {
-    // const result = await saveStemLabReportSubmission(formData);
+    const result = await saveSTEMLabReportSubmission(formData);
 
-    // if (!result.success) {
-    //   throw new Error(result.error);
-    // }
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    if (!result.success) {
+      throw new Error(result.error);
+    }
 
     console.log("✅ STEMLab Report submission saved:");
   };
@@ -57,7 +53,7 @@ const STEMLabReportStepperWrapper = () => {
     <Stepper
       steps={steps}
       useStore={useStemLabStore}
-      pdfComponent={StemLabReportDocumentPDF}
+      pdfComponent={STEMLabReportDocumentPDF}
       fileName="STEMLab-Report-Data.pdf"
       onBeforeGenerate={handleBeforeGenerate}
     />

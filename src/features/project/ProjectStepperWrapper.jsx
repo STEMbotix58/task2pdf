@@ -1,7 +1,6 @@
 import React, { lazy } from "react";
 import Stepper from "@/shared/components/navigation/Stepper";
 import { useProjectStore } from "./model/projectStore";
-import ProjectDocumentPDF from "./pdf/ProjectDocumentPDF";
 import { saveProjectSubmission } from "@/shared/services/databaseService";
 
 const CSVUploadForm = lazy(() => import("./forms/CSVUploadForm"));
@@ -12,6 +11,7 @@ const PrefaceForm = lazy(() => import("./forms/PrefaceForm"));
 const ConclusionForm = lazy(() => import("./forms/ConclusionForm"));
 const ContactForm = lazy(() => import("./forms/ContactForm"));
 const PhotographsForm = lazy(() => import("./forms/PhotographsForm"));
+const ProjectDocumentPDF = lazy(() => import("./pdf/ProjectDocumentPDF"));
 
 const ProposalStepperWrapper = () => {
   const handleBeforeGenerate = async (formData) => {

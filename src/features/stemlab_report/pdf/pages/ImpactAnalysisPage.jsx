@@ -59,7 +59,7 @@ export const ImpactAnalysisPage = () => {
                   ]}
                 >
                   <Image
-                    src={resolveImage(impact.image?.[0])}
+                    src={resolveImage(impact.image?.[0], StudentLearningImpactImg)}
                     style={styles.photo}
                   />
                 </View>
@@ -78,7 +78,7 @@ export const ImpactAnalysisPage = () => {
                   ]}
                 >
                   <Image
-                    src={resolveImage(impact.image?.[0])}
+                    src={resolveImage(impact.image?.[0], TeacherCapacityImg)}
                     style={styles.photo}
                   />
                 </View>

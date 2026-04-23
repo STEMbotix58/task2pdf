@@ -9,11 +9,11 @@ import ChallengesIcon from "@/shared/assets/icons/gears-warning.png"; // Placeho
 import TeamImg from "@/shared/assets/images/yuva-stem/strengths-team.jpg";
 
 export const StrengthsPage = () => {
-  const { description: challengesDescription, challengesImg } = useStemLabStore(
-    (state) => state.challengesAndMitigation,
-  );
   const { description: strengthsDescription, strengthsImg } = useStemLabStore(
     (state) => state.strengths,
+  );
+  const { description: challengesDescription, challengesImg } = useStemLabStore(
+    (state) => state.challengesAndMitigation,
   );
 
   return (
@@ -28,7 +28,7 @@ export const StrengthsPage = () => {
         </View>
 
         <Text style={styles.paragraph}>
-          {strengthsDescription.split("\n").slice(0, -1).join("\n\n")}
+          {strengthsDescription?.split("\n").slice(0, -1).join("\n\n")}
         </Text>
         <View style={styles.highlightBlockContainer}>
           <View style={styles.redImageWrapper}>
@@ -36,7 +36,7 @@ export const StrengthsPage = () => {
           </View>
           <View style={styles.yellowTextWrapper}>
             <Text style={styles.yellowBoxText}>
-              {strengthsDescription.split("\n").slice(-1).join("\n")}
+              {strengthsDescription?.split("\n").slice(-1).join("\n")}
             </Text>
           </View>
         </View>
@@ -52,12 +52,12 @@ export const StrengthsPage = () => {
         </View>
 
         <Text style={styles.paragraph}>
-          {challengesDescription.split("\n").slice(0, -1).join("\n\n")}
+          {challengesDescription?.split("\n").slice(0, -1).join("\n\n")}
         </Text>
         <View style={styles.row}>
           <View style={styles.halfContent}>
             <Text style={styles.paragraph}>
-              {challengesDescription.split("\n").slice(-1).join("\n")}
+              {challengesDescription?.split("\n").slice(-1).join("\n")}
             </Text>
           </View>
           <View

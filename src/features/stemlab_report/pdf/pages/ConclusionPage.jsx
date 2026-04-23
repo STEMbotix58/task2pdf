@@ -16,7 +16,7 @@ export const ConclusionPage = () => {
         </View>
 
         <Text style={styles.paragraph}>
-          {conclusion.split("\n").join("\n\n")}
+          {conclusion?.split("\n").join("\n\n")}
         </Text>
 
         <Image src={ScienceSTEM} style={styles.bottomWidePhoto} />

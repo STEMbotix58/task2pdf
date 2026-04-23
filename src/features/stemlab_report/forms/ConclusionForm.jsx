@@ -17,7 +17,7 @@ const ConclusionForm = ({
 }) => {
   const conclusion = useStemLabStore((state) => state.conclusion);
   const setSection = useStemLabStore((state) => state.setSection);
-  console.log(useStemLabStore((state) => state.basicInfo));
+  
   const handleChange = (value) => {
     setSection("conclusion", value);
   };

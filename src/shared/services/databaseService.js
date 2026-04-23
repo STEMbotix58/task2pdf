@@ -218,54 +218,102 @@ export const saveProjectSubmission = async (formData) => {
   }
 };
 
-/* Save project form data to Supabase */
-export const saveStemLabReportSubmission = async (formData) => {
+/* Save STEMLab Report form data to Supabase */
+export const saveSTEMLabReportSubmission = async (formData) => {
   try {
-    console.log("Printed");
+    if (!supabase) {
+      throw new Error("Supabase client not initialized");
+    }
+    const { data, error } = await supabase
+      .from("stemlab_report")
+      .insert([
+        {
+          basic_info: formData.basicInfo || {},
+          preface: formData.preface || [],
+          phase: formData.phase || [],
+          outcomes: formData.outcomes || {},
+          project: formData.project || {},
+          impact_analysis: formData.impactAnalysis || {},
+          lab_setup_and_components: formData.labSetupAndComponents || {},
+          implementation_and_milestones: formData.implementationAndMilestones || {},
+          strengths: formData.strengths || {},
+          challenges_and_mitigation: formData.challengesAndMitigation || {},
+          conclusion: formData.conclusion || "",          
+          created_at: new Date().toISOString(),
+        },
+      ])
+      .select("id")
+      .single();
 
-    // if (!supabase) {
-    //   throw new Error("Supabase client not initialized");
-    // }
-    // // Step 1 — Create report first to get ID
-    // const { data: createdReport, error: createError } = await supabase
-    //   .from("project")
-    //   .insert([{ created_at: new Date().toISOString() }])
-    //   .select("id")
-    //   .single();
-    // if (createError) {
-    //   console.error("Supabase insert error:", createError);
-    //   throw new Error(`Database error: ${createError.message}`);
-    // }
-    // const projectId = createdReport.id;
-    // const { photographs } = useProjectStore.getState();
-    // // Step 3 — Update the same report with full data
-    // const { error: updateError } = await supabase
-    //   .from("project")
-    //   .update({
-    //     basic_info: formData.basicInfo || {},
-    //     summary: formData.summary || {},
-    //     preface: formData.preface || [],
-    //     project: formData.project || [],
-    //     contact: formData.contact || {},
-    //     conclusion: formData.conclusion || {},
-    //     qr_code_img: formData.qrCodeImg || {},
-    //     qr_code_vid: formData.qrCodeVid || {},
-    //     photographs: photographs || [],
-    //     created_at: new Date().toISOString(),
-    //   })
-    //   .eq("id", projectId);
-    // if (updateError) {
-    //   console.error("Supabase update error:", updateError);
-    //   throw new Error(`Database error: ${updateError.message}`);
-    // }
-    // return {
-    //   success: true,
-    //   id: projectId,
-    //   error: null,
-    // };
+    if (error) {
+      console.error("Supabase insert error:", error);
+      throw new Error(`Database error: ${error.message}`);
+    }
+
+    if (!data?.id) {
+      throw new Error("No ID returned from database");
+    }
+
+    return {
+      success: true,
+      id: data.id,
+      error: null,
+    };
   } catch (error) {
-    console.error("Error saving project submission:", error);
+    console.error("Error saving STEMLab Report submission:", error);
+    return {
+      success: false,
+      id: null,
+      error: error.message || "Unknown error occurred",
+    };
+  }
+};
 
+/* Save FLP Report form data to Supabase */
+export const saveFLPReportSubmission = async (formData) => {
+  try {
+    if (!supabase) {
+      throw new Error("Supabase client not initialized");
+    }
+    const { data, error } = await supabase
+      .from("flp_report")
+      .insert([
+        {
+          basic_info: formData.basicInfo || {},
+          summary: formData.summary || {},
+          objective: formData.objective || {},
+          implementation_and_delivery: formData.implementationAndDelivery || {},
+          reach_and_coverage: formData.reachAndCoverage || {},
+          financial_overview: formData.financialOverview || {},
+          student_certification: formData.studentCertification || {},
+          outcomes_and_impact: formData.outcomesAndImpact || {},
+          impact_analysis: formData.impactAnalysis || {},
+          project_strengths: formData.projectStrengths || {},
+          challenges_and_migration: formData.challengesAndMigration || {},
+          key_outcomes: formData.keyOutcomes || {},
+          conclusion: formData.conclusion || {},
+          created_at: new Date().toISOString(),
+        },
+      ])
+      .select("id")
+      .single();
+
+    if (error) {
+      console.error("Supabase insert error:", error);
+      throw new Error(`Database error: ${error.message}`);
+    }
+
+    if (!data?.id) {
+      throw new Error("No ID returned from database");
+    }
+
+    return {
+      success: true,
+      id: data.id,
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error saving FLP Report submission:", error);
     return {
       success: false,
       id: null,

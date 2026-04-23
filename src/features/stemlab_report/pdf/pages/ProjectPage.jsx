@@ -26,7 +26,7 @@ export const ProjectPage = () => {
         </View>
 
         <Text style={styles.paragraph}>
-          {description.split("\n").join("\n\n")}
+          {description?.split("\n").join("\n\n")}
         </Text>
 
         <View style={styles.row}>
@@ -36,7 +36,7 @@ export const ProjectPage = () => {
               { padding: 8, backgroundColor: "#FF3131" },
             ]}
           >
-            <Image src={projectImg[0] || OverviewImg1} style={styles.photo} />
+            <Image src={projectImg?.[0] || OverviewImg1} style={styles.photo} />
           </View>
           <View
             style={[
@@ -44,7 +44,7 @@ export const ProjectPage = () => {
               { padding: 8, backgroundColor: "#000000" },
             ]}
           >
-            <Image src={projectImg[1] || OverviewImg2} style={styles.photo} />
+            <Image src={projectImg?.[1] || OverviewImg2} style={styles.photo} />
           </View>
         </View>
       </View>

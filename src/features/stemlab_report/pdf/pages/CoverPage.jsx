@@ -25,9 +25,9 @@ export const CoverPage = () => {
         <View style={styles.greySwoopBg} />
 
         <View style={styles.topLogosContainer}>
-          <Image src={stemLogo[0] || YuvaSTEM} style={styles.stemGraphic} />
+          <Image src={stemLogo?.[0] || YuvaSTEM} style={styles.stemGraphic} />
           <Image
-            src={partnerLogo[0] || DeutscheBankLogo}
+            src={partnerLogo?.[0] || DeutscheBankLogo}
             style={styles.bankLogo}
           />
         </View>
@@ -71,7 +71,7 @@ export const CoverPage = () => {
 
           <View style={[styles.colMiddle, styles.bgRed]}>
             <Image
-              src={homeImages[0] || CoverImgOne}
+              src={homeImages?.[0] || CoverImgOne}
               style={styles.photoFrame}
             />
           </View>
@@ -98,7 +98,7 @@ export const CoverPage = () => {
 
           <View style={[styles.colMiddle, styles.bgYellow]}>
             <Image
-              src={homeImages[1] || CoverImgTwo}
+              src={homeImages?.[1] || CoverImgTwo}
               style={styles.photoFrame}
             />
           </View>
@@ -112,7 +112,7 @@ export const CoverPage = () => {
           >
             <Text style={styles.preparedByText}>Prepared by</Text>
             <View style={styles.smallLogosRow}>
-              <Image src={preparedBy[0] || YuvaLogo} style={styles.yuvaLogo} />
+              <Image src={preparedBy?.[0] || YuvaLogo} style={styles.yuvaLogo} />
             </View>
 
             <Image src={STEMElectron} style={styles.electronIcon} />

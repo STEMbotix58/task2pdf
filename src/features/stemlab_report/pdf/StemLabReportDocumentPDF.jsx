@@ -10,9 +10,8 @@ import { ImpactAnalysisPage } from "./pages/ImpactAnalysisPage";
 import { StrengthsPage } from "./pages/StrengthsPage";
 import { ConclusionPage } from "./pages/ConclusionPage";
 import { BackPage } from "./pages/BackPage";
-import React from "react";
 
-const StemLabReportDocumentPDF = ({ data }) => {
+const STEMLabReportDocumentPDF = () => {
   return (
     <Document>
       <CoverPage />
@@ -30,4 +29,4 @@ const StemLabReportDocumentPDF = ({ data }) => {
   );
 };
 
-export default React.memo(StemLabReportDocumentPDF);
+export default STEMLabReportDocumentPDF;

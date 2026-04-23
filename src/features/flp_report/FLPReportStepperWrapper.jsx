@@ -1,7 +1,8 @@
 import React, { lazy } from "react";
 import Stepper from "@/shared/components/navigation/Stepper";
-// import { saveFLPReportSubmission } from "@/shared/services/databaseService";
+import { saveFLPReportSubmission } from "@/shared/services/databaseService";
 import { useFLPStore } from "./model/flpReportStore";
+import FLPReportDocumentPDF from "./pdf/FLPReportDocumentPDF";
 
 const CSVUploadForm = lazy(() => import("./forms/CSVUploadForm"));
 const BasicInfoForm = lazy(() => import("./forms/BasicInfoForm"));
@@ -26,18 +27,13 @@ const ChallengesAndMigrationForm = lazy(
 );
 const ConclusionForm = lazy(() => import("./forms/ConclusionForm"));
 
-const FLPReportDocumentPDF = lazy(() => import("./pdf/FLPReportDocumentPDF"));
-
 const FLPReportStepperWrapper = () => {
   const handleBeforeGenerate = async (formData) => {
-    // const result = await saveFLPReportSubmission(formData);
+    const result = await saveFLPReportSubmission(formData);
 
-    // if (!result.success) {
-    //   throw new Error(result.error);
-    // }
-
-    // force React + Zustand to flush updates
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    if (!result.success) {
+      throw new Error(result.error);
+    }
 
     console.log("✅ Financial Literacy Program Report submission saved:");
   };

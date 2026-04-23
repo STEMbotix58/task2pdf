@@ -26,19 +26,19 @@ export const OutcomesPage = () => {
 
         {/* Top Image in Yellow Box */}
         <View style={styles.topImageWrapper}>
-          <Image src={images[0] || OutcomesImg1} style={styles.topImage} />
+          <Image src={images?.[0] || OutcomesImg1} style={styles.topImage} />
         </View>
 
         {/* Text Paragraphs */}
         <View style={styles.textContainer}>
           <Text style={styles.paragraph}>
-            {description.split("\n").join("\n\n")}
+            {description?.split("\n").join("\n\n")}
           </Text>
         </View>
 
         {/* Bottom Image (Yellow background extends to the right edge) */}
         <View style={styles.bottomImageWrapper}>
-          <Image src={images[1] || OutcomesImg2} style={styles.bottomImage} />
+          <Image src={images?.[1] || OutcomesImg2} style={styles.bottomImage} />
         </View>
       </View>
     </Page>

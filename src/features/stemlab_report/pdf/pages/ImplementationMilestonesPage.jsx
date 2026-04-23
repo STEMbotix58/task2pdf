@@ -26,7 +26,7 @@ export const ImplementationMilestonesPage = () => {
                 Project Implementation & Milestones
               </Text>
             </View>
-            <Text style={styles.introText}>{description.split("\n")[0]}</Text>
+            <Text style={styles.introText}>{description?.split("\n")[0]}</Text>
           </View>
         </View>
         <View style={styles.row}>
@@ -37,17 +37,17 @@ export const ImplementationMilestonesPage = () => {
             ]}
           >
             <Image
-              src={implementationImg[0] || KitsLayoutImg}
+              src={implementationImg?.[0] || KitsLayoutImg}
               style={styles.topPhoto}
             />
           </View>
           <View style={styles.halfContent}>
-            <Text style={styles.paragraph}>{description.split("\n")[1]}</Text>
+            <Text style={styles.paragraph}>{description?.split("\n")[1]}</Text>
           </View>
         </View>
         <View style={styles.row}>
           <View style={styles.halfContent}>
-            <Text style={styles.paragraph}>{description.split("\n")[2]}</Text>
+            <Text style={styles.paragraph}>{description?.split("\n")[2]}</Text>
           </View>
           <View
             style={[
@@ -56,7 +56,7 @@ export const ImplementationMilestonesPage = () => {
             ]}
           >
             <Image
-              src={implementationImg[1] || KitsLayoutImg}
+              src={implementationImg?.[1] || KitsLayoutImg}
               style={styles.topPhoto}
             />
           </View>
@@ -69,12 +69,12 @@ export const ImplementationMilestonesPage = () => {
             ]}
           >
             <Image
-              src={implementationImg[2] || KitsLayoutImg}
+              src={implementationImg?.[2] || KitsLayoutImg}
               style={styles.topPhoto}
             />
           </View>
           <View style={styles.halfContent}>
-            <Text style={styles.paragraph}>{description.split("\n")[3]}</Text>
+            <Text style={styles.paragraph}>{description?.split("\n")[3]}</Text>
           </View>
         </View>
       </View>

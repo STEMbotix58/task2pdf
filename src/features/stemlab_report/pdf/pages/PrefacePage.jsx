@@ -10,6 +10,7 @@ import STEMbotixLogo from "@/shared/assets/images/STEMbotix-Logo.png";
 
 export const PrefacePage = () => {
   const preface = useStemLabStore((state) => state.preface);
+  
   return (
     <Page size="A4" style={styles.page}>
       <View style={styles.yellowSidebar} />
@@ -27,13 +28,13 @@ export const PrefacePage = () => {
             />
           </View>
           <View style={[styles.dashedBox, { alignItems: "flex-start" }]}>
-            <Text style={styles.boxText}>{preface[0].description}</Text>
+            <Text style={styles.boxText}>{preface[0]?.description}</Text>
           </View>
         </View>
 
         <View style={styles.row}>
           <View style={[styles.dashedBox, { alignItems: "flex-end" }]}>
-            <Text style={styles.boxText}>{preface[1].description}</Text>
+            <Text style={styles.boxText}>{preface[1]?.description}</Text>
           </View>
           <View style={styles.logoContainer}>
             <Image
@@ -51,7 +52,7 @@ export const PrefacePage = () => {
             />
           </View>
           <View style={[styles.dashedBox, { alignItems: "flex-start" }]}>
-            <Text style={styles.boxText}>{preface[2].description}</Text>
+            <Text style={styles.boxText}>{preface[2]?.description}</Text>
           </View>
         </View>
       </View>

@@ -1,5 +1,4 @@
 import { Document } from "@react-pdf/renderer";
-
 import { CoverPage } from "./pages/CoverPage";
 import { TableOfContentsPage } from "./pages/TableOfContentsPage";
 import { SummaryPage } from "./pages/SummaryPage";

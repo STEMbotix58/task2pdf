@@ -17,7 +17,7 @@ export const BackPage = () => {
       <View style={styles.leftColumn}>
         <View style={styles.leftImageContainer}>
           <Image
-            src={backPageImages[0] || ClassroomImg}
+            src={backPageImages?.[0] || ClassroomImg}
             style={styles.leftImage}
           />
         </View>
@@ -25,7 +25,7 @@ export const BackPage = () => {
 
       <View style={styles.rightColumn}>
         <View style={styles.logoContainer}>
-          <Image src={stemLogo[0] || YuvaLogoSticker} style={styles.yuvaLogo} />
+          <Image src={stemLogo?.[0] || YuvaLogoSticker} style={styles.yuvaLogo} />
         </View>
 
         <View style={styles.titleContainer}>
