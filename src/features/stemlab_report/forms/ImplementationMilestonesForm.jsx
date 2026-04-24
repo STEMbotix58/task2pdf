@@ -65,10 +65,12 @@ const ImplementationMilestonesForm = ({
           <div className="md:col-span-2">
             <TextareaInput
               label="Description"
+              minParagraph={4}
               id="description"
               name="description"
               rows={4}
               value={formData.description}
+              maxLength={1100}
               onChange={(e) => handleChange("description", e.target.value)}
               required
             />

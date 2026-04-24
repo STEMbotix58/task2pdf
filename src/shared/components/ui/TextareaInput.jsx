@@ -2,6 +2,7 @@ import React from "react";
 
 const TextareaInput = ({
   label,
+  minParagraph,
   id,
   name,
   value,
@@ -21,6 +22,11 @@ const TextareaInput = ({
         <label htmlFor={id} className="labelClass">
           {label}
           {required && <span className="text-red-600"> *</span>}
+          {minParagraph && (
+            <span className="text-gray-600 text-[12px] mt-1 block font-normal capitalize">
+              {minParagraph} paragraphs minimum required.
+            </span>
+          )}
         </label>
       )}
 

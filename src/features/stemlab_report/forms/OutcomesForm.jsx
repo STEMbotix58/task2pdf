@@ -67,6 +67,7 @@ const OutcomesForm = ({
               name="description"
               rows={4}
               value={formData.description}
+              maxLength={1700}
               onChange={(e) => handleChange("description", e.target.value)}
               required
             />

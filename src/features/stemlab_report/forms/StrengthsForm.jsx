@@ -20,7 +20,8 @@ const StrengthsForm = ({
 
   const setSection = useStemLabStore((state) => state.setSection);
   const [formData, setFormData] = useState(strengths);
-
+  // const paraLength = formData?.description.split("\n").length;
+  // console.log(paraLength);
   const handleChange = (field, value) => {
     setFormData((prev) => ({
       ...prev,
@@ -66,6 +67,8 @@ const StrengthsForm = ({
               id="description"
               name="description"
               rows={4}
+              minParagraph={3}
+              maxLength={1100}
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required

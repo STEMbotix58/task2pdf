@@ -85,7 +85,7 @@ export function normalizeProjectCSV(row) {
   return {
     basicInfo: parseJSON(row.basic_info),
     summary: row.summary,
-    preface: parseJSON(row.preface),
+    preface: parseArray(row.preface),
     project: parseJSON(row.project),
     photographs: parseArray(row.photographs),
     conclusion: row.conclusion,

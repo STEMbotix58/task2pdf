@@ -70,6 +70,7 @@ const BasicInfoForm = ({
               name="projectTitle"
               value={formData.projectTitle}
               required
+              maxLength={17}
               onChange={(e) => handleChange("projectTitle", e.target.value)}
             />
           </div>

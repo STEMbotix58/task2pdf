@@ -17,7 +17,7 @@ const ConclusionForm = ({
 }) => {
   const conclusion = useStemLabStore((state) => state.conclusion);
   const setSection = useStemLabStore((state) => state.setSection);
-  
+
   const handleChange = (value) => {
     setSection("conclusion", value);
   };
@@ -40,6 +40,7 @@ const ConclusionForm = ({
             id="conclusion"
             rows={4}
             value={conclusion}
+            maxLength={1300}
             onChange={(e) => handleChange(e.target.value)}
             required
           />

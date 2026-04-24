@@ -92,11 +92,13 @@ const PhaseForm = ({
 
               <TextareaInput
                 label="Description"
+                minParagraph={index > 1 && 3}
                 rows={3}
                 value={item.description}
                 onChange={(e) =>
                   updateItem(index, "description", e.target.value)
                 }
+                maxLength={index > 1 ? 800 : 600}
                 required
               />
 
@@ -104,7 +106,7 @@ const PhaseForm = ({
                 label="Upload Image"
                 value={item.images || []}
                 onChange={(files) => handleImageChange(index, files)}
-                maxSelection={5}
+                maxSelection={index > 1 ? 3 : 5}
               />
 
               {items.length > 1 && (

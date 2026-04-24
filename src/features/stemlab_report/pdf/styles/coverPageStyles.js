@@ -36,24 +36,21 @@ export const coverPageStyles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-start",
   },
-  stemGraphic: {
+  topLogo: {
     width: "40%",
     height: 170,
     objectFit: "contain",
-  },
-  bankLogo: {
-    width: "40%",
-    height: 170,
-    objectFit: "contain",
-    marginTop: 10,
+    objectPosition: "center",
   },
   titleContainer: {
     marginTop: "auto",
   },
   titleRed: {
     fontSize: 76,
+    width: "90%",
     fontWeight: "heavy",
     color: "#E31E24",
+    textTransform: "uppercase",
     letterSpacing: -1.5,
     marginBottom: -12,
   },

@@ -21,7 +21,9 @@ const ChallengesAndMitigationForm = lazy(
 const ImpactAnalysisForm = lazy(() => import("./forms/ImpactAnalysisForm"));
 const ProjectForm = lazy(() => import("./forms/ProjectForm"));
 const ConclusionForm = lazy(() => import("./forms/ConclusionForm"));
-const STEMLabReportDocumentPDF = lazy(() => import("./pdf/StemLabReportDocumentPDF"));
+const STEMLabReportDocumentPDF = lazy(
+  () => import("./pdf/StemLabReportDocumentPDF"),
+);
 
 const STEMLabReportStepperWrapper = () => {
   const handleBeforeGenerate = async (formData) => {
@@ -37,16 +39,16 @@ const STEMLabReportStepperWrapper = () => {
   const steps = [
     { component: CSVUploadForm },
     { component: BasicInfoForm },
-    { component: ProjectForm },
-    { component: LabSetupComponentsForm },
-    { component: ImplementationMilestonesForm },
-    { component: PrefaceForm },
-    { component: PhaseForm },
-    { component: OutcomesForm },
-    { component: StrengthsForm },
-    { component: ChallengesAndMitigationForm },
-    { component: ImpactAnalysisForm },
-    { component: ConclusionForm },
+    // { component: PrefaceForm },
+    // { component: ProjectForm },
+    // { component: LabSetupComponentsForm },
+    // { component: ImplementationMilestonesForm },
+    // { component: PhaseForm },
+    // { component: OutcomesForm },
+    // { component: ImpactAnalysisForm },
+    // { component: StrengthsForm },
+    // { component: ChallengesAndMitigationForm },
+    // { component: ConclusionForm },
   ];
 
   return (

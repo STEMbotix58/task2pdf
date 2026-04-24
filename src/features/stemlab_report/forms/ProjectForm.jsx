@@ -65,6 +65,7 @@ const ProjectForm = ({
               value={formData.objective}
               onChange={(e) => handleChange("objective", e.target.value)}
               required
+              maxLength={600}
             />
           </div>
           <div className="md:col-span-2">
@@ -76,6 +77,7 @@ const ProjectForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              maxLength={1100}
             />
           </div>
           <div className="md:col-span-2">

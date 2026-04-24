@@ -68,6 +68,7 @@ const ChallengesAndMitigationForm = ({
               id="description"
               name="description"
               rows={4}
+              minParagraph={2}
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required

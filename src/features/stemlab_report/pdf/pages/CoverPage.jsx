@@ -25,10 +25,10 @@ export const CoverPage = () => {
         <View style={styles.greySwoopBg} />
 
         <View style={styles.topLogosContainer}>
-          <Image src={stemLogo?.[0] || YuvaSTEM} style={styles.stemGraphic} />
+          <Image src={stemLogo?.[0] || YuvaSTEM} style={styles.topLogo} />
           <Image
             src={partnerLogo?.[0] || DeutscheBankLogo}
-            style={styles.bankLogo}
+            style={styles.topLogo}
           />
         </View>
 
@@ -112,7 +112,10 @@ export const CoverPage = () => {
           >
             <Text style={styles.preparedByText}>Prepared by</Text>
             <View style={styles.smallLogosRow}>
-              <Image src={preparedBy?.[0] || YuvaLogo} style={styles.yuvaLogo} />
+              <Image
+                src={preparedBy?.[0] || YuvaLogo}
+                style={styles.yuvaLogo}
+              />
             </View>
 
             <Image src={STEMElectron} style={styles.electronIcon} />

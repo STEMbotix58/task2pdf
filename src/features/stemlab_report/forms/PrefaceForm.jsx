@@ -70,6 +70,7 @@ const PrefaceForm = ({
               onChange={(e) =>
                 handlePrefaceChange(0, "description", e.target.value)
               }
+              maxLength={200}
               required
             />
 
@@ -91,6 +92,7 @@ const PrefaceForm = ({
               onChange={(e) =>
                 handlePrefaceChange(1, "description", e.target.value)
               }
+              maxLength={200}
               required
             />
 
@@ -112,6 +114,7 @@ const PrefaceForm = ({
               onChange={(e) =>
                 handlePrefaceChange(2, "description", e.target.value)
               }
+              maxLength={200}
               required
             />
 

@@ -32,14 +32,16 @@ export const LabSetupComponentsPage = () => {
               { padding: 8, backgroundColor: "#FF3131" },
             ]}
           >
-            <Image src={labImg?.[0] || KitsLayoutImg} style={styles.topPhoto} />
+            <Image src={labImg?.[0] || KitsLayoutImg} style={styles.photo} />
           </View>
           <View style={styles.halfContent}>
             <Text style={styles.paragraph}>{description?.split("\n")[1]}</Text>
           </View>
         </View>
 
-        <Text style={styles.paragraph}>{description?.split("\n").slice(2)}</Text>
+        <Text style={styles.paragraph}>
+          {description?.split("\n").slice(2)}
+        </Text>
 
         <Image src={ClassroomTelescopeImg} style={styles.middleWidePhoto} />
       </View>

@@ -38,7 +38,7 @@ export const ImplementationMilestonesPage = () => {
           >
             <Image
               src={implementationImg?.[0] || KitsLayoutImg}
-              style={styles.topPhoto}
+              style={styles.photo}
             />
           </View>
           <View style={styles.halfContent}>
@@ -57,7 +57,7 @@ export const ImplementationMilestonesPage = () => {
           >
             <Image
               src={implementationImg?.[1] || KitsLayoutImg}
-              style={styles.topPhoto}
+              style={styles.photo}
             />
           </View>
         </View>
@@ -70,7 +70,7 @@ export const ImplementationMilestonesPage = () => {
           >
             <Image
               src={implementationImg?.[2] || KitsLayoutImg}
-              style={styles.topPhoto}
+              style={styles.photo}
             />
           </View>
           <View style={styles.halfContent}>

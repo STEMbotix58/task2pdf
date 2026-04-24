@@ -86,6 +86,7 @@ const ImpactAnalysisForm = ({
           label="Objective"
           rows={4}
           value={formData.objective}
+          maxLength={220}
           onChange={(e) => handleChange("objective", e.target.value)}
           required
         />
@@ -101,7 +102,7 @@ const ImpactAnalysisForm = ({
               <Input
                 label="Title"
                 value={item.title}
-                maxLength={70}
+                maxLength={22}
                 required
                 onChange={(e) =>
                   handleListChange(i, "title", e.target.value, "impacts")
@@ -113,6 +114,7 @@ const ImpactAnalysisForm = ({
                 rows={4}
                 value={item.description}
                 required
+                maxLength={200}
                 onChange={(e) =>
                   handleListChange(i, "description", e.target.value, "impacts")
                 }

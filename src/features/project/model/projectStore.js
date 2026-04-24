@@ -3,8 +3,8 @@ import { create } from "zustand";
 export const useProjectStore = create((set) => ({
   // Basic Info
   basicInfo: {
-    partnerLogo: "",
-    stemLogo: "",
+    partnerLogo: [],
+    stemLogo: [],
     preparedBy: "",
     date: "",
     homeImages: [],

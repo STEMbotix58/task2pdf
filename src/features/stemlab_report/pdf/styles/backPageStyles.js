@@ -46,30 +46,20 @@ export const backPageStyles = StyleSheet.create({
     paddingHorizontal: 20,
   },
 
-  dbCard: {
-    borderRadius: 16,
-    paddingVertical: 15,
-    paddingHorizontal: 25,
-    width: 200,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  dbLogo: {
-    width: "100%",
-    objectFit: "contain",
-  },
   rightCircleWrapper: {
     position: "relative",
     marginTop: 10,
-  },
-  rightCircleImage: {
     width: 230,
     height: 230,
     borderRadius: 115,
-    objectFit: "cover",
     borderWidth: 2,
     borderColor: "#1A1A1B",
+  },
+  rightCircleImage: {
+    width: "100%",
+    height: "100%",
+    borderRadius: "115",
+    objectFit: "cover",
   },
   redDecorativeDot: {
     position: "absolute",
@@ -82,9 +72,10 @@ export const backPageStyles = StyleSheet.create({
     zIndex: 2,
   },
 
-  yuvaLogo: {
-    width: 160,
-    objectFit: "contain",
+  logoImg: {
+    width: 200,
+    height: 90,
+    objectFit: "cover",
   },
 
   bottomSection: {

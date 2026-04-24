@@ -310,16 +310,20 @@ export const handleProjectCSVDownload = () => {
     id: "project-001",
 
     // BASIC INFO
-    basicInfo: JSON.stringify({
-      partnerLogo: "",
-      stemLogo: "",
+    basic_info: JSON.stringify({
+      partnerLogo: [
+        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+      ],
+      stemLogo: [
+        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+      ],
       preparedBy: "ABC Implementing Agency",
       date: "2024-01-01",
       homeImages: [
         "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
-        "",
-        "",
-        "",
+        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
+        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
+        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
       ],
     }),
 
@@ -327,12 +331,14 @@ export const handleProjectCSVDownload = () => {
     summary: "Enhance STEM education through hands-on learning tools.",
 
     // PREFACE (MULTIPLE)
-    preface: JSON.stringify({
-      name: "XYZ Foundation",
-      designation: "Partner",
-      testimonial: "Improve teacher capability and student engagement.",
-      img: "",
-    }),
+    preface: JSON.stringify([
+      {
+        name: "XYZ Foundation",
+        designation: "Partner",
+        testimonial: "Improve teacher capability and student engagement.",
+        image: "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+      },
+    ]),
 
     // PROJECT
     project: JSON.stringify({
@@ -365,14 +371,18 @@ export const handleProjectCSVDownload = () => {
     contact: JSON.stringify({
       name: "ABC Implementing Agency",
       address: "Multiple Schools - Urban Region",
-      phone: "",
-      email: "",
-      website: "",
+      phone: "9988776655",
+      email: "email@gmail.com",
+      website: "www.company.com",
     }),
 
     // QR CODE (ARRAYS)
-    qrCodeImg: ["https://images.unsplash.com/photo-1574803442176-70d4b465c920"],
-    qrCodeVid: ["https://images.unsplash.com/photo-1574803442176-70d4b465c920"],
+    qr_code_img: JSON.stringify([
+      "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+    ]),
+    qr_code_vid: JSON.stringify([
+      "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+    ]),
   };
 
   const csv = generateCSV(row);

@@ -445,3 +445,65 @@ export const fetchAllProjects = async () => {
     };
   }
 };
+
+/* Fetch all STEMLab Reports submissions for admin */
+export const fetchAllSTEMLabReports = async () => {
+  try {
+    if (!supabase) {
+      throw new Error("Supabase client not initialized");
+    }
+    const { data, error } = await supabase
+      .from("stemlab_report")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("Supabase fetch error:", error);
+      throw new Error(`Database error: ${error.message}`);
+    }
+
+    return {
+      success: true,
+      data: data || [],
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error fetching STEMLab Report:", error);
+    return {
+      success: false,
+      data: [],
+      error: error.message || "Unknown error occurred",
+    };
+  }
+};
+
+/* Fetch all FLP Report submissions for admin */
+export const fetchAllFLPReports = async () => {
+  try {
+    if (!supabase) {
+      throw new Error("Supabase client not initialized");
+    }
+    const { data, error } = await supabase
+      .from("flp_report")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("Supabase fetch error:", error);
+      throw new Error(`Database error: ${error.message}`);
+    }
+
+    return {
+      success: true,
+      data: data || [],
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error fetching FLP Report:", error);
+    return {
+      success: false,
+      data: [],
+      error: error.message || "Unknown error occurred",
+    };
+  }
+};

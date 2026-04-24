@@ -63,12 +63,14 @@ const LabSetupComponentsForm = ({
         <div className="grid grid-cols-1 gap-6">
           <div className="md:col-span-2">
             <TextareaInput
-              label="Description"
+              label="Description One"
+              minParagraph={3}
               id="description"
               name="description"
               rows={4}
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
+              maxLength={1200}
               required
             />
           </div>

@@ -30,7 +30,7 @@ export const PhasePage = () => {
           <View
             style={[
               styles.wideImage,
-              { padding: 8, backgroundColor: "#FF3131" },
+              { padding: 4, backgroundColor: "#FF3131" },
             ]}
           >
             <Image
@@ -45,7 +45,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#FF3131" },
+                { padding: 4, backgroundColor: "#FF3131" },
               ]}
             >
               <Image
@@ -56,7 +56,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#000000" },
+                { padding: 4, backgroundColor: "#000000" },
               ]}
             >
               <Image
@@ -69,7 +69,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#000000" },
+                { padding: 4, backgroundColor: "#000000" },
               ]}
             >
               <Image
@@ -80,7 +80,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#FF3131" },
+                { padding: 4, backgroundColor: "#FF3131" },
               ]}
             >
               <Image
@@ -108,7 +108,7 @@ export const PhasePage = () => {
           <View
             style={[
               styles.wideImage,
-              { padding: 8, backgroundColor: "#000000" },
+              { padding: 4, backgroundColor: "#000000" },
             ]}
           >
             <Image
@@ -123,7 +123,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#000000" },
+                { padding: 4, backgroundColor: "#000000" },
               ]}
             >
               <Image
@@ -134,7 +134,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#FF3131" },
+                { padding: 4, backgroundColor: "#FF3131" },
               ]}
             >
               <Image
@@ -147,7 +147,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#FF3131" },
+                { padding: 4, backgroundColor: "#FF3131" },
               ]}
             >
               <Image
@@ -158,7 +158,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#000000" },
+                { padding: 4, backgroundColor: "#000000" },
               ]}
             >
               <Image
@@ -189,7 +189,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#FF3131" },
+                { padding: 4, backgroundColor: "#FF3131" },
               ]}
             >
               <Image
@@ -212,7 +212,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#000000" },
+                { padding: 4, backgroundColor: "#000000" },
               ]}
             >
               <Image
@@ -225,7 +225,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#FF3131" },
+                { padding: 4, backgroundColor: "#FF3131" },
               ]}
             >
               <Image
@@ -264,7 +264,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#000000" },
+                { padding: 4, backgroundColor: "#000000" },
               ]}
             >
               <Image
@@ -287,7 +287,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#FF3131" },
+                { padding: 4, backgroundColor: "#FF3131" },
               ]}
             >
               <Image
@@ -300,7 +300,7 @@ export const PhasePage = () => {
             <View
               style={[
                 styles.halfImage,
-                { padding: 8, backgroundColor: "#000000" },
+                { padding: 4, backgroundColor: "#000000" },
               ]}
             >
               <Image

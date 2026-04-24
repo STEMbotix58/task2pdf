@@ -24,12 +24,10 @@ export const BackPage = () => {
         </View>
 
         <View style={styles.rightCol}>
-          <View style={styles.dbCard}>
-            <Image
-              src={partnerLogo[0] || DeutscheBankLogo}
-              style={styles.dbLogo}
-            />
-          </View>
+          <Image
+            src={partnerLogo[0] || DeutscheBankLogo}
+            style={styles.logoImg}
+          />
 
           <View style={styles.rightCircleWrapper}>
             <View style={styles.redDecorativeDot} />
@@ -39,7 +37,7 @@ export const BackPage = () => {
             />
           </View>
 
-          <Image src={preparedBy[0] || YuvaLogo} style={styles.yuvaLogo} />
+          <Image src={preparedBy[0] || YuvaLogo} style={styles.logoImg} />
         </View>
       </View>
 
