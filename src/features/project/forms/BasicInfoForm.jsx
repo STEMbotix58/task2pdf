@@ -34,11 +34,11 @@ const BasicInfoForm = ({
     try {
       setUploading(true);
 
-      const folderName = "basic-info-" + Date.now();
+      const folderName = "kadi-report/basic-info-" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 
-      handleChange(field, urls); // ✅ store URLs, not files
+      handleChange(field, urls);
     } catch (err) {
       console.error(err);
       alert("Upload failed");

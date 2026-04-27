@@ -23,16 +23,22 @@ const PrefaceForm = ({
   const setSection = useStemLabStore((state) => state.setSection);
 
   const [formData, setFormData] = useState(preface);
+  const [uploading, setUploading] = useState(false);
 
   const handleImageUpload = async (index, files) => {
     try {
-      //   const folderName = "preface-" + Date.now();
-      //   const urls = await uploadImagesToCloudinary(files, folderName);
-      //   handlePrefaceChange(index, "image", urls[0]);
-      console.log("Uploaded");
+      setUploading(true);
+
+      const folderName = "stemlab-report/preface" + Date.now();
+
+      const urls = await uploadImagesToCloudinary(files, folderName);
+
+      handlePrefaceChange(index, "image", urls[0]);
     } catch (err) {
       console.error(err);
       alert("Upload failed");
+    } finally {
+      setUploading(false);
     }
   };
 

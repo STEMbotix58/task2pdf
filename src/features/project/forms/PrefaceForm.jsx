@@ -33,7 +33,7 @@ const PrefaceForm = ({
     if (!files || files.length === 0) return;
 
     try {
-      const folderName = "preface-" + Date.now();
+      const folderName = "kadi-report/preface-" + Date.now();
 
       const [url] = await uploadImagesToCloudinary(files, folderName);
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useStemLabStore } from "@/features/stemlab_report/model/stemLabReportStore";
+import { uploadImagesToCloudinary } from "@/shared/services/uploadService";
 
 import FormContainer from "@/shared/components/layout/FormContainer";
 import FormHeader from "@/shared/components/layout/FormHeader";
@@ -22,6 +23,7 @@ const ImpactAnalysisForm = ({
   const setSection = useStemLabStore((state) => state.setSection);
 
   const [formData, setFormData] = useState(impactAnalysis);
+  const [uploading, setUploading] = useState(false);
 
   const handleListChange = (index, field, value, listName) => {
     setFormData((prev) => {
@@ -35,16 +37,29 @@ const ImpactAnalysisForm = ({
     });
   };
 
-  const handleImageUpload = (index, files) => {
-    setFormData((prev) => {
-      const updated = [...prev.impacts];
-      updated[index] = { ...updated[index], image: files };
+  const handleImageUpload = async (index, files) => {
+    try {
+      setUploading(true);
 
-      return {
-        ...prev,
-        impacts: updated,
-      };
-    });
+      const folderName = "stemlab-report/impact-analysis" + Date.now();
+
+      const urls = await uploadImagesToCloudinary(files, folderName);
+
+      setFormData((prev) => {
+        const updated = [...prev.impacts];
+        updated[index] = { ...updated[index], image: urls };
+
+        return {
+          ...prev,
+          impacts: updated,
+        };
+      });
+    } catch (err) {
+      console.error(err);
+      alert("Upload failed");
+    } finally {
+      setUploading(false);
+    }
   };
 
   const addItem = () => {

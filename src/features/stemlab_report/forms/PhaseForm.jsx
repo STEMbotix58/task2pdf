@@ -54,7 +54,7 @@ const PhaseForm = ({
     if (!files || files.length === 0) return;
 
     try {
-      const folderName = "phase-" + Date.now();
+      const folderName = "stemlab-report/phase" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 

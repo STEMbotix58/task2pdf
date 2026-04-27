@@ -49,6 +49,8 @@ const PhotographsForm = ({
 
       // Upload images to Cloudinary
 
+      const folderName = "kadi-report/photographs" + Date.now();
+
       const uploadedUrls = await uploadImagesToCloudinary(
         formData.map((item) => item.file || item),
         folderName,

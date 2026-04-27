@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useStemLabStore } from "@/features/stemlab_report/model/stemLabReportStore";
+import { uploadImagesToCloudinary } from "@/shared/services/uploadService";
 
 import FormContainer from "@/shared/components/layout/FormContainer";
 import FormHeader from "@/shared/components/layout/FormHeader";
@@ -22,6 +23,7 @@ const ImplementationMilestonesForm = ({
   );
   const setSection = useStemLabStore((state) => state.setSection);
   const [formData, setFormData] = useState(implementationAndMilestones);
+  const [uploading, setUploading] = useState(false);
 
   const handleChange = (field, value) => {
     setFormData((prev) => ({
@@ -33,18 +35,19 @@ const ImplementationMilestonesForm = ({
 
   const handleImageUpload = async (field, files) => {
     try {
-      // Remove this when uploading to cloudinary
-      handleChange(field, files);
-      //   setUploading(true);
+      setUploading(true);
 
-      //   const folderName = "project-" + Date.now();
+      const folderName =
+        "stemlab-report/implementation-milestones" + Date.now();
 
-      //   const urls = await uploadImagesToCloudinary(files, folderName);
+      const urls = await uploadImagesToCloudinary(files, folderName);
 
-      //   handleChange(field, urls); // ✅ store URLs, not files
+      handleChange(field, urls);
     } catch (err) {
       console.error(err);
       alert("Upload failed");
+    } finally {
+      setUploading(false);
     }
   };
 

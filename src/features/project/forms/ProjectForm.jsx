@@ -37,7 +37,7 @@ const ProjectForm = ({
 
       const urls = await uploadImagesToCloudinary(
         files,
-        "project-image-" + Date.now(),
+        "kadi-report/project-image-" + Date.now(),
       );
 
       handleChange("image", urls);
