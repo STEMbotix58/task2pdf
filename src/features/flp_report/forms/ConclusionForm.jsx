@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useFLPStore } from "@/features/flp_report/model/flpReportStore";
+import { uploadImagesToCloudinary } from "@/shared/services/uploadService";
 
 import FormContainer from "@/shared/components/layout/FormContainer";
 import FormHeader from "@/shared/components/layout/FormHeader";
@@ -19,6 +20,7 @@ const ConclusionForm = ({
   const conclusion = useFLPStore((state) => state.conclusion);
   const setSection = useFLPStore((state) => state.setSection);
   const [formData, setFormData] = useState(conclusion);
+  const [uploading, setUploading] = useState(false);
 
   const handleChange = (field, value) => {
     setFormData((prev) => ({
@@ -29,15 +31,18 @@ const ConclusionForm = ({
 
   const handleImageUpload = async (field, files) => {
     try {
-      // Remove this when uploading to cloudinary
-      handleChange(field, files);
-      //   setUploading(true);
-      //   const folderName = "basic-info-" + Date.now();
-      //   const urls = await uploadImagesToCloudinary(files, folderName);
-      //   handleChange(field, urls); // ✅ store URLs, not files
+      setUploading(true);
+
+      const folderName = "flp-report/conclusion";
+
+      const urls = await uploadImagesToCloudinary(files, folderName);
+
+      handleChange(field, urls);
     } catch (err) {
       console.error(err);
       alert("Upload failed");
+    } finally {
+      setUploading(false);
     }
   };
 

@@ -33,15 +33,13 @@ const BasicInfoForm = ({
 
   const handleImageUpload = async (field, files) => {
     try {
-      // Remove this when uploading to cloudinary
-      handleChange(field, files);
-      //   setUploading(true);
+      setUploading(true);
 
-      //   const folderName = "basic-info-" + Date.now();
+      const folderName = "flp-report/basic-info";
 
-      //   const urls = await uploadImagesToCloudinary(files, folderName);
+      const urls = await uploadImagesToCloudinary(files, folderName);
 
-      //   handleChange(field, urls); // ✅ store URLs, not files
+      handleChange(field, urls);
     } catch (err) {
       console.error(err);
       alert("Upload failed");
