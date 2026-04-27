@@ -35,7 +35,7 @@ const ChallengesAndMigrationForm = ({
     try {
       setUploading(true);
 
-      const folderName = "flp-report/challenges-and-migration";
+      const folderName = "flp-report/challenges-and-migration" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 

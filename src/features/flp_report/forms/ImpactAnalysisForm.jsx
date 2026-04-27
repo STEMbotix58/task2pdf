@@ -33,7 +33,7 @@ const ImpactAnalysisForm = ({
     try {
       setUploading(true);
 
-      const folderName = "flp-report/impact-analysis";
+      const folderName = "flp-report/impact-analysis" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 

@@ -35,7 +35,7 @@ const BasicInfoForm = ({
     try {
       setUploading(true);
 
-      const folderName = "flp-report/basic-info";
+      const folderName = "flp-report/basic-info" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 

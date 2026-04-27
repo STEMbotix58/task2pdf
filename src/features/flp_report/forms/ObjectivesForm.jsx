@@ -33,7 +33,7 @@ const ObjectivesForm = ({
     try {
       setUploading(true);
 
-      const folderName = "flp-report/objectives";
+      const folderName = "flp-report/objectives" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 

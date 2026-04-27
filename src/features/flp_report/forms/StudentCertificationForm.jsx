@@ -35,7 +35,7 @@ const StudentCertificationForm = ({
     try {
       setUploading(true);
 
-      const folderName = "flp-report/student-certification";
+      const folderName = "flp-report/student-certification" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 

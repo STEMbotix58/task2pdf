@@ -33,7 +33,7 @@ const ConclusionForm = ({
     try {
       setUploading(true);
 
-      const folderName = "flp-report/conclusion";
+      const folderName = "flp-report/conclusion" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 

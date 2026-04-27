@@ -33,7 +33,7 @@ const KeyOutcomesForm = ({
     try {
       setUploading(true);
 
-      const folderName = "flp-report/key-outcomes";
+      const folderName = "flp-report/key-outcomes" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 

@@ -33,7 +33,7 @@ const ReachAndCoverageForm = ({
     try {
       setUploading(true);
 
-      const folderName = "flp-report/reach-and-coverage";
+      const folderName = "flp-report/reach-and-coverage" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 

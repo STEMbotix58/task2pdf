@@ -33,7 +33,7 @@ const ProjectStrengthsForm = ({
     try {
       setUploading(true);
 
-      const folderName = "flp-report/project-strengths";
+      const folderName = "flp-report/project-strengths" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 
