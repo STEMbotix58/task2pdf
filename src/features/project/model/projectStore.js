@@ -8,6 +8,7 @@ export const useProjectStore = create((set) => ({
     preparedBy: "",
     date: "",
     homeImages: [],
+    backPageImages: [],
   },
 
   // Summary
@@ -19,7 +20,7 @@ export const useProjectStore = create((set) => ({
       name: "",
       designation: "",
       testimonial: "",
-      image: "",
+      image: [],
     },
   ],
 

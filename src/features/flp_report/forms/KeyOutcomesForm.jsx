@@ -67,6 +67,8 @@ const KeyOutcomesForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              minParagraph={4}
+              maxLength={1080}
             />
           </div>
           <div className="md:col-span-2">
@@ -77,6 +79,7 @@ const KeyOutcomesForm = ({
               value={formData.keyOutcomesImg || []}
               onChange={(files) => handleImageUpload("keyOutcomesImg", files)}
               maxSelection={2}
+              required={formData.keyOutcomesImg.length > 0 ? false : true}
             />
           </div>
         </div>

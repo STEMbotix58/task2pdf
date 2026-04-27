@@ -82,6 +82,7 @@ const StrengthsForm = ({
               value={formData.strengthsImg || []}
               onChange={(files) => handleImageUpload("strengthsImg", files)}
               maxSelection={1}
+              required={formData.strengthsImg.length > 0 ? false : true}
             />
           </div>
         </div>

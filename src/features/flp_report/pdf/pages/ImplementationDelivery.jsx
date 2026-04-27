@@ -76,6 +76,7 @@ export const ImplementationDelivery = () => {
               />
             </View>
           </View>
+          <View style={styles.footerLine} />
         </View>
       </Page>
       <Page size="A4" style={styles.page}>
@@ -88,7 +89,7 @@ export const ImplementationDelivery = () => {
           </View>
 
           <Text style={styles.paragraph}>
-            {description.split("\n").slice(3).join("")}
+            {description.split("\n").slice(3).join("\n\n")}
           </Text>
 
           <View style={[styles.row, { marginBottom: 10 }]}>

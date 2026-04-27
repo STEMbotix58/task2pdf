@@ -51,7 +51,7 @@ const PrefaceForm = ({
         name: "",
         designation: "",
         testimonial: "",
-        image: "",
+        image: [],
       },
     ]);
   };
@@ -84,6 +84,7 @@ const PrefaceForm = ({
                 value={item.name}
                 onChange={(e) => handleChange(index, "name", e.target.value)}
                 required
+                maxLength={35}
               />
 
               <Input
@@ -95,6 +96,7 @@ const PrefaceForm = ({
                   handleChange(index, "designation", e.target.value)
                 }
                 required
+                maxLength={45}
               />
 
               <TextareaInput
@@ -107,6 +109,7 @@ const PrefaceForm = ({
                   handleChange(index, "testimonial", e.target.value)
                 }
                 required
+                maxLength={560}
               />
 
               {/* IMAGE FIELD */}
@@ -115,6 +118,7 @@ const PrefaceForm = ({
                 value={item.image ? [item.image] : []}
                 onChange={(files) => handleImageChange(index, files)}
                 maxSelection={1}
+                required={item.image.length > 0 ? false : true}
               />
 
               {preface.length > 1 && (

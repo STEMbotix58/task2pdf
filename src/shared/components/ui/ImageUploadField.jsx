@@ -51,7 +51,7 @@ const ImageUploadField = ({
             {label}
             {required && <span className="text-red-600"> *</span>}
             <span className="text-gray-600 text-[12px] mt-1 block font-normal">
-              {maxSelection} images allowed.
+              Exact {maxSelection} images required.
             </span>
           </label>
         </>

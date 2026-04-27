@@ -82,6 +82,7 @@ const ChallengesAndMitigationForm = ({
               value={formData.challengesImg || []}
               onChange={(files) => handleImageUpload("challengesImg", files)}
               maxSelection={1}
+              required={formData.challengesImg.length > 0 ? false : true}
             />
           </div>
         </div>

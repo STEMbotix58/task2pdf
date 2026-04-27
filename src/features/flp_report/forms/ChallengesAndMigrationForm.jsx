@@ -69,6 +69,8 @@ const ChallengesAndMigrationForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              minParagraph={2}
+              maxLength={1300}
             />
           </div>
           <div className="md:col-span-2">
@@ -81,6 +83,9 @@ const ChallengesAndMigrationForm = ({
                 handleImageUpload("challengesAndMigrationImg", files)
               }
               maxSelection={2}
+              required={
+                formData.challengesAndMigrationImg.length > 0 ? false : true
+              }
             />
           </div>
         </div>

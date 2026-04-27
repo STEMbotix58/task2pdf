@@ -25,10 +25,10 @@ const ProposalStepperWrapper = () => {
   };
   const steps = [
     { component: CSVUploadForm },
-    { component: ProjectForm },
     { component: BasicInfoForm },
     { component: SummaryForm },
     { component: PrefaceForm },
+    { component: ProjectForm },
     { component: ConclusionForm },
     { component: ContactForm },
     { component: PhotographsForm },

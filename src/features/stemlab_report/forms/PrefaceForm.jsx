@@ -80,6 +80,7 @@ const PrefaceForm = ({
               value={formData?.[0]?.image}
               onChange={(files) => handlePrefaceChange(0, "image", files)}
               maxSelection={1}
+              required={formData?.[0]?.image.length > 0 ? false : true}
             />
           </div>
           <div className="md:col-span-2">
@@ -102,6 +103,7 @@ const PrefaceForm = ({
               value={formData?.[1]?.image}
               onChange={(files) => handlePrefaceChange(1, "image", files)}
               maxSelection={1}
+              required={formData?.[1]?.image.length > 0 ? false : true}
             />
           </div>
           <div className="md:col-span-2">
@@ -124,6 +126,7 @@ const PrefaceForm = ({
               value={formData?.[2]?.image}
               onChange={(files) => handlePrefaceChange(2, "image", files)}
               maxSelection={1}
+              required={formData?.[2]?.image.length > 0 ? false : true}
             />
           </div>
         </div>

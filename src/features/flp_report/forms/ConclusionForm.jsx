@@ -63,6 +63,7 @@ const ConclusionForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              maxLength={1700}
             />
           </div>
           <div className="md:col-span-2">
@@ -73,6 +74,7 @@ const ConclusionForm = ({
               value={formData.conclusionImg || []}
               onChange={(files) => handleImageUpload("conclusionImg", files)}
               maxSelection={1}
+              required={formData.conclusionImg.length > 0 ? false : true}
             />
           </div>
         </div>

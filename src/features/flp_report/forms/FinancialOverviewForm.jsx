@@ -64,6 +64,8 @@ const FinancialOverviewForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              minParagraph={2}
+              maxLength={1700}
             />
           </div>
           <div className="md:col-span-2">
@@ -76,6 +78,7 @@ const FinancialOverviewForm = ({
                 handleImageUpload("financialOverviewImg", files)
               }
               maxSelection={1}
+              required={formData.financialOverviewImg.length > 0 ? false : true}
             />
           </div>
         </div>

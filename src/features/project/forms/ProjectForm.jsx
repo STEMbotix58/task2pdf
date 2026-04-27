@@ -77,8 +77,9 @@ const ProjectForm = ({
               id="title"
               name="title"
               value={formData.title}
-              required
               onChange={(e) => handleChange("title", e.target.value)}
+              required
+              maxLength={50}
             />
           </div>
 
@@ -92,6 +93,7 @@ const ProjectForm = ({
               value={formData.overview}
               onChange={(e) => handleChange("overview", e.target.value)}
               required
+              maxLength={540}
             />
           </div>
 
@@ -105,6 +107,7 @@ const ProjectForm = ({
               value={formData.implementation}
               onChange={(e) => handleChange("implementation", e.target.value)}
               required
+              maxLength={400}
             />
           </div>
 
@@ -118,10 +121,9 @@ const ProjectForm = ({
               value={formData.outcomesImpact}
               onChange={(e) => handleChange("outcomesImpact", e.target.value)}
               required
+              maxLength={400}
             />
           </div>
-
-          {/* ARRAYS (comma input) */}
 
           <Input
             label="Robotics Kits (comma separated)"
@@ -129,6 +131,8 @@ const ProjectForm = ({
             name="roboticsKits"
             value={formData.roboticsKits.join(", ")}
             onChange={(e) => handleArrayChange("roboticsKits", e.target.value)}
+            required
+            maxLength={100}
           />
 
           <Input
@@ -137,6 +141,8 @@ const ProjectForm = ({
             name="hardware"
             value={formData.hardware.join(", ")}
             onChange={(e) => handleArrayChange("hardware", e.target.value)}
+            required
+            maxLength={100}
           />
 
           <Input
@@ -145,6 +151,8 @@ const ProjectForm = ({
             name="software"
             value={formData.software.join(", ")}
             onChange={(e) => handleArrayChange("software", e.target.value)}
+            required
+            maxLength={100}
           />
 
           <Input
@@ -155,6 +163,8 @@ const ProjectForm = ({
             onChange={(e) =>
               handleArrayChange("infrastructure", e.target.value)
             }
+            required
+            maxLength={100}
           />
 
           {/* AMOUNT */}
@@ -165,6 +175,7 @@ const ProjectForm = ({
             name="amount"
             value={formData.amount}
             onChange={(e) => handleChange("amount", Number(e.target.value))}
+            required
           />
 
           {/* IMAGE */}
@@ -175,8 +186,8 @@ const ProjectForm = ({
               name="image"
               value={formData.image || []}
               onChange={handleProjectImageUpload}
-              minSelection={1}
               maxSelection={1}
+              required={formData.image.length > 0 ? false : true}
             />
           </div>
         </div>

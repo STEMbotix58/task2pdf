@@ -82,6 +82,7 @@ const LabSetupComponentsForm = ({
               value={formData.labImg || []}
               onChange={(files) => handleImageUpload("labImg", files)}
               maxSelection={2}
+              required={formData.labImg.length > 0 ? false : true}
             />
           </div>
         </div>

@@ -67,6 +67,8 @@ const ObjectivesForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              minParagraph={3}
+              maxLength={1900}
             />
           </div>
           <div className="md:col-span-2">
@@ -76,7 +78,8 @@ const ObjectivesForm = ({
               name="objectiveImg"
               value={formData.objectiveImg || []}
               onChange={(files) => handleImageUpload("objectiveImg", files)}
-              maxSelection={1}
+              maxSelection={2}
+              required={formData.objectiveImg.length > 0 ? false : true}
             />
           </div>
         </div>

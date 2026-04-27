@@ -85,6 +85,7 @@ const ImplementationMilestonesForm = ({
                 handleImageUpload("implementationImg", files)
               }
               maxSelection={2}
+              required={formData.implementationImg.length > 0 ? false : true}
             />
           </div>
         </div>

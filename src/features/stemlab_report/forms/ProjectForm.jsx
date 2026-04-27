@@ -88,6 +88,7 @@ const ProjectForm = ({
               value={formData.projectImg || []}
               onChange={(files) => handleImageUpload("projectImg", files)}
               maxSelection={2}
+              required={formData.projectImg.length > 0 ? false : true}
             />
           </div>
         </div>

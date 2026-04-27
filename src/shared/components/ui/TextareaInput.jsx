@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const TextareaInput = ({
   label,
@@ -16,6 +16,22 @@ const TextareaInput = ({
   style,
   ...rest
 }) => {
+  const [paraError, setParaError] = useState(null);
+
+  const handleBlur = (e) => {
+    const text = e.target.value;
+
+    const paragraphCount = text
+      .split("\n")
+      .filter((p) => p.trim() !== "").length;
+
+    if (minParagraph && paragraphCount < minParagraph) {
+      setParaError(`Minimum ${minParagraph} paragraphs required`);
+    } else {
+      setParaError(null);
+    }
+  };
+
   return (
     <div className="mb-4" style={style}>
       {label && (
@@ -40,10 +56,12 @@ const TextareaInput = ({
         maxLength={maxLength}
         placeholder={placeholder}
         className={className}
+        // onBlur={handleBlur}
         {...rest}
       />
 
       {error && <p className="text-red-600 text-xs mt-1">{error}</p>}
+      {/* {paraError && <p className="text-red-600 text-xs mt-1">{paraError}</p>} */}
     </div>
   );
 };

@@ -67,6 +67,8 @@ const ReachAndCoverageForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              minParagraph={2}
+              maxLength={1700}
             />
           </div>
           <div className="md:col-span-2">
@@ -79,6 +81,7 @@ const ReachAndCoverageForm = ({
                 handleImageUpload("reachAndCoverageImg", files)
               }
               maxSelection={1}
+              required={formData.reachAndCoverageImg.length > 0 ? false : true}
             />
           </div>
         </div>

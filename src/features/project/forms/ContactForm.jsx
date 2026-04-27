@@ -108,7 +108,7 @@ const ContactForm = ({
 
       <form onSubmit={handleSubmit} className="space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* 🔽 COMPANY SELECT */}
+          {/* COMPANY SELECT */}
           <div className="md:col-span-2">
             <SelectInput
               label="Select Company"
@@ -123,50 +123,6 @@ const ContactForm = ({
               placeholder="Choose a company"
             />
           </div>
-          {/* CONTACT FIELDS */}
-          {/* 
-          <Input
-            label="Name"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={(e) => handleChange("name", e.target.value)}
-            required
-          />
-
-          <Input
-            label="Phone"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={(e) => handleChange("phone", e.target.value)}
-          />
-
-          <Input
-            label="Email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={(e) => handleChange("email", e.target.value)}
-          />
-
-          <Input
-            label="Website"
-            id="website"
-            name="website"
-            value={formData.website}
-            onChange={(e) => handleChange("website", e.target.value)}
-          />
-
-          <div className="md:col-span-2">
-            <Input
-              label="Address"
-              id="address"
-              name="address"
-              value={formData.address}
-              onChange={(e) => handleChange("address", e.target.value)}
-            />
-          </div> */}
 
           {/* QR IMAGE */}
           <div className="md:col-span-2">
@@ -177,6 +133,7 @@ const ContactForm = ({
               value={qrCodeImg || []}
               onChange={handleQRImageUpload}
               maxSelection={1}
+              required={qrCodeImg.length > 0 ? false : true}
             />
           </div>
 
@@ -189,6 +146,7 @@ const ContactForm = ({
               value={qrCodeVid || []}
               onChange={handleQRVideoUpload}
               maxSelection={1}
+              required={qrCodeVid.length > 0 ? false : true}
             />
           </div>
         </div>

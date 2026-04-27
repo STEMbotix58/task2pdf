@@ -11,7 +11,7 @@ const Home = () => {
         {/* STEMLab Project OPTION */}
         <Link
           to="/flp-report"
-          className="group cursor-pointer bg-white border border-lime-200 rounded-2xl p-8 hover:border-lime-800 hover:shadow-xl hover:shadow-lime-100 transition-all duration-300 relative overflow-hidden block"
+          className="group cursor-pointer bg-white border border-slate-200 rounded-2xl p-8 hover:border-lime-800 hover:shadow-xl hover:shadow-lime-100/80 transition-all duration-300 relative overflow-hidden block"
         >
           <div className="absolute top-0 right-0 w-32 h-32 bg-lime-800/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110" />
 

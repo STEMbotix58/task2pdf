@@ -107,6 +107,7 @@ const PhaseForm = ({
                 value={item.images || []}
                 onChange={(files) => handleImageChange(index, files)}
                 maxSelection={index > 1 ? 3 : 5}
+                required={item.images.length > 0 ? false : true}
               />
 
               {items.length > 1 && (

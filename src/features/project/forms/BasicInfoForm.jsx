@@ -69,6 +69,7 @@ const BasicInfoForm = ({
             value={formData.preparedBy}
             required
             onChange={(e) => handleChange("preparedBy", e.target.value)}
+            maxLength={50}
           />
 
           <Input
@@ -90,6 +91,7 @@ const BasicInfoForm = ({
               value={formData.partnerLogo || []}
               onChange={(files) => handleImageUpload("partnerLogo", files)}
               maxSelection={1}
+              required={formData.partnerLogo.length > 0 ? false : true}
             />
           </div>
 
@@ -102,6 +104,7 @@ const BasicInfoForm = ({
               value={formData.stemLogo || []}
               onChange={(files) => handleImageUpload("stemLogo", files)}
               maxSelection={1}
+              required={formData.stemLogo.length > 0 ? false : true}
             />
           </div>
 
@@ -114,6 +117,20 @@ const BasicInfoForm = ({
               value={formData.homeImages || []}
               onChange={(files) => handleImageUpload("homeImages", files)}
               maxSelection={4}
+              required={formData.homeImages.length > 0 ? false : true}
+            />
+          </div>
+
+          {/* Back Page Imges */}
+          <div className="md:col-span-2">
+            <ImageUploadField
+              label="Back Page Images"
+              id="backPageImages"
+              name="backPageImages"
+              value={formData.backPageImages || []}
+              onChange={(files) => handleImageUpload("backPageImages", files)}
+              maxSelection={4}
+              required={formData.backPageImages.length > 0 ? false : true}
             />
           </div>
         </div>

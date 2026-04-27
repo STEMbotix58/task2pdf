@@ -4,7 +4,7 @@ import { useProjectStore } from "@/features/project/model/projectStore";
 
 export const PrefacePage = () => {
   const preface = useProjectStore((state) => state.preface);
-  typeof preface;
+
   return (
     <Page size="A4" style={prefacePageStyles.pageContainer}>
       {/* Header Section */}
@@ -27,7 +27,7 @@ export const PrefacePage = () => {
               {hasValidImage && (
                 <View style={prefacePageStyles.imageWrapper}>
                   <Image
-                    src={item.image}
+                    src={item.image[0]}
                     style={prefacePageStyles.profileImage}
                   />
                 </View>

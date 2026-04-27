@@ -67,6 +67,8 @@ const OutcomesImpactForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              minParagraph={3}
+              maxLength={1300}
             />
           </div>
           <div className="md:col-span-2">
@@ -79,6 +81,7 @@ const OutcomesImpactForm = ({
                 handleImageUpload("outcomesAndImpactImg", files)
               }
               maxSelection={2}
+              required={formData.outcomesAndImpactImg.length > 0 ? false : true}
             />
           </div>
         </div>

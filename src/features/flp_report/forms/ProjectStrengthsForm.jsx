@@ -67,6 +67,7 @@ const ProjectStrengthsForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              maxLength={1800}
             />
           </div>
           <div className="md:col-span-2">
@@ -79,6 +80,7 @@ const ProjectStrengthsForm = ({
                 handleImageUpload("projectStrengthsImg", files)
               }
               maxSelection={1}
+              required={formData.projectStrengthsImg.length > 0 ? false : true}
             />
           </div>
         </div>

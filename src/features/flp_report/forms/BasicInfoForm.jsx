@@ -87,8 +87,9 @@ const BasicInfoForm = ({
               id="projectTitle"
               name="projectTitle"
               value={formData.projectTitle}
-              required
               onChange={(e) => handleChange("projectTitle", e.target.value)}
+              required
+              maxLength={25}
             />
           </div>
           <div className="md:col-span-2">
@@ -97,8 +98,9 @@ const BasicInfoForm = ({
               id="objective"
               name="objective"
               value={formData.objective}
-              required
               onChange={(e) => handleChange("objective", e.target.value)}
+              required
+              maxLength={220}
             />
           </div>
           <div className="md:col-span-2">
@@ -109,6 +111,7 @@ const BasicInfoForm = ({
               value={formData.partners?.[0]?.title || ""}
               onChange={(e) => handlePartnerChange(0, "title", e.target.value)}
               required
+              maxLength={40}
             />
             <TextareaInput
               id="description"
@@ -118,6 +121,7 @@ const BasicInfoForm = ({
                 handlePartnerChange(0, "description", e.target.value)
               }
               required
+              maxLength={300}
             />
           </div>
           <div className="md:col-span-2">
@@ -128,6 +132,7 @@ const BasicInfoForm = ({
               value={formData.partners?.[1]?.title || ""}
               onChange={(e) => handlePartnerChange(1, "title", e.target.value)}
               required
+              maxLength={40}
             />
             <TextareaInput
               id="description"
@@ -137,6 +142,7 @@ const BasicInfoForm = ({
                 handlePartnerChange(1, "description", e.target.value)
               }
               required
+              maxLength={300}
             />
           </div>
           <div className="md:col-span-2">
@@ -147,6 +153,7 @@ const BasicInfoForm = ({
               value={formData.stemLogo || []}
               onChange={(files) => handleImageUpload("stemLogo", files)}
               maxSelection={1}
+              required={formData.stemLogo.length > 0 ? false : true}
             />
           </div>
         </div>

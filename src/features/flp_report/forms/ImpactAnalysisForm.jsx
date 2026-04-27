@@ -67,6 +67,7 @@ const ImpactAnalysisForm = ({
               value={formData.objective}
               onChange={(e) => handleChange("objective", e.target.value)}
               required
+              maxLength={600}
             />
           </div>
           <div className="md:col-span-2">
@@ -78,6 +79,7 @@ const ImpactAnalysisForm = ({
               value={formData.studentLearning}
               onChange={(e) => handleChange("studentLearning", e.target.value)}
               required
+              maxLength={335}
             />
           </div>
           <div className="md:col-span-2">
@@ -90,6 +92,7 @@ const ImpactAnalysisForm = ({
                 handleImageUpload("studentLearningImg", files)
               }
               maxSelection={1}
+              required={formData.studentLearningImg.length > 0 ? false : true}
             />
           </div>
           <div className="md:col-span-2">
@@ -101,6 +104,7 @@ const ImpactAnalysisForm = ({
               value={formData.behavioralChange}
               onChange={(e) => handleChange("behavioralChange", e.target.value)}
               required
+              maxLength={335}
             />
           </div>
           <div className="md:col-span-2">
@@ -113,6 +117,7 @@ const ImpactAnalysisForm = ({
                 handleImageUpload("behavioralChangeImg", files)
               }
               maxSelection={1}
+              required={formData.behavioralChangeImg.length > 0 ? false : true}
             />
           </div>
           <div className="md:col-span-2">
@@ -126,6 +131,7 @@ const ImpactAnalysisForm = ({
                 handleChange("digitalFinancialAwareness", e.target.value)
               }
               required
+              maxLength={335}
             />
           </div>
           <div className="md:col-span-2">
@@ -138,6 +144,9 @@ const ImpactAnalysisForm = ({
                 handleImageUpload("digitalFinancialAwarenessImg", files)
               }
               maxSelection={1}
+              required={
+                formData.digitalFinancialAwarenessImg.length > 0 ? false : true
+              }
             />
           </div>
           <div className="md:col-span-2">
@@ -151,6 +160,7 @@ const ImpactAnalysisForm = ({
                 handleChange("digitalLearningAdoption", e.target.value)
               }
               required
+              maxLength={335}
             />
           </div>
           <div className="md:col-span-2">
@@ -163,6 +173,9 @@ const ImpactAnalysisForm = ({
                 handleImageUpload("digitalLearningAdoptionImg", files)
               }
               maxSelection={1}
+              required={
+                formData.digitalLearningAdoptionImg.length > 0 ? false : true
+              }
             />
           </div>
           <div className="md:col-span-2">
@@ -176,6 +189,7 @@ const ImpactAnalysisForm = ({
                 handleChange("communityEngagement", e.target.value)
               }
               required
+              maxLength={335}
             />
           </div>
           <div className="md:col-span-2">
@@ -188,6 +202,9 @@ const ImpactAnalysisForm = ({
                 handleImageUpload("communityEngagementImg", files)
               }
               maxSelection={1}
+              required={
+                formData.communityEngagementImg.length > 0 ? false : true
+              }
             />
           </div>
         </div>

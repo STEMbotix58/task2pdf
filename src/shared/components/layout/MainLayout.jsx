@@ -12,10 +12,10 @@ const MainLayout = () => {
   const { user } = useAuth();
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4 flex justify-center">
-      <div className="w-full max-w-5xl">
+      <div className="w-full max-w-6xl">
         {/* HEADER SECTION */}
         <div className="w-full mb-6">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:px-5">
             {/* LEFT SIDE — Logo + Title */}
             <div className="flex items-center gap-3 justify-center md:justify-start">
               <img

@@ -127,6 +127,7 @@ const ImpactAnalysisForm = ({
                 value={item.image}
                 onChange={(files) => handleImageUpload(i, files)}
                 maxSelection={1}
+                required={item.image.length > 0 ? false : true}
               />
 
               {formData.impacts.length > 1 && (

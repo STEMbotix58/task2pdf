@@ -40,6 +40,7 @@ const SummaryForm = ({
             value={summary}
             onChange={(e) => handleChange(e.target.value)}
             required
+            maxLength={1200}
           />
         </div>
 

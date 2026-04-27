@@ -325,6 +325,12 @@ export const handleProjectCSVDownload = () => {
         "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
         "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
       ],
+      backPageImages: [
+        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
+        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
+        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+      ],
     }),
 
     // SUMMARY
@@ -336,7 +342,7 @@ export const handleProjectCSVDownload = () => {
         name: "XYZ Foundation",
         designation: "Partner",
         testimonial: "Improve teacher capability and student engagement.",
-        image: "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+        image: ["https://images.unsplash.com/photo-1574803442176-70d4b465c920"],
       },
     ]),
 

@@ -67,6 +67,7 @@ const SummaryForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              maxLength={900}
             />
           </div>
           <div className="md:col-span-2">
@@ -77,6 +78,7 @@ const SummaryForm = ({
               value={formData.summaryImg || []}
               onChange={(files) => handleImageUpload("summaryImg", files)}
               maxSelection={1}
+              required={formData.summaryImg.length > 0 ? false : true}
             />
           </div>
         </div>

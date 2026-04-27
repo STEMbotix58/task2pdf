@@ -66,6 +66,7 @@ const StudentCertificationForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              maxLength={800}
             />
           </div>
           <div className="md:col-span-2">
@@ -78,6 +79,9 @@ const StudentCertificationForm = ({
                 handleImageUpload("studentCertificationImg", files)
               }
               maxSelection={2}
+              required={
+                formData.studentCertificationImg.length > 0 ? false : true
+              }
             />
           </div>
         </div>

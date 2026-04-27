@@ -80,6 +80,7 @@ const OutcomesForm = ({
               value={formData.images || []}
               onChange={(files) => handleImageUpload("images", files)}
               maxSelection={2}
+              required={formData.images.length > 0 ? false : true}
             />
           </div>
         </div>

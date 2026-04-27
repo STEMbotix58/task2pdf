@@ -69,6 +69,8 @@ const ImplementationAndDeliveryForm = ({
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}
               required
+              minParagraph={4}
+              maxLength={2000}
             />
           </div>
           <div className="md:col-span-2">
@@ -81,6 +83,9 @@ const ImplementationAndDeliveryForm = ({
                 handleImageUpload("implementationAndDeliveryImg", files)
               }
               maxSelection={7}
+              required={
+                formData.implementationAndDeliveryImg.length > 0 ? false : true
+              }
             />
           </div>
         </div>
