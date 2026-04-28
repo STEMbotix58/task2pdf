@@ -9,19 +9,19 @@ import Mind from "@/shared/assets/icons/mind.png";
 import SaveWater from "@/shared/assets/icons/save-water.png";
 
 export const SummaryPage = () => {
-  const summary = useProjectStore((state) => state.summary);
+  const { description, summaryImg } = useProjectStore((state) => state.summary);
   return (
     <Page size="A4" style={summaryPageStyles.pageContainer}>
       <View style={summaryPageStyles.headerContainer}>
         <View style={summaryPageStyles.cyanLine} />
         <Text style={summaryPageStyles.title}>Executive Summary</Text>
         <Text style={summaryPageStyles.paragraph}>
-          {summary || "No summary provided."}
+          {description || "No summary provided."}
         </Text>
       </View>
 
       <Image
-        src={BackgroundImage}
+        src={summaryImg?.[0] || BackgroundImage}
         style={[summaryPageStyles.gridContainer, { objectFit: "cover" }]}
       />
       <View style={summaryPageStyles.gridContainer}>

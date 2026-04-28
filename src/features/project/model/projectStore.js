@@ -12,7 +12,7 @@ export const useProjectStore = create((set) => ({
   },
 
   // Summary
-  summary: "",
+  summary: { description: "", summaryImg: [] },
 
   // Preface (MULTIPLE)
   preface: [
@@ -42,7 +42,7 @@ export const useProjectStore = create((set) => ({
   photographs: [],
 
   // Conclusion
-  conclusion: "",
+  conclusion: { description: "", conclusionImg: [] },
 
   // Contact
   contact: {

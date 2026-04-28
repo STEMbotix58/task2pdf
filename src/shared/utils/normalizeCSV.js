@@ -84,11 +84,11 @@ export function normalizeReportCSV(row) {
 export function normalizeProjectCSV(row) {
   return {
     basicInfo: parseJSON(row.basic_info),
-    summary: row.summary,
+    summary: parseJSON(row.summary),
     preface: parseArray(row.preface),
     project: parseJSON(row.project),
     photographs: parseArray(row.photographs),
-    conclusion: row.conclusion,
+    conclusion: parseJSON(row.conclusion),
     contact: parseJSON(row.contact),
     qrCodeImg: parseArray(row.qr_code_img),
     qrCodeVid: parseArray(row.qr_code_vid),

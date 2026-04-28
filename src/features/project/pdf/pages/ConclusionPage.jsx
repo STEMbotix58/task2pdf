@@ -6,12 +6,14 @@ import { useProjectStore } from "@/features/project/model/projectStore";
 import BackgroundImage from "@/shared/assets/images/ai-robotics/img8.jpg";
 
 export const ConclusionPage = () => {
-  const conclusion = useProjectStore((state) => state.conclusion);
+  const { description, conclusionImg } = useProjectStore(
+    (state) => state.conclusion,
+  );
   return (
     <Page size="A4">
       <View style={conclusionStyles.headerContainer}>
         <Image
-          src={BackgroundImage}
+          src={conclusionImg?.[0] || BackgroundImage}
           style={[
             {
               position: "absolute",
@@ -42,7 +44,7 @@ export const ConclusionPage = () => {
           Conclusion
         </Text>
         <Text style={[conclusionStyles.paragraph, { color: "white" }]}>
-          {conclusion || "No Conclusion"}
+          {description || "No Conclusion"}
         </Text>
       </View>
     </Page>

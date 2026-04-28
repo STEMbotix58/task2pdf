@@ -334,7 +334,12 @@ export const handleProjectCSVDownload = () => {
     }),
 
     // SUMMARY
-    summary: "Enhance STEM education through hands-on learning tools.",
+    summary: JSON.stringify({
+      description: "Enhance STEM education through hands-on learning tools.",
+      summaryImg: [
+        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+      ],
+    }),
 
     // PREFACE (MULTIPLE)
     preface: JSON.stringify([
@@ -371,7 +376,12 @@ export const handleProjectCSVDownload = () => {
     ]),
 
     // CONCLUSION
-    conclusion: "Hands-on learning significantly improves engagement.",
+    conclusion: JSON.stringify({
+      description: "Hands-on learning significantly improves engagement.",
+      conclusionImg: [
+        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+      ],
+    }),
 
     // CONTACT (SINGLE OBJECT)
     contact: JSON.stringify({
