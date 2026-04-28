@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Page, Link } from "@react-pdf/renderer";
 import { tableOfContentsStyles } from "../styles/tableOfContentsStyles";
+import { useProjectStore } from "../../model/projectStore";
 
 // Table content data
 const tocData = [
@@ -54,6 +55,7 @@ const tocData = [
 ];
 
 export const TableOfContentsPage = () => {
+  const { website } = useProjectStore((state) => state.contact);
   return (
     <Page size="A4">
       {/* Header Section */}
@@ -97,7 +99,7 @@ export const TableOfContentsPage = () => {
 
       {/* Fixed Footer Band */}
       <View style={tableOfContentsStyles.footer} fixed>
-        <Text style={tableOfContentsStyles.footerText}>WWW.STEMBOTIX.COM</Text>
+        <Text style={tableOfContentsStyles.footerText}>{website}</Text>
       </View>
     </Page>
   );

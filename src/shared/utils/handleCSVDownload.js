@@ -311,93 +311,134 @@ export const handleProjectCSVDownload = () => {
 
     // BASIC INFO
     basic_info: JSON.stringify({
-      partnerLogo: [
-        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
-      ],
+      date: "2025-05-13",
       stemLogo: [
-        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372020/stembotix/reports/kadi-report/basic-info-1777372020784/uf7ecs1ivclloxrmlhcn.png",
       ],
-      preparedBy: "ABC Implementing Agency",
-      date: "2024-01-01",
       homeImages: [
-        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
-        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
-        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
-        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372029/stembotix/reports/kadi-report/basic-info-1777372028427/r1kcvf7mrmty1ax0yan7.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372031/stembotix/reports/kadi-report/basic-info-1777372028427/jc2jmvlholwjifetlvot.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372030/stembotix/reports/kadi-report/basic-info-1777372028427/nalb4pyany4x0ym5xspr.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372030/stembotix/reports/kadi-report/basic-info-1777372028427/y3qah5quufztqiobsy8q.jpg",
+      ],
+      preparedBy: " ISTEM Collective Foundation",
+      partnerLogo: [
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372016/stembotix/reports/kadi-report/basic-info-1777372015240/ctlafqahnxw5j4oj5hia.png",
       ],
       backPageImages: [
-        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
-        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
-        "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
-        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372035/stembotix/reports/kadi-report/basic-info-1777372034957/kqtmwskiyyktymjtpbo0.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372035/stembotix/reports/kadi-report/basic-info-1777372034957/whoh2yur8qsfrnheagob.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372035/stembotix/reports/kadi-report/basic-info-1777372034957/l3odzapa7crihbo44kom.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372035/stembotix/reports/kadi-report/basic-info-1777372034957/stkajhjpw7cqloc65meh.jpg",
       ],
     }),
 
     // SUMMARY
     summary: JSON.stringify({
-      description: "Enhance STEM education through hands-on learning tools.",
+      description:
+        "The ISTEM Collective Foundation, with a proven track record of installing over 150 STEM labs and 5 AmRit Anganwadis, and training over 2,000 students and 500 teachers, has successfully implemented two transformative educational projects, fully sponsored by Haitian Huayuan Machinery (India) Pvt Ltd. These initiatives include the establishment of AI and Robotics Labs in two schools and the setup of AmRit Anganwadi centers. The projects were inaugurated on March 31, 2025, by Hon’ble MLA Shri Mukesh Bhai Patel (Mehsana Constituency) in the gracious presence of Shri Sunil Chaudhary, Director of Haitian Huayuan Machinery (India) Pvt Ltd, other company members, and the District Education Officer. Aligned with the National Education Policy 2020 (NEP2020), these projects promote hands-on STEM education and interactive early childhood learning. This report details the project implementations, including lab setups, training programs, educational tools, and outcomes, with placeholders for photographs to document the work for submission to Haitian Huayuan Machinery (India) Pvt Ltd.",
       summaryImg: [
-        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372048/stembotix/reports/kadi-report/summary1777372048136/uqmfxpw2brszdry7frzc.jpg",
       ],
     }),
 
     // PREFACE (MULTIPLE)
     preface: JSON.stringify([
       {
-        name: "XYZ Foundation",
-        designation: "Partner",
-        testimonial: "Improve teacher capability and student engagement.",
-        image: ["https://images.unsplash.com/photo-1574803442176-70d4b465c920"],
+        name: "SHRI MUKESH BHAI PATEL",
+        image: [
+          "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372059/stembotix/reports/kadi-report/preface-1777372059665/fhx96y3rtk6y9nai4nw5.jpg",
+        ],
+        designation: "HON’BLE MLA, MEHSANA CONSTITUENCY",
+        testimonial:
+          "It is a moment of pride for Mehsana to witness the inauguration of these state-of-the-art AI and Robotics Labs and AmRit Anganwadi centers, made possible through the generous support of Haitian Huayuan Machinery (India) Pvt Ltd. These initiatives will empower our students and young children with cutting-edge skills, aligning with our vision of a progressive and technologically advanced Gujarat. I commend ISTEM Collective Foundation for their dedication to transforming education and fostering innovation in our community.",
+      },
+      {
+        name: "SHRI SUNIL CHAUDHARY, DIRECTOR",
+        image: [
+          "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372066/stembotix/reports/kadi-report/preface-1777372066274/unjb70bdgvo8i5allysy.jpg",
+        ],
+        designation: "HAITIAN HUAYUAN MACHINERY (INDIA) PVT LTD",
+        testimonial:
+          "At Haitian Huayuan Machinery (India) Pvt Ltd, we believe in investing in the future of our nation. Sponsoring these AI and Robotics Labs and AmRit Anganwadi centers reflects our commitment to nurturing young talent and promoting STEM education. We are honored to partner with ISTEM Collective Foundation and witness the transformative impact of these projects, which will equip the next generation with the tools to excel in a technology-driven world.",
+      },
+      {
+        name: "DISTRICT EDUCATION OFFICER",
+        image: [
+          "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372072/stembotix/reports/kadi-report/preface-1777372072691/dtly8gbnturjgmw7wimv.jpg",
+        ],
+        designation: "MEHSANA",
+        testimonial:
+          "The establishment of AI and Robotics Labs and AmRit Anganwadi centers in Mehsana marks a significant step toward modernizing education in our district. These facilities, funded by Haitian Huayuan Machinery (India) Pvt Ltd and executed by ISTEM Collective Foundation, align with NEP2020’s focus on experiential learning. We are confident that these projects will inspire creativity, critical thinking, and lifelong learning among our students and young learners.",
       },
     ]),
 
     // PROJECT
     project: JSON.stringify({
-      title: "STEM Learning Enhancement Program",
+      image: [
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372186/stembotix/reports/kadi-report/project-image-1777372183454/xd6lxpm7feol3l37jnh6.jpg",
+      ],
+      title: "AI and Robotics Lab and AmRit Anganwadi Projects",
+      amount: 2018302.08,
+      hardware: ["Sensors", "Actuator Interfaces", "Microcontrollers"],
       overview:
-        "Limited access to practical STEM learning resources in schools.",
+        "The establishment of AI and Robotics Labs and AmRit Anganwadi centers in Mehsana marks a significant step toward modernizing education in our district. These facilities, funded by Haitian Huayuan Machinery (India) Pvt Ltd and executed by ISTEM Collective Foundation, align with NEP2020’s focus on experiential learning. We are confident that these projects will inspire creativity, critical thinking, and lifelong learning among our students and young learners.",
+      software: ["Simulation Environments"],
+      roboticsKits: [
+        "Starter, Intermediate",
+        "Advanced, AI & IoT",
+        "Humanoid",
+        "3D Pens",
+        "Mechanical Construction",
+        "AR Kits",
+      ],
       implementation:
-        "Increased participation and interest in STEM activities.",
-      outcomesImpact: "Improved academic performance and innovation mindset.",
-
-      roboticsKits: ["Basic Robotics Kit", "Advanced STEM Kit"],
-      hardware: ["Arduino Boards", "Sensors", "Motors"],
-      software: ["Scratch", "Python", "Arduino IDE"],
-      infrastructure: ["STEM Lab Setup", "Workstations"],
-
-      amount: 500000,
-      image: ["https://images.unsplash.com/photo-1574803442176-70d4b465c920"],
+        "To maximize student engagement, the project included: Robotics competitions to encourage innovation. AI hackathons to foster problem-solving. Public demonstrations to showcase student projects. These activities provided practical applications of the lab resources, enhancing students’ technical and collaborative skills.",
+      infrastructure: [
+        "Collaboration Spaces",
+        "Furniture",
+        "IT Infrastructure (Desktop Server, Thin Client Nodes)",
+      ],
+      outcomesImpact:
+        "The AI and Robotics Labs have significantly enriched STEM education, equipping students with practical skills in robotics and AI. The project has cultivated a culture of innovation, collaboration, and career readiness, aligning with the goals of NEP2020 and preparing students for future technological advancements.",
     }),
 
     // PHOTOGRAPHS
     photographs: JSON.stringify([
-      "https://images.unsplash.com/photo-1509770293056-483fcbd13e30",
-      "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372289/stembotix/reports/kadi-report/photographs1777372288519/xsimofz0z0ulmxtz34oz.jpg",
+      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372289/stembotix/reports/kadi-report/photographs1777372288519/kuz6gxy4sh8plczlqjfa.jpg",
+      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372288/stembotix/reports/kadi-report/photographs1777372288519/b8vyzqwcz4qwb50el2pn.jpg",
+      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372288/stembotix/reports/kadi-report/photographs1777372288519/ac0fsdunmbalue89phkx.jpg",
+      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372290/stembotix/reports/kadi-report/photographs1777372288519/toro7wpxxscpwcs7ni3m.jpg",
+      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372291/stembotix/reports/kadi-report/photographs1777372288519/lmxgzjbf9kwfuwssohwu.jpg",
+      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372289/stembotix/reports/kadi-report/photographs1777372288519/xjxhfip4mg6krbhwvcmk.jpg",
+      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372289/stembotix/reports/kadi-report/photographs1777372288519/ewqykoophyktxzwbn2zl.jpg",
     ]),
 
     // CONCLUSION
     conclusion: JSON.stringify({
-      description: "Hands-on learning significantly improves engagement.",
+      description:
+        "The successful implementation of the AI and Robotics Lab and AmRit Anganwadi projects, fully sponsored by Haitian Huayuan Machinery (India) Pvt Ltd, underscores the ISTEM Collective Foundation’s commitment to advancing education through innovative, technology-driven solutions. The inauguration on March 31, 2025, by Hon’ble MLA Shri Mukesh Bhai Patel, in the presence of Shri Sunil Chaudhary and other dignitaries, marked a significant milestone in Mehsana’s educational landscape. These projects have exceeded their objectives, providing students and young children with transformative learning experiences and skills for the future. The foundation looks forward to furthering its mission of promoting STEM education and early childhood development in collaboration with partners and stakeholders.",
       conclusionImg: [
-        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372225/stembotix/reports/kadi-report/conclusion1777372223701/apvjrx3qljbtnmmmvpgy.jpg",
       ],
     }),
 
     // CONTACT (SINGLE OBJECT)
     contact: JSON.stringify({
-      name: "ABC Implementing Agency",
-      address: "Multiple Schools - Urban Region",
-      phone: "9988776655",
-      email: "email@gmail.com",
-      website: "www.company.com",
+      name: "ISTEM COLLECTIVE FOUNDATION",
+      address: "Shop No.E/310, Joyos Hub Town Mehsana",
+      phone: "+91 96874 76525",
+      email: "info@istemcf.org",
+      website: "www.istemcf.org",
     }),
 
     // QR CODE (ARRAYS)
     qr_code_img: JSON.stringify([
-      "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372931/stembotix/reports/qr-img-1777372930617/vqzgt3lfwrbeqgcktjcd.png",
     ]),
     qr_code_vid: JSON.stringify([
-      "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
+      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372941/stembotix/reports/qr-video-1777372941532/ehpgft6k0cwhamzxarnv.png",
     ]),
   };
 

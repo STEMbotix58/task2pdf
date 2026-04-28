@@ -29,14 +29,14 @@ export const ProjectStrengthsPage = () => {
           {description.split("\n").join("\n\n")}
         </Text>
 
-        <View style={[gStyles.wideImage, {marginBottom: 0}]}>
+        <View style={[gStyles.wideImage, { marginBottom: 0 }]}>
           <Image
             src={projectStrengthsImg[0] || GirlsGroupTalking}
             style={gStyles.photo}
           />
         </View>
 
-        <View style={[gStyles.footerLine, {marginBottom: 20}]} />
+        <View style={[gStyles.footerLine, { marginBottom: 0 }]} />
       </View>
     </Page>
   );

@@ -156,5 +156,6 @@ export const projectStyles = StyleSheet.create({
     fontSize: 10,
     color: "#666666",
     letterSpacing: 1,
+    textTransform: "uppercase",
   },
 });

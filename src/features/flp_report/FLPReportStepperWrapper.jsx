@@ -60,7 +60,7 @@ const FLPReportStepperWrapper = () => {
       steps={steps}
       useStore={useFLPStore}
       pdfComponent={FLPReportDocumentPDF}
-      fileName="FLP-Report-Data.pdf"
+      fileName="Report-V1.pdf"
       onBeforeGenerate={handleBeforeGenerate}
     />
   );

@@ -19,6 +19,7 @@ export const ProjectPage = () => {
     image,
   } = useProjectStore((state) => state.project);
   const { preparedBy } = useProjectStore((state) => state.basicInfo);
+  const { website } = useProjectStore((state) => state.contact);
 
   const resolveImage = (img, fallback) => {
     if (!img) return fallback;
@@ -186,7 +187,7 @@ export const ProjectPage = () => {
 
       {/* Footer */}
       <View style={projectStyles.footer}>
-        <Text style={projectStyles.website}>WWW.STEMBOTIX.COM</Text>
+        <Text style={projectStyles.website}>{website}</Text>
         <Text style={projectStyles.pageNumber}>3</Text>
       </View>
     </Page>

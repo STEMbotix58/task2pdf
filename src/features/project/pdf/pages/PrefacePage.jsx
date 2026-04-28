@@ -4,6 +4,7 @@ import { useProjectStore } from "@/features/project/model/projectStore";
 
 export const PrefacePage = () => {
   const preface = useProjectStore((state) => state.preface);
+  const { website } = useProjectStore((state) => state.contact);
 
   return (
     <Page size="A4" style={prefacePageStyles.pageContainer}>
@@ -16,18 +17,13 @@ export const PrefacePage = () => {
       {/* Content Sections */}
       <View style={prefacePageStyles.bodyContainer}>
         {preface.map((item, index) => {
-          const hasValidImage =
-            item.image &&
-            typeof item.image === "string" &&
-            item.image.trim() !== "";
-
+          const imageUrl = item.image?.[0];
           return (
             <View key={index} style={prefacePageStyles.sectionRow}>
-              {/* Render ONLY if valid */}
-              {hasValidImage && (
+              {imageUrl && (
                 <View style={prefacePageStyles.imageWrapper}>
                   <Image
-                    src={item.image[0]}
+                    src={imageUrl}
                     style={prefacePageStyles.profileImage}
                   />
                 </View>
@@ -52,7 +48,7 @@ export const PrefacePage = () => {
       {/* Footer */}
       <View style={prefacePageStyles.footer}>
         <Text style={prefacePageStyles.pageNumber}>2</Text>
-        <Text style={prefacePageStyles.website}>WWW.STEMBOTIX.COM</Text>
+        <Text style={prefacePageStyles.website}>{website}</Text>
       </View>
     </Page>
   );

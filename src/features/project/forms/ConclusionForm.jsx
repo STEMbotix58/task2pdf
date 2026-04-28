@@ -7,6 +7,7 @@ import FormHeader from "@/shared/components/layout/FormHeader";
 import TextareaInput from "@/shared/components/ui/TextareaInput";
 import ButtonGroup from "@/shared/components/ui/ButtonGroup";
 import ImageUploadField from "@/shared/components/ui/ImageUploadField";
+import { uploadImagesToCloudinary } from "@/shared/services/uploadService";
 
 const ConclusionForm = ({
   nextStep,

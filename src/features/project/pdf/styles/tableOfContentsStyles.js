@@ -70,5 +70,6 @@ export const tableOfContentsStyles = StyleSheet.create({
     fontFamily: "Helvetica",
     color: "#8aa0af",
     letterSpacing: 1,
+    textTransform: "uppercase",
   },
 });

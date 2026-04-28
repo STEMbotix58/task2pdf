@@ -70,7 +70,7 @@ const ReportStepperWrapper = () => {
       steps={steps}
       useStore={useReportStore}
       pdfComponent={ReportDocumentPDF}
-      fileName="Report-Data.pdf"
+      fileName="Report-V3.pdf"
       onBeforeGenerate={handleBeforeGenerate}
     />
   );

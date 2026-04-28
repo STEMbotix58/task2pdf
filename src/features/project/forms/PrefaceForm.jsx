@@ -35,9 +35,9 @@ const PrefaceForm = ({
     try {
       const folderName = "kadi-report/preface-" + Date.now();
 
-      const [url] = await uploadImagesToCloudinary(files, folderName);
+      const urls = await uploadImagesToCloudinary(files, folderName);
 
-      handleChange(index, "image", url);
+      handleChange(index, "image", urls);
     } catch (err) {
       console.error(err);
       alert("Image upload failed");
@@ -115,7 +115,7 @@ const PrefaceForm = ({
               {/* IMAGE FIELD */}
               <ImageUploadField
                 label="Upload Image"
-                value={item.image ? [item.image] : []}
+                value={item.image || []}
                 onChange={(files) => handleImageChange(index, files)}
                 maxSelection={1}
                 required={item.image.length > 0 ? false : true}

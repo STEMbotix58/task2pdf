@@ -26,14 +26,16 @@ const PrefaceForm = ({
   const [uploading, setUploading] = useState(false);
 
   const handleImageUpload = async (index, files) => {
+    if (!files || files.length === 0) return;
+
     try {
       setUploading(true);
 
-      const folderName = "stemlab-report/preface" + Date.now();
+      const folderName = "stemlab-report/preface-" + Date.now();
 
       const urls = await uploadImagesToCloudinary(files, folderName);
 
-      handlePrefaceChange(index, "image", urls[0]);
+      handlePrefaceChange(index, "image", urls);
     } catch (err) {
       console.error(err);
       alert("Upload failed");
@@ -66,75 +68,30 @@ const PrefaceForm = ({
       <FormHeader title="Preface" subtitle="Provide preface details." />
       <form onSubmit={handleSubmit} className="space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="md:col-span-2">
-            {/* Preface 1 */}
-            <TextareaInput
-              label="Preface Info - One"
-              id="description-0"
-              name="description-0"
-              value={formData?.[0]?.description}
-              onChange={(e) =>
-                handlePrefaceChange(0, "description", e.target.value)
-              }
-              maxLength={200}
-              required
-            />
+          {[0, 1, 2].map((i) => (
+            <div key={i} className="md:col-span-2">
+              <TextareaInput
+                label={`Preface Info - ${i + 1}`}
+                id={`description-${i}`}
+                name={`description-${i}`}
+                value={formData?.[i]?.description || ""}
+                onChange={(e) =>
+                  handlePrefaceChange(i, "description", e.target.value)
+                }
+                maxLength={200}
+                required
+              />
 
-            <ImageUploadField
-              id="prefaceImage-0"
-              name="prefaceImage-0"
-              value={formData?.[0]?.image}
-              onChange={(files) => handlePrefaceChange(0, "image", files)}
-              maxSelection={1}
-              required={formData?.[0]?.image.length > 0 ? false : true}
-            />
-          </div>
-          <div className="md:col-span-2">
-            {/* Preface 2 */}
-            <TextareaInput
-              label="Preface Info - Two"
-              id="description-1"
-              name="description-1"
-              value={formData?.[1]?.description}
-              onChange={(e) =>
-                handlePrefaceChange(1, "description", e.target.value)
-              }
-              maxLength={200}
-              required
-            />
-
-            <ImageUploadField
-              id="prefaceImage-1"
-              name="prefaceImage-1"
-              value={formData?.[1]?.image}
-              onChange={(files) => handlePrefaceChange(1, "image", files)}
-              maxSelection={1}
-              required={formData?.[1]?.image.length > 0 ? false : true}
-            />
-          </div>
-          <div className="md:col-span-2">
-            {/* Preface 3 */}
-            <TextareaInput
-              label="Preface Info - Three"
-              id="description-2"
-              name="description-2"
-              value={formData?.[2]?.description}
-              onChange={(e) =>
-                handlePrefaceChange(2, "description", e.target.value)
-              }
-              maxLength={200}
-              required
-            />
-
-            <ImageUploadField
-              id="prefaceImage-2"
-              name="prefaceImage-2"
-              value={formData?.[2]?.image}
-              onChange={(files) => handlePrefaceChange(2, "image", files)}
-              maxSelection={1}
-              required={formData?.[2]?.image.length > 0 ? false : true}
-            />
-          </div>
+              <ImageUploadField
+                id={`prefaceImage-${i}`}
+                name={`prefaceImage-${i}`}
+                value={formData?.[i]?.image || []} // ✅ always array
+                onChange={(files) => handleImageUpload(i, files)} // ✅ FIXED
+                maxSelection={1}
+                required={(formData?.[i]?.image || []).length === 0}
+              />
+            </div>
+          ))}
         </div>
 
         <ButtonGroup

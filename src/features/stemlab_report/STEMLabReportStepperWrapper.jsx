@@ -39,16 +39,16 @@ const STEMLabReportStepperWrapper = () => {
   const steps = [
     { component: CSVUploadForm },
     { component: BasicInfoForm },
-    // { component: PrefaceForm },
-    // { component: ProjectForm },
-    // { component: LabSetupComponentsForm },
-    // { component: ImplementationMilestonesForm },
-    // { component: PhaseForm },
-    // { component: OutcomesForm },
-    // { component: ImpactAnalysisForm },
-    // { component: StrengthsForm },
-    // { component: ChallengesAndMitigationForm },
-    // { component: ConclusionForm },
+    { component: PrefaceForm },
+    { component: ProjectForm },
+    { component: LabSetupComponentsForm },
+    { component: ImplementationMilestonesForm },
+    { component: PhaseForm },
+    { component: OutcomesForm },
+    { component: ImpactAnalysisForm },
+    { component: StrengthsForm },
+    { component: ChallengesAndMitigationForm },
+    { component: ConclusionForm },
   ];
 
   return (
@@ -56,7 +56,7 @@ const STEMLabReportStepperWrapper = () => {
       steps={steps}
       useStore={useStemLabStore}
       pdfComponent={STEMLabReportDocumentPDF}
-      fileName="STEMLab-Report-Data.pdf"
+      fileName="Report-V2.pdf"
       onBeforeGenerate={handleBeforeGenerate}
     />
   );

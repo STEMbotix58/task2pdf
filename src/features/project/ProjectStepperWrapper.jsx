@@ -39,7 +39,7 @@ const ProposalStepperWrapper = () => {
       steps={steps}
       useStore={useProjectStore}
       pdfComponent={ProjectDocumentPDF}
-      fileName="Project-Data.pdf"
+      fileName="Report-V3.pdf"
       onBeforeGenerate={handleBeforeGenerate}
     />
   );

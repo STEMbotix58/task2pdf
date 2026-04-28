@@ -43,6 +43,11 @@ export const coverPageStyles = StyleSheet.create({
     width: 120,
     height: 40,
   },
+  logoImage: {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+  },
 
   gridContainer: {
     position: "absolute",

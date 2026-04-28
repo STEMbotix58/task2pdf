@@ -38,10 +38,16 @@ export const CoverPage = () => {
         {/* HEADER AREA */}
         <View style={coverPageStyles.header}>
           <View style={coverPageStyles.logoLeft}>
-            <Image src={resolveImage(partnerLogo?.[0], HaitianLogo)} />
+            <Image
+              src={resolveImage(partnerLogo?.[0], HaitianLogo)}
+              style={coverPageStyles.logoImage}
+            />
           </View>
           <View style={coverPageStyles.logoRight}>
-            <Image src={resolveImage(stemLogo?.[0], STEMLogo)} />
+            <Image
+              src={resolveImage(stemLogo?.[0], STEMLogo)}
+              style={coverPageStyles.logoImage}
+            />
           </View>
         </View>
 
