@@ -1,6 +1,7 @@
 import React from "react";
 import { Page, Text, View, Image } from "@react-pdf/renderer";
 import { conclusionPageStyles as styles } from "../styles/conclusionPageStyles";
+import { globalStyles as gStyles } from "../styles/globalStyles";
 import { useFLPStore } from "@/features/flp_report/model/flpReportStore";
 
 import ConclusionIcon from "@/shared/assets/icons/glow-bulb.png";
@@ -11,31 +12,31 @@ export const ConclusionPage = () => {
     (state) => state.conclusion,
   );
   return (
-    <Page size="A4" style={styles.page}>
-      <View style={styles.contentWrapper}>
-        <View style={styles.headerContainer}>
-          <View style={styles.numberBadge}>
-            <Text style={styles.numberText}>12</Text>
+    <Page size="A4" style={gStyles.page}>
+      <View style={gStyles.contentWrapper}>
+        <View style={gStyles.headerContainer}>
+          <View style={gStyles.numberBadge}>
+            <Text style={gStyles.numberText}>12</Text>
           </View>
-          <View style={styles.titleBlock}>
-            <Text style={styles.titleText}>Conclusion</Text>
-            <View style={styles.yellowDivider} />
+          <View style={gStyles.titleBlock}>
+            <Text style={gStyles.titleText}>Conclusion</Text>
+            <View style={gStyles.yellowDivider} />
           </View>
-          <Image src={ConclusionIcon} style={styles.iconRight} />
+          <Image src={ConclusionIcon} style={gStyles.iconRight} />
         </View>
 
-        <Text style={styles.paragraph}>
+        <Text style={gStyles.paragraph}>
           {description?.split("\n").join("\n\n")}
         </Text>
 
-        <View style={styles.wideImage}>
+        <View style={gStyles.wideImage}>
           <Image
             src={conclusionImg?.[0] || StudentsRaisingHandsImg}
-            style={styles.photo}
+            style={gStyles.photo}
           />
         </View>
 
-        <View style={styles.footerLine} />
+        <View style={gStyles.footerLine} />
       </View>
     </Page>
   );

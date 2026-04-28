@@ -1,6 +1,7 @@
 import React from "react";
 import { Page, Text, View, Image } from "@react-pdf/renderer";
 import { studentCertificationPageStyles as styles } from "../styles/studentCertificationPageStyles";
+import { globalStyles as gStyles } from "../styles/globalStyles";
 import { useFLPStore } from "@/features/flp_report/model/flpReportStore";
 
 // Make sure to match these paths with your actual assets
@@ -15,38 +16,38 @@ export const StudentCertificationPage = () => {
   return (
     <>
       {/* PAGE 1 */}
-      <Page size="A4" style={styles.page}>
-        <View style={styles.contentWrapper}>
-          <View style={styles.headerContainer}>
-            <View style={styles.numberBadge}>
-              <Text style={styles.numberText}>06</Text>
+      <Page size="A4" style={gStyles.page}>
+        <View style={gStyles.contentWrapper}>
+          <View style={gStyles.headerContainer}>
+            <View style={gStyles.numberBadge}>
+              <Text style={gStyles.numberText}>06</Text>
             </View>
-            <View style={styles.titleBlock}>
-              <Text style={styles.titleText}>Student Certification</Text>
-              <View style={styles.yellowDivider} />
+            <View style={gStyles.titleBlock}>
+              <Text style={gStyles.titleText}>Student Certification</Text>
+              <View style={gStyles.yellowDivider} />
             </View>
-            <Image src={CertificationIcon} style={styles.iconRight} />
+            <Image src={CertificationIcon} style={gStyles.iconRight} />
           </View>
 
-          <View style={styles.wideImage}>
+          <View style={gStyles.wideImage}>
             <Image
               src={studentCertification[0] || TeacherRupeeImg}
-              style={styles.photo}
+              style={gStyles.photo}
             />
           </View>
 
-          <Text style={styles.paragraph}>
+          <Text style={gStyles.paragraph}>
             {studentCertification["description"].split("\n").join("\n\n")}
           </Text>
 
-          <View style={styles.wideImage}>
+          <View style={gStyles.wideImage}>
             <Image
               src={studentCertification[1] || TeacherRupeeImg}
-              style={styles.photo}
+              style={gStyles.photo}
             />
           </View>
 
-          <View style={styles.footerLine} />
+          <View style={gStyles.footerLine} />
         </View>
       </Page>
     </>

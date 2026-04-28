@@ -1,6 +1,7 @@
 import React from "react";
 import { Page, Text, View, Image } from "@react-pdf/renderer";
 import { keyOutcomesPageStyles as styles } from "../styles/keyOutcomesPageStyles";
+import { globalStyles as gStyles } from "../styles/globalStyles";
 import { useFLPStore } from "@/features/flp_report/model/flpReportStore";
 
 // Make sure these paths match your actual assets folder structure
@@ -13,64 +14,64 @@ export const KeyOutcomesPage = () => {
   );
 
   return (
-    <Page size="A4" style={styles.page}>
-      <View style={styles.contentWrapper}>
-        <View style={styles.headerContainer}>
-          <View style={styles.numberBadge}>
-            <Text style={styles.numberText}>11</Text>
+    <Page size="A4" style={gStyles.page}>
+      <View style={gStyles.contentWrapper}>
+        <View style={gStyles.headerContainer}>
+          <View style={gStyles.numberBadge}>
+            <Text style={gStyles.numberText}>11</Text>
           </View>
-          <View style={styles.titleBlock}>
-            <Text style={styles.titleText}>Key Outcomes</Text>
-            <View style={styles.yellowDivider} />
+          <View style={gStyles.titleBlock}>
+            <Text style={gStyles.titleText}>Key Outcomes</Text>
+            <View style={gStyles.yellowDivider} />
           </View>
-          <Image src={OutcomesChartIcon} style={styles.iconRight} />
+          <Image src={OutcomesChartIcon} style={gStyles.iconRight} />
         </View>
-        <View style={styles.row}>
-          <View style={styles.halfContent}>
-            <Text style={styles.paragraph}>{description.split("\n")[0]}</Text>
+        <View style={[gStyles.row, { marginBottom: 10 }]}>
+          <View style={gStyles.halfContent}>
+            <Text style={gStyles.paragraph}>{description.split("\n")[0]}</Text>
           </View>
-          <View style={styles.halfImage}>
+          <View style={gStyles.halfImage}>
             <Image
               src={keyOutcomesImg[0] || StudentsWritingImg}
-              style={styles.photo}
+              style={gStyles.photo}
             />
           </View>
         </View>
-        <View style={styles.row}>
-          <View style={styles.halfImage}>
+        <View style={[gStyles.row, { marginBottom: 10 }]}>
+          <View style={gStyles.halfImage}>
             <Image
               src={keyOutcomesImg[1] || StudentsWritingImg}
-              style={styles.photo}
+              style={gStyles.photo}
             />
           </View>
-          <View style={styles.halfContent}>
-            <Text style={styles.paragraph}>{description.split("\n")[1]}</Text>
+          <View style={gStyles.halfContent}>
+            <Text style={gStyles.paragraph}>{description.split("\n")[1]}</Text>
           </View>
         </View>
-        <View style={styles.row}>
-          <View style={styles.halfContent}>
-            <Text style={styles.paragraph}>{description.split("\n")[2]}</Text>
+        <View style={[gStyles.row, { marginBottom: 10 }]}>
+          <View style={gStyles.halfContent}>
+            <Text style={gStyles.paragraph}>{description.split("\n")[2]}</Text>
           </View>
-          <View style={styles.halfImage}>
+          <View style={gStyles.halfImage}>
             <Image
               src={keyOutcomesImg[2] || StudentsWritingImg}
-              style={styles.photo}
+              style={gStyles.photo}
             />
           </View>
         </View>
-        <View style={styles.row}>
-          <View style={styles.halfImage}>
+        <View style={[gStyles.row, { marginBottom: 10 }]}>
+          <View style={gStyles.halfImage}>
             <Image
               src={keyOutcomesImg[3] || StudentsWritingImg}
-              style={styles.photo}
+              style={gStyles.photo}
             />
           </View>
-          <View style={styles.halfContent}>
-            <Text style={styles.paragraph}>{description.split("\n")[3]}</Text>
+          <View style={gStyles.halfContent}>
+            <Text style={gStyles.paragraph}>{description.split("\n")[3]}</Text>
           </View>
         </View>
 
-        <View style={styles.footerLine} />
+        <View style={gStyles.footerLine} />
       </View>
     </Page>
   );

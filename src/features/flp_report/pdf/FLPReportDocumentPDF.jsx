@@ -14,7 +14,7 @@ import { FinancialOverviewPage } from "./pages/FinancialOverviewPage";
 import { StudentCertificationPage } from "./pages/StudentCertificationPage";
 import { ImpactAnalysisPage } from "./pages/ImpactAnalysisPage";
 
-const FLPReportDocumentPDF = ({ data }) => {
+const FLPReportDocumentPDF = () => {
   return (
     <Document>
       <CoverPage />

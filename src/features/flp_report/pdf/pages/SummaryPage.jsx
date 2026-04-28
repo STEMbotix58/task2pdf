@@ -1,6 +1,7 @@
 import React from "react";
 import { Page, Text, View, Image } from "@react-pdf/renderer";
 import { summaryPageStyles as styles } from "../styles/summaryPageStyles";
+import { globalStyles as gStyles } from "../styles/globalStyles";
 import { useFLPStore } from "@/features/flp_report/model/flpReportStore";
 
 // Make sure these paths match your actual assets
@@ -10,7 +11,7 @@ import SummaryIcon from "@/shared/assets/icons/executive-summary-icon.png";
 export const SummaryPage = () => {
   const { description, summaryImg } = useFLPStore((state) => state.summary);
   return (
-    <Page size="A4" style={styles.page}>
+    <Page size="A4" style={gStyles.page}>
       <View style={styles.topImageContainer}>
         <Image
           src={summaryImg[0] || ClassroomComputerImg}
@@ -18,23 +19,23 @@ export const SummaryPage = () => {
         />
       </View>
 
-      <View style={styles.contentWrapper}>
-        <View style={styles.headerContainer}>
-          <View style={styles.numberBadge}>
-            <Text style={styles.numberText}>01</Text>
+      <View style={[gStyles.contentWrapper, {paddingTop: 30}]}>
+        <View style={gStyles.headerContainer}>
+          <View style={gStyles.numberBadge}>
+            <Text style={gStyles.numberText}>01</Text>
           </View>
-          <View style={styles.titleBlock}>
-            <Text style={styles.titleText}>Executive Summary</Text>
-            <View style={styles.yellowDivider} />
+          <View style={gStyles.titleBlock}>
+            <Text style={gStyles.titleText}>Executive Summary</Text>
+            <View style={gStyles.yellowDivider} />
           </View>
-          <Image src={SummaryIcon} style={styles.iconRight} />
+          <Image src={SummaryIcon} style={gStyles.iconRight} />
         </View>
 
-        <Text style={styles.paragraph}>
+        <Text style={gStyles.paragraph}>
           {description.split("\n").join("\n\n")}
         </Text>
 
-        <View style={styles.footerLine} />
+        <View style={gStyles.footerLine} />
       </View>
     </Page>
   );

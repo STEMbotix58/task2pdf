@@ -1,6 +1,7 @@
 import React from "react";
 import { Page, Text, View, Image } from "@react-pdf/renderer";
 import { financialOverviewPageStyles as styles } from "../styles/financialOverviewPageStyles";
+import { globalStyles as gStyles } from "../styles/globalStyles";
 import { useFLPStore } from "@/features/flp_report/model/flpReportStore";
 
 // Make sure to match these paths with your actual assets
@@ -13,38 +14,38 @@ export const FinancialOverviewPage = () => {
   return (
     <>
       {/* PAGE 1 */}
-      <Page size="A4" style={styles.page}>
-        <View style={styles.contentWrapper}>
-          <View style={styles.headerContainer}>
-            <View style={styles.numberBadge}>
-              <Text style={styles.numberText}>05</Text>
+      <Page size="A4" style={gStyles.page}>
+        <View style={gStyles.contentWrapper}>
+          <View style={gStyles.headerContainer}>
+            <View style={gStyles.numberBadge}>
+              <Text style={gStyles.numberText}>05</Text>
             </View>
-            <View style={styles.titleBlock}>
-              <Text style={styles.titleText}>Financial Overview</Text>
-              <View style={styles.yellowDivider} />
+            <View style={gStyles.titleBlock}>
+              <Text style={gStyles.titleText}>Financial Overview</Text>
+              <View style={gStyles.yellowDivider} />
             </View>
-            <Image src={FinanceOverviewIcon} style={styles.iconRight} />
+            <Image src={FinanceOverviewIcon} style={gStyles.iconRight} />
           </View>
 
-          <View style={styles.row}>
-            <View style={styles.halfImage}>
+          <View style={gStyles.row}>
+            <View style={gStyles.halfImage}>
               <Image
                 src={financialOverview[0] || MonitorsClassroomImg}
-                style={styles.photo}
+                style={gStyles.photo}
               />
             </View>
-            <View style={styles.halfContent}>
-              <Text style={styles.paragraph}>
+            <View style={gStyles.halfContent}>
+              <Text style={gStyles.paragraph}>
                 {financialOverview["description"].split("\n")[0]}
               </Text>
             </View>
           </View>
 
-          <Text style={styles.paragraph}>
+          <Text style={gStyles.paragraph}>
             {financialOverview["description"].split("\n").slice(1).join("\n\n")}
           </Text>
 
-          <View style={styles.footerLine} />
+          <View style={gStyles.footerLine} />
         </View>
       </Page>
     </>

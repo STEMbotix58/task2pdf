@@ -1,6 +1,7 @@
 import React from "react";
 import { Page, Text, View, Image } from "@react-pdf/renderer";
 import { implementationDeliveryPageStyles as styles } from "../styles/implementationDeliveryPageStyles";
+import { globalStyles as gStyles } from "../styles/globalStyles";
 import { useFLPStore } from "@/features/flp_report/model/flpReportStore";
 
 // Paths to images - Update these to match your actual project structure
@@ -19,95 +20,95 @@ export const ImplementationDelivery = () => {
   return (
     <>
       {/* PAGE 1 */}
-      <Page size="A4" style={styles.page}>
-        <View style={styles.contentWrapper}>
-          <View style={styles.headerContainer}>
-            <View style={styles.numberBadge}>
-              <Text style={styles.numberText}>03</Text>
+      <Page size="A4" style={gStyles.page}>
+        <View style={gStyles.contentWrapper}>
+          <View style={gStyles.headerContainer}>
+            <View style={gStyles.numberBadge}>
+              <Text style={gStyles.numberText}>03</Text>
             </View>
-            <View style={styles.titleBlock}>
-              <Text style={styles.titleText}>
+            <View style={gStyles.titleBlock}>
+              <Text style={gStyles.titleText}>
                 Program{"\n"}Implementation & Delivery
               </Text>
-              <View style={styles.yellowDivider} />
+              <View style={gStyles.yellowDivider} />
             </View>
-            <Image src={ImplementationIcon} style={styles.iconRight} />
+            <Image src={ImplementationIcon} style={gStyles.iconRight} />
           </View>
 
-          <View style={styles.row}>
-            <View style={styles.halfImage}>
+          <View style={gStyles.row}>
+            <View style={gStyles.halfImage}>
               <Image
                 src={implementationAndDeliveryImg[0] || TallTeacherImg}
-                style={styles.photo}
+                style={gStyles.photo}
               />
             </View>
-            <View style={styles.halfContent}>
-              <Text style={styles.paragraph}>{description.split("\n")[0]}</Text>
+            <View style={gStyles.halfContent}>
+              <Text style={gStyles.paragraph}>{description.split("\n")[0]}</Text>
             </View>
           </View>
 
-          <View style={styles.row}>
-            <View style={styles.halfContent}>
-              <Text style={styles.paragraph}>{description.split("\n")[1]}</Text>
+          <View style={gStyles.row}>
+            <View style={gStyles.halfContent}>
+              <Text style={gStyles.paragraph}>{description.split("\n")[1]}</Text>
             </View>
-            <View style={styles.halfImage}>
+            <View style={gStyles.halfImage}>
               <Image
                 src={implementationAndDeliveryImg[1] || ComputerLabImg}
-                style={styles.photo}
+                style={gStyles.photo}
               />
             </View>
           </View>
 
-          <Text style={[styles.paragraph, { marginBottom: 0 }]}>
+          <Text style={[gStyles.paragraph, { marginBottom: 0 }]}>
             {description.split("\n")[2]}
           </Text>
 
-          <View style={[styles.row, { marginVertical: 10 }]}>
-            <View style={styles.halfImage}>
+          <View style={[gStyles.row, { marginVertical: 10 }]}>
+            <View style={gStyles.halfImage}>
               <Image
                 src={implementationAndDeliveryImg[2] || ClassroomImg1}
-                style={styles.photo}
+                style={gStyles.photo}
               />
             </View>
-            <View style={styles.halfImage}>
+            <View style={gStyles.halfImage}>
               <Image
                 src={implementationAndDeliveryImg[3] || ClassroomImg2}
-                style={styles.photo}
+                style={gStyles.photo}
               />
             </View>
           </View>
-          <View style={styles.footerLine} />
+          <View style={gStyles.footerLine} />
         </View>
       </Page>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.contentWrapper}>
-          <View style={styles.wideImage}>
+      <Page size="A4" style={gStyles.page}>
+        <View style={gStyles.contentWrapper}>
+          <View style={gStyles.wideImage}>
             <Image
               src={implementationAndDeliveryImg[4] || WideTeacherImg}
-              style={styles.photo}
+              style={gStyles.photo}
             />
           </View>
 
-          <Text style={styles.paragraph}>
+          <Text style={gStyles.paragraph}>
             {description.split("\n").slice(3).join("\n\n")}
           </Text>
 
-          <View style={[styles.row, { marginBottom: 10 }]}>
-            <View style={styles.halfImage}>
+          <View style={[gStyles.row, { marginBottom: 10 }]}>
+            <View style={gStyles.halfImage}>
               <Image
                 src={implementationAndDeliveryImg[5] || DhanGyanLoginImg}
-                style={styles.photo}
+                style={gStyles.photo}
               />
             </View>
-            <View style={styles.halfImage}>
+            <View style={gStyles.halfImage}>
               <Image
                 src={implementationAndDeliveryImg[6] || DhanGyanLoginImg}
-                style={styles.photo}
+                style={gStyles.photo}
               />
             </View>
           </View>
 
-          <View style={styles.footerLine} />
+          <View style={gStyles.footerLine} />
         </View>
       </Page>
     </>

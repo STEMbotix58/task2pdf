@@ -1,6 +1,7 @@
 import React from "react";
 import { Page, Text, View, Image } from "@react-pdf/renderer";
 import { outcomesImpactPageStyles as styles } from "../styles/outcomesImpactPageStyles";
+import { globalStyles as gStyles } from "../styles/globalStyles";
 import { useFLPStore } from "@/features/flp_report/model/flpReportStore";
 
 // Paths to images - Update these to match your actual project structure
@@ -15,49 +16,49 @@ export const OutcomesImpactPage = () => {
   return (
     <>
       {/* PAGE 1: */}
-      <Page size="A4" style={styles.page}>
-        <View style={styles.contentWrapper}>
-          <View style={styles.headerContainer}>
-            <View style={styles.numberBadge}>
-              <Text style={styles.numberText}>07</Text>
+      <Page size="A4" style={gStyles.page}>
+        <View style={gStyles.contentWrapper}>
+          <View style={gStyles.headerContainer}>
+            <View style={gStyles.numberBadge}>
+              <Text style={gStyles.numberText}>07</Text>
             </View>
-            <View style={styles.titleBlock}>
-              <Text style={styles.titleText}>Outcomes and Impact</Text>
-              <View style={styles.yellowDivider} />
+            <View style={gStyles.titleBlock}>
+              <Text style={gStyles.titleText}>Outcomes and Impact</Text>
+              <View style={gStyles.yellowDivider} />
             </View>
-            <Image src={OutcomesIcon} style={styles.iconRight} />
+            <Image src={OutcomesIcon} style={gStyles.iconRight} />
           </View>
 
-          <View style={styles.row}>
-            <View style={styles.halfImage}>
+          <View style={gStyles.row}>
+            <View style={gStyles.halfImage}>
               <Image
                 src={outcomesAndImpactImg[0] || StudentsComputerImg}
-                style={styles.photo}
+                style={gStyles.photo}
               />
             </View>
-            <View style={styles.halfContent}>
-              <Text style={styles.paragraph}>{description.split("\n")[0]}</Text>
+            <View style={gStyles.halfContent}>
+              <Text style={gStyles.paragraph}>{description.split("\n")[0]}</Text>
             </View>
           </View>
 
-          <Text style={styles.paragraph}>
+          <Text style={gStyles.paragraph}>
             {description.split("\n").slice(3, -1).join("\n\n")}
           </Text>
 
-          <View style={styles.row}>
-            <View style={styles.halfContent}>
-              <Text style={styles.paragraph}>
+          <View style={gStyles.row}>
+            <View style={gStyles.halfContent}>
+              <Text style={gStyles.paragraph}>
                 {description.split("\n").slice(-1).join("\n\n")}
               </Text>
             </View>
-            <View style={styles.halfImage}>
+            <View style={gStyles.halfImage}>
               <Image
                 src={outcomesAndImpactImg[1] || StudentsClassroomImg}
-                style={styles.photo}
+                style={gStyles.photo}
               />
             </View>
           </View>
-          <View style={styles.footerLine} />
+          <View style={gStyles.footerLine} />
         </View>
       </Page>
     </>

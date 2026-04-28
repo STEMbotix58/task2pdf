@@ -1,6 +1,7 @@
 import React from "react";
 import { Page, Text, View, Image } from "@react-pdf/renderer";
 import { reachCoveragePageStyles as styles } from "../styles/reachCoveragePageStyles";
+import { globalStyles as gStyles } from "../styles/globalStyles";
 import { useFLPStore } from "@/features/flp_report/model/flpReportStore";
 
 // Make sure to match these paths with your actual assets
@@ -13,39 +14,39 @@ export const ReachCoveragePage = () => {
   return (
     <>
       {/* PAGE 1 */}
-      <Page size="A4" style={styles.page}>
-        <View style={styles.contentWrapper}>
-          <View style={styles.headerContainer}>
-            <View style={styles.numberBadge}>
-              <Text style={styles.numberText}>04</Text>
+      <Page size="A4" style={gStyles.page}>
+        <View style={gStyles.contentWrapper}>
+          <View style={gStyles.headerContainer}>
+            <View style={gStyles.numberBadge}>
+              <Text style={gStyles.numberText}>04</Text>
             </View>
-            <View style={styles.titleBlock}>
-              <Text style={styles.titleText}>
+            <View style={gStyles.titleBlock}>
+              <Text style={gStyles.titleText}>
                 Program Reach &{"\n"}Coverage
               </Text>
-              <View style={styles.yellowDivider} />
+              <View style={gStyles.yellowDivider} />
             </View>
-            <Image src={ReachIcon} style={styles.iconRight} />
+            <Image src={ReachIcon} style={gStyles.iconRight} />
           </View>
 
-          <View style={styles.row}>
-            <View style={styles.halfContent}>
-              <Text style={styles.paragraph}>
+          <View style={[gStyles.row, { marginBottom: 10 }]}>
+            <View style={gStyles.halfContent}>
+              <Text style={gStyles.paragraph}>
                 {reachAndCoverage["description"].split("\n")[0]}
               </Text>
             </View>
-            <View style={styles.halfImage}>
+            <View style={gStyles.halfImage}>
               <Image
                 src={reachAndCoverage[0] || ReachClassroomImg}
-                style={styles.photo}
+                style={gStyles.photo}
               />
             </View>
           </View>
 
-          <Text style={styles.paragraph}>
+          <Text style={gStyles.paragraph}>
             {reachAndCoverage["description"].split("\n").slice(1).join("\n\n")}
           </Text>
-          <View style={styles.footerLine} />
+          <View style={gStyles.footerLine} />
         </View>
       </Page>
     </>

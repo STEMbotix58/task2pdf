@@ -1,6 +1,7 @@
 import React from "react";
 import { Page, Text, View, Image } from "@react-pdf/renderer";
 import { objectivePageStyles as styles } from "../styles/objectivePageStyles";
+import { globalStyles as gStyles } from "../styles/globalStyles";
 import { useFLPStore } from "@/features/flp_report/model/flpReportStore";
 
 // Update paths to match your assets directory
@@ -11,48 +12,48 @@ export const ObjectivePage = () => {
   const { description, objectiveImg } = useFLPStore((state) => state.objective);
 
   return (
-    <Page size="A4" style={styles.page}>
-      <View style={styles.contentWrapper}>
-        <View style={styles.headerContainer}>
-          <View style={styles.numberBadge}>
-            <Text style={styles.numberText}>02</Text>
+    <Page size="A4" style={gStyles.page}>
+      <View style={gStyles.contentWrapper}>
+        <View style={gStyles.headerContainer}>
+          <View style={gStyles.numberBadge}>
+            <Text style={gStyles.numberText}>02</Text>
           </View>
-          <View style={styles.titleBlock}>
-            <Text style={styles.titleText}>Program Objectives</Text>
-            <View style={styles.yellowDivider} />
+          <View style={gStyles.titleBlock}>
+            <Text style={gStyles.titleText}>Program Objectives</Text>
+            <View style={gStyles.yellowDivider} />
           </View>
-          <Image src={ObjectivesIcon} style={styles.iconRight} />
+          <Image src={ObjectivesIcon} style={gStyles.iconRight} />
         </View>
 
-        <View style={styles.row}>
-          <View style={styles.halfContent}>
-            <Text style={styles.paragraph}>{description.split("\n")[0]}</Text>
+        <View style={gStyles.row}>
+          <View style={gStyles.halfContent}>
+            <Text style={gStyles.paragraph}>{description.split("\n")[0]}</Text>
           </View>
-          <View style={styles.halfImage}>
+          <View style={gStyles.halfImage}>
             <Image
               src={objectiveImg[0] || ClassroomStudyImg}
-              style={styles.photo}
+              style={gStyles.photo}
             />
           </View>
         </View>
 
-        <View style={styles.row}>
-          <View style={styles.halfImage}>
+        <View style={gStyles.row}>
+          <View style={gStyles.halfImage}>
             <Image
               src={objectiveImg[1] || ClassroomStudyImg}
-              style={styles.photo}
+              style={gStyles.photo}
             />
           </View>
-          <View style={styles.halfContent}>
-            <Text style={styles.paragraph}>{description.split("\n")[1]}</Text>
+          <View style={gStyles.halfContent}>
+            <Text style={gStyles.paragraph}>{description.split("\n")[1]}</Text>
           </View>
         </View>
 
-        <Text style={styles.paragraph}>
+        <Text style={gStyles.paragraph}>
           {description.split("\n").slice(2).join("\n\n")}
         </Text>
 
-        <View style={styles.footerLine} />
+        <View style={gStyles.footerLine} />
       </View>
     </Page>
   );

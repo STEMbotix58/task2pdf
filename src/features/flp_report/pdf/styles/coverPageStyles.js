@@ -38,17 +38,19 @@ export const coverPageStyles = StyleSheet.create({
 
   titleContainer: {
     position: "relative",
-    paddingRight: 25,
-    paddingLeft: 50,
+    paddingHorizontal: 35,
+    // paddingLeft: 50,
     paddingBottom: 20,
   },
 
   titleText: {
     fontSize: 58,
     fontFamily: "Helvetica-Bold",
+    textOverflow: "ellipsis",
     color: "#FF3131",
     lineHeight: 1.05,
-    letterSpacing: -1,
+    letterSpacing: 0, // remove this first
+    width: "85%", // prevent collision with icon
   },
 
   clipboardIcon: {
@@ -65,8 +67,7 @@ export const coverPageStyles = StyleSheet.create({
     color: "#333333",
     lineHeight: 1.2,
     textAlign: "justify",
-    paddingRight: 25,
-    paddingLeft: 50,
+    paddingHorizontal: 35,
     paddingBottom: 10,
   },
 
