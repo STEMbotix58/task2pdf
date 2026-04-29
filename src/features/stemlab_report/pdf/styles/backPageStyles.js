@@ -75,7 +75,7 @@ export const backPageStyles = StyleSheet.create({
   logoImg: {
     width: 200,
     height: 90,
-    objectFit: "cover",
+    objectFit: "contain",
   },
 
   bottomSection: {
