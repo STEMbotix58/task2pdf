@@ -4,6 +4,8 @@ import {
   fetchAllProposals,
   fetchAllReports,
   fetchAllProjects,
+  fetchAllSTEMLabReports,
+  fetchAllFLPReports,
 } from "@/shared/services/databaseService";
 
 const validateItemStructure = (item, type) => {
@@ -15,6 +17,17 @@ const validateItemStructure = (item, type) => {
       actualType: item?.type,
       item,
     });
+  }
+
+  if (type === "stemlab_report" && !item?.basic_info) {
+    console.warn(
+      "[useAdminData] STEM Lab Report missing Report Basic Info",
+      item,
+    );
+  }
+
+  if (type === "flp_report" && !item?.basic_info) {
+    console.warn("[useAdminData] FLP Report missing Report Basic Info", item);
   }
 
   if (type === "project" && !item?.project) {
@@ -65,6 +78,28 @@ export const useAdminData = (activeTab) => {
         let normalizedData = [];
 
         switch (requestedTab) {
+          case "stemlab_report":
+            {
+              const response = await fetchAllSTEMLabReports();
+
+              if (!response.success) {
+                throw new Error(response.error);
+              }
+
+              normalizedData = normalizeItems(response.data, "stemlab_report");
+            }
+            break;
+          case "flp_report":
+            {
+              const response = await fetchAllFLPReports();
+
+              if (!response.success) {
+                throw new Error(response.error);
+              }
+
+              normalizedData = normalizeItems(response.data, "flp_report");
+            }
+            break;
           case "projects":
             {
               const response = await fetchAllProjects();
@@ -112,11 +147,15 @@ export const useAdminData = (activeTab) => {
           case "all":
             {
               const [
+                stemlabReportResponse,
+                flpReportResponse,
                 projectsResponse,
                 reportsResponse,
                 proposalsResponse,
                 deliveriesResponse,
               ] = await Promise.all([
+                fetchAllSTEMLabReports(),
+                fetchAllFLPReports(),
                 fetchAllProjects(),
                 fetchAllReports(),
                 fetchAllProposals(),
@@ -124,6 +163,8 @@ export const useAdminData = (activeTab) => {
               ]);
 
               const failedResponse = [
+                stemlabReportResponse,
+                flpReportResponse,
                 projectsResponse,
                 reportsResponse,
                 proposalsResponse,
@@ -135,6 +176,8 @@ export const useAdminData = (activeTab) => {
               }
 
               normalizedData = [
+                ...normalizeItems(stemlabReportResponse.data, "stemlab_report"),
+                ...normalizeItems(flpReportResponse.data, "flp_report"),
                 ...normalizeItems(projectsResponse.data, "project"),
                 ...normalizeItems(reportsResponse.data, "report"),
                 ...normalizeItems(proposalsResponse.data, "proposal"),

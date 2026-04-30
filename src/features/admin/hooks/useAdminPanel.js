@@ -24,6 +24,9 @@ export const useAdminPanel = () => {
 
   const stats = useMemo(() => {
     return {
+      stemlab_report: safeData.filter((item) => item?.type === "stemlab_report")
+        .length,
+      flp_report: safeData.filter((item) => item?.type === "flp_report").length,
       project: safeData.filter((item) => item?.type === "project").length,
       reports: safeData.filter((item) => item?.type === "report").length,
       proposals: safeData.filter((item) => item?.type === "proposal").length,
@@ -37,6 +40,22 @@ export const useAdminPanel = () => {
     }
 
     return safeData.slice(0, 5).map((item) => {
+      if (item?.type === "flp_report") {
+        return {
+          title: item.basicInfo?.projectTitle || "Untitled Project",
+          time: formatActivityTime(item.created_at),
+          type: "flp_report",
+        };
+      }
+
+      if (item?.type === "stemlab_report") {
+        return {
+          title: item.basic_info?.projectTitle || "Untitled Project",
+          time: formatActivityTime(item.created_at),
+          type: "stemlab_report",
+        };
+      }
+
       if (item?.type === "project") {
         return {
           title: item.project?.title || "Untitled Project",
@@ -71,9 +90,7 @@ export const useAdminPanel = () => {
 
       console.warn(
         "[useAdminPanel] Skipping recent activity item with unknown type",
-        {
-          item,
-        },
+        item.type,
       );
       return null;
     });

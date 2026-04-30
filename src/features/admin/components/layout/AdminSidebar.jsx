@@ -1,13 +1,25 @@
 import React from "react";
-import { FiGrid, FiBriefcase, FiUsers, FiCheckSquare } from "react-icons/fi";
+import {
+  FiGrid,
+  FiBriefcase,
+  FiUsers,
+  FiCheckSquare,
+  FiFileText,
+} from "react-icons/fi";
 import STEMLogo from "@/shared/assets/images/STEMbotix-Logo.png";
 import { MdStoreMallDirectory } from "react-icons/md";
 
 const AdminSidebar = ({ activeTab, setActiveTab }) => {
   const navItems = [
     { name: "Dashboard", key: "dashboard", icon: <FiGrid /> },
-    { name: "Projects", key: "projects", icon: <MdStoreMallDirectory /> },
-    { name: "Reports", key: "reports", icon: <FiBriefcase /> },
+    { name: "Report V1", key: "flp_report", icon: <MdStoreMallDirectory /> },
+    {
+      name: "Report V2",
+      key: "stemlab_report",
+      icon: <FiFileText />,
+    },
+    { name: "Report V3", key: "projects", icon: <MdStoreMallDirectory /> },
+    { name: "Report V4", key: "reports", icon: <FiBriefcase /> },
     { name: "Proposals", key: "proposals", icon: <FiUsers /> },
     { name: "Deliveries", key: "deliveries", icon: <FiCheckSquare /> },
   ];

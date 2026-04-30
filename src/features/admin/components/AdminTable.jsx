@@ -7,6 +7,42 @@ const AdminTable = ({ items, activeTab }) => {
   const handleExport = (item) => {
     let formattedData = {};
 
+    if (activeTab === "flp_report") {
+      formattedData = {
+        basic_info: item.basic_info,
+        summary: item.summary,
+        objective: item.objective,
+        implementation_and_delivery: item.implementation_and_delivery,
+        reach_and_coverage: item.reach_and_coverage,
+        financial_overview: item.financial_overview,
+        student_certification: item.student_certification,
+        outcomes_and_impact: item.outcomes_and_impact,
+        impact_analysis: item.impact_analysis,
+        project_strengths: item.project_strengths,
+        challenges_and_migration: item.challenges_and_migration,
+        key_outcomes: item.key_outcomes,
+        conclusion: item.conclusion,
+        created_at: item.created_at,
+      };
+    }
+
+    if (activeTab === "stemlab_report") {
+      formattedData = {
+        basic_info: item.basic_info,
+        preface: item.preface,
+        phase: item.phase,
+        outcomes: item.outcomes,
+        project: item.project,
+        impact_analysis: item.impact_analysis,
+        lab_setup_and_components: item.lab_setup_and_components,
+        implementation_and_milestones: item.implementation_and_milestones,
+        strengths: item.strengths,
+        challenges_and_mitigation: item.challenges_and_mitigation,
+        conclusion: item.conclusion,
+        created_at: item.created_at,
+      };
+    }
+
     if (activeTab === "projects") {
       formattedData = {
         basic_info: item.basic_info,
@@ -18,7 +54,7 @@ const AdminTable = ({ items, activeTab }) => {
         contact: item.contact,
         qr_code_img: item.qr_code_img,
         qr_code_vid: item.qr_code_vid,
-        createdAt: item.created_at,
+        created_at: item.created_at,
       };
     }
 
@@ -40,7 +76,7 @@ const AdminTable = ({ items, activeTab }) => {
         sustainability: item.sustainability,
         monitoring_evaluation: item.monitoring_evaluation,
         photographs: item.photographs,
-        createdAt: item.created_at,
+        created_at: item.created_at,
       };
     }
 
@@ -50,7 +86,7 @@ const AdminTable = ({ items, activeTab }) => {
         project_proposal: item.project_proposal,
         spoc: item.spoc,
         financial_proposal: item.financial_proposal,
-        createdAt: item.created_at,
+        created_at: item.created_at,
       };
     }
 
@@ -61,15 +97,19 @@ const AdminTable = ({ items, activeTab }) => {
         item_checklist: item.item_checklist,
         serial_numbers: item.serial_numbers,
         verification: item.verification,
-        createdAt: item.created_at,
+        created_at: item.created_at,
       };
     }
 
-    exportRowToCSV(formattedData, `${activeTab}-${item.id}.csv`);
+    exportRowToCSV(formattedData, `${activeTab}-${item.id.slice(0, 8)}.csv`);
   };
 
   const getTableHeaders = () => {
     switch (activeTab) {
+      case "flp_report":
+        return ["Project Title", "Prepared By", "Created At", "Action"];
+      case "stemlab_report":
+        return ["Project Title", "Prepared By", "Created At", "Action"];
       case "projects":
         return ["Project Title", "Prepared By", "Created At", "Action"];
       case "reports":
@@ -122,6 +162,55 @@ const AdminTable = ({ items, activeTab }) => {
                 key={item.id}
                 className="hover:bg-gray-50/30 transition-colors"
               >
+                {activeTab === "flp_report" && (
+                  <>
+                    <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
+                      {item.basic_info?.projectTitle || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {item.basic_info?.objective?.slice(0, 120) + "..." ||
+                        "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {new Date(item.created_at).toLocaleDateString()}
+                    </td>
+                    <td className="py-4 px-6">
+                      <button
+                        onClick={() => handleExport(item)}
+                        className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
+                        title="Export CSV"
+                      >
+                        <FiDownload size={16} />
+                      </button>
+                    </td>
+                  </>
+                )}
+                {activeTab === "stemlab_report" && (
+                  <>
+                    <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
+                      {item.basic_info?.projectTitle || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      <img
+                        src={item.basic_info?.preparedBy || "N/A"}
+                        alt=""
+                        className="h-15"
+                      />
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {new Date(item.created_at).toLocaleDateString()}
+                    </td>
+                    <td className="py-4 px-6">
+                      <button
+                        onClick={() => handleExport(item)}
+                        className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
+                        title="Export CSV"
+                      >
+                        <FiDownload size={16} />
+                      </button>
+                    </td>
+                  </>
+                )}
                 {activeTab === "projects" && (
                   <>
                     <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
