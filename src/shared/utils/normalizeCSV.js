@@ -128,3 +128,15 @@ export function normalizeFLPReportCSV(row) {
     conclusion: parseJSON(row.conclusion),
   };
 }
+
+export function normalizeEventPostsCSV(row) {
+  return {
+    collegeName: row.college_name || "",
+    address: row.address || "",
+    eventDate: row.event_date || "",
+    eventTime: row.event_time || "",
+    studentName: row.student_name || "",
+    facultyName: row.faculty_name || "",
+    photos: parseArray(row.photos),
+  };
+}

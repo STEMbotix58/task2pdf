@@ -2,6 +2,7 @@ import { formattedDate } from "@/shared/utils/formatDate";
 import React from "react";
 import { FiDownload } from "react-icons/fi";
 import { exportRowToCSV } from "@/shared/utils/exportToCSV";
+import { FaFilePdf } from "react-icons/fa";
 
 const AdminTable = ({ items, activeTab }) => {
   const handleExport = (item) => {
@@ -104,6 +105,32 @@ const AdminTable = ({ items, activeTab }) => {
     exportRowToCSV(formattedData, `${activeTab}-${item.id.slice(0, 8)}.csv`);
   };
 
+  const downloadPdf = async (item) => {
+    if (!item?.pdf_url) {
+      return;
+    }
+
+    try {
+      const response = await fetch(item.pdf_url);
+      if (!response.ok) {
+        throw new Error("Unable to fetch PDF from Cloudinary");
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${activeTab}-${item.id.slice(0, 8)}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Download PDF failed:", error);
+      alert("Unable to download PDF. Please try again later.");
+    }
+  };
+
   const getTableHeaders = () => {
     switch (activeTab) {
       case "flp_report":
@@ -174,7 +201,7 @@ const AdminTable = ({ items, activeTab }) => {
                     <td className="py-4 px-6 text-sm text-gray-500">
                       {new Date(item.created_at).toLocaleDateString()}
                     </td>
-                    <td className="py-4 px-6">
+                    <td className="py-4 px-6 flex gap-2">
                       <button
                         onClick={() => handleExport(item)}
                         className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
@@ -182,6 +209,15 @@ const AdminTable = ({ items, activeTab }) => {
                       >
                         <FiDownload size={16} />
                       </button>
+                      {item.pdf_url && (
+                        <button
+                          onClick={() => downloadPdf(item)}
+                          className="p-2 flex gap-2 text-sm cursor-pointer rounded-lg hover:bg-green-50 text-green-600 transition"
+                          title="Download PDF"
+                        >
+                          <FaFilePdf size={16} />
+                        </button>
+                      )}
                     </td>
                   </>
                 )}
@@ -200,7 +236,7 @@ const AdminTable = ({ items, activeTab }) => {
                     <td className="py-4 px-6 text-sm text-gray-500">
                       {new Date(item.created_at).toLocaleDateString()}
                     </td>
-                    <td className="py-4 px-6">
+                    <td className="py-4 px-6 flex gap-2">
                       <button
                         onClick={() => handleExport(item)}
                         className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
@@ -208,6 +244,16 @@ const AdminTable = ({ items, activeTab }) => {
                       >
                         <FiDownload size={16} />
                       </button>
+                      {item.pdf_url && (
+                        <button
+                          onClick={() => downloadPdf(item)}
+                          className="p-2 flex gap-2 text-sm rounded-lg hover:bg-green-50 text-green-600 transition"
+                          title="Download PDF"
+                        >
+                          <FiDownload size={16} />
+                          <FaFilePdf size={16} />
+                        </button>
+                      )}
                     </td>
                   </>
                 )}
@@ -222,7 +268,7 @@ const AdminTable = ({ items, activeTab }) => {
                     <td className="py-4 px-6 text-sm text-gray-500">
                       {new Date(item.created_at).toLocaleDateString()}
                     </td>
-                    <td className="py-4 px-6">
+                    <td className="py-4 px-6 flex gap-2">
                       <button
                         onClick={() => handleExport(item)}
                         className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
@@ -230,6 +276,15 @@ const AdminTable = ({ items, activeTab }) => {
                       >
                         <FiDownload size={16} />
                       </button>
+                      {item.pdf_url && (
+                        <button
+                          onClick={() => downloadPdf(item)}
+                          className="p-2 flex gap-2 text-sm cursor-pointer rounded-lg hover:bg-green-50 text-green-600 transition"
+                          title="Download PDF"
+                        >
+                          <FaFilePdf size={16} />
+                        </button>
+                      )}
                     </td>
                   </>
                 )}
@@ -247,7 +302,7 @@ const AdminTable = ({ items, activeTab }) => {
                     <td className="py-4 px-6 text-sm text-gray-500">
                       {new Date(item.created_at).toLocaleDateString()}
                     </td>
-                    <td className="py-4 px-6">
+                    <td className="py-4 px-6 flex gap-2">
                       <button
                         onClick={() => handleExport(item)}
                         className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
@@ -255,6 +310,15 @@ const AdminTable = ({ items, activeTab }) => {
                       >
                         <FiDownload size={16} />
                       </button>
+                      {item.pdf_url && (
+                        <button
+                          onClick={() => downloadPdf(item)}
+                          className="p-2 flex gap-2 text-sm cursor-pointer rounded-lg hover:bg-green-50 text-green-600 transition"
+                          title="Download PDF"
+                        >
+                          <FaFilePdf size={16} />
+                        </button>
+                      )}
                     </td>
                   </>
                 )}
@@ -272,7 +336,7 @@ const AdminTable = ({ items, activeTab }) => {
                     <td className="py-4 px-6 text-sm text-gray-500">
                       {formattedDate(new Date(item.created_at))}
                     </td>
-                    <td className="py-4 px-6">
+                    <td className="py-4 px-6 flex gap-2">
                       <button
                         onClick={() => handleExport(item)}
                         className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
@@ -280,6 +344,15 @@ const AdminTable = ({ items, activeTab }) => {
                       >
                         <FiDownload size={16} />
                       </button>
+                      {item.pdf_url && (
+                        <button
+                          onClick={() => downloadPdf(item)}
+                          className="p-2 flex gap-2 text-sm cursor-pointer rounded-lg hover:bg-green-50 text-green-600 transition"
+                          title="Download PDF"
+                        >
+                          <FaFilePdf size={16} />
+                        </button>
+                      )}
                     </td>
                   </>
                 )}
@@ -294,7 +367,7 @@ const AdminTable = ({ items, activeTab }) => {
                     <td className="py-4 px-6 text-sm text-gray-500">
                       {formattedDate(new Date(item.created_at))}
                     </td>
-                    <td className="py-4 px-6">
+                    <td className="py-4 px-6 flex gap-2">
                       <button
                         onClick={() => handleExport(item)}
                         className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
@@ -302,6 +375,15 @@ const AdminTable = ({ items, activeTab }) => {
                       >
                         <FiDownload size={16} />
                       </button>
+                      {item.pdf_url && (
+                        <button
+                          onClick={() => downloadPdf(item)}
+                          className="p-2 flex gap-2 text-sm cursor-pointer rounded-lg hover:bg-green-50 text-green-600 transition"
+                          title="Download PDF"
+                        >
+                          <FaFilePdf size={16} />
+                        </button>
+                      )}
                     </td>
                   </>
                 )}

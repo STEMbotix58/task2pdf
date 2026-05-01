@@ -1,8 +1,12 @@
 import React, { lazy } from "react";
 import Stepper from "@/shared/components/navigation/Stepper";
 import { useReportStore } from "./model/reportStore";
-import { saveReportSubmission } from "@/shared/services/databaseService";
-// import CSVUploadForm from "./forms/CSVUploadForm";
+import {
+  saveReportSubmission,
+  updatePdfUrl,
+} from "@/shared/services/databaseService";
+import { uploadFileToCloudinary } from "@/shared/services/uploadService";
+import { generatePdfBlob } from "@/shared/services/pdfService";
 
 const CSVUploadForm = lazy(() => import("./forms/CSVUploadForm"));
 const ProjectForm = lazy(() => import("./forms/ProjectForm"));
@@ -31,7 +35,6 @@ const MonitoringEvaluationForm = lazy(
   () => import("./forms/MonitoringEvaluationForm"),
 );
 const PhotographsForm = lazy(() => import("./forms/PhotographsForm"));
-
 const ReportDocumentPDF = lazy(() => import("./pdf/ReportDocumentPDF"));
 
 const ReportStepperWrapper = () => {
@@ -42,7 +45,34 @@ const ReportStepperWrapper = () => {
       throw new Error(result.error);
     }
 
-    console.log("✅ Report submission saved:");
+    const reportData = useReportStore.getState();
+
+    try {
+      const { default: reportPDFComponent } =
+        await import("./pdf/ReportDocumentPDF");
+
+      const pdfBlob = await generatePdfBlob(reportPDFComponent, {
+        data: reportData,
+      });
+
+      const pdfUrl = await uploadFileToCloudinary({
+        file: pdfBlob,
+        fileName: `report-${result.id}.pdf`,
+        folderName: `report/${result.id}`,
+        resourceType: "raw",
+      });
+
+      const updateResult = await updatePdfUrl("report", result.id, pdfUrl);
+
+      if (!updateResult.success) {
+        throw new Error(updateResult.error);
+      }
+    } catch (error) {
+      console.error("PDF upload failed:", error);
+      throw new Error(
+        `Submission saved but PDF upload failed: ${error.message}`,
+      );
+    }
   };
 
   const steps = [

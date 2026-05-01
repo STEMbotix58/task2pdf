@@ -96,7 +96,7 @@ const Home = () => {
             </div>
 
             <h2 className="text-2xl font-bold text-slate-800 mb-3">
-              Report Version 3
+              Report Version 4
             </h2>
 
             <div className="mt-8 flex items-center text-emerald-600 font-bold text-sm">
@@ -151,6 +151,31 @@ const Home = () => {
 
             <div className="mt-8 flex items-center text-red-600 font-bold text-sm">
               Generate Certificate{" "}
+              <span className="ml-2 group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </div>
+          </div>
+        </Link>
+
+        {/* Event Social Post */}
+        <Link
+          to="/event_post"
+          className="group cursor-pointer bg-white border border-slate-200 rounded-2xl p-8 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 relative overflow-hidden block"
+        >
+          <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-50 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110" />
+
+          <div className="relative z-10">
+            <div className="w-12 h-12 bg-cyan-600 rounded-xl mb-6 flex items-center justify-center shadow-lg shadow-cyan-200">
+              <FaFileCircleCheck color="white" size={25} />
+            </div>
+
+            <h2 className="text-2xl font-bold text-slate-800 mb-3">
+              Event Social Post
+            </h2>
+
+            <div className="mt-8 flex items-center text-cyan-600 font-bold text-sm">
+              Generate Social Post{" "}
               <span className="ml-2 group-hover:translate-x-1 transition-transform">
                 →
               </span>

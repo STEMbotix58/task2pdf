@@ -57,7 +57,7 @@ export const handleProposalCSVDownload = () => {
       email: "contact@example.com",
       phone: "9000000000",
       signatureImg:
-        "https://images.unsplash.com/photo-1650619112959-7e1340365ce2?ixid=M3w4MjcwNjd8MHwxfHNlYXJjaHw4fHxzaWduYXR1cmV8ZW58MHx8fHwxNzczODI1OTQ1fDA&ixlib=rb-4.1.0&fit=max&q=80",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
     }),
 
     financial_proposal: JSON.stringify([
@@ -281,14 +281,12 @@ export const handleReportCSVDownload = () => {
     }),
 
     photographs: JSON.stringify([
-      "https://images.unsplash.com/photo-1509770293056-483fcbd13e30?ixid=M3w4MjcwNjd8MHwxfHNlYXJjaHwxfHxTVEVNJTIwbGFifGVufDB8fHx8MTc3MzgyNTgxN3ww&ixlib=rb-4.1.0&fit=max&q=80",
-      "https://unsplash.com/photos/woman-welding-grey-metal-plate-yctiRnbY7w4?utm_source=randomimage&utm_medium=referral",
-      "https://images.unsplash.com/photo-1574803442176-70d4b465c920?ixid=M3w4MjcwNjd8MHwxfHNlYXJjaHwyfHxTVEVNJTIwbGFifGVufDB8fHx8MTc3MzgyNTgxN3ww&ixlib=rb-4.1.0&fit=max&q=80",
-      "https://unsplash.com/photos/yellow-and-black-4-wheeled-robot-vehicle-toy-j2ExxxnN_w8?utm_source=randomimage&utm_medium=referral",
-      "https://images.unsplash.com/photo-1586370392767-5ce4de129388?ixid=M3w4MjcwNjd8MHwxfHNlYXJjaHwzfHxTVEVNJTIwbGFifGVufDB8fHx8MTc3MzgyNTgxN3ww&ixlib=rb-4.1.0&fit=max&q=80",
-      "https://unsplash.com/photos/woman-in-white-long-sleeve-shirt-wearing-eyeglasses-8gYNmkKh9f0?utm_source=randomimage&utm_medium=referral",
-      "https://images.unsplash.com/photo-1766297248047-6ec337099802?ixid=M3w4MjcwNjd8MHwxfHNlYXJjaHw0fHxTVEVNJTIwbGFifGVufDB8fHx8MTc3MzgyNTgxN3ww&ixlib=rb-4.1.0&fit=max&q=80",
-      "https://unsplash.com/photos/scientist-holding-flask-with-liquid-in-laboratory-oCAsj5Tslic?utm_source=randomimage&utm_medium=referral",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
     ]),
   };
 
@@ -313,23 +311,23 @@ export const handleProjectCSVDownload = () => {
     basic_info: JSON.stringify({
       date: "2025-05-13",
       stemLogo: [
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372020/stembotix/reports/kadi-report/basic-info-1777372020784/uf7ecs1ivclloxrmlhcn.png",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
       ],
       homeImages: [
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372029/stembotix/reports/kadi-report/basic-info-1777372028427/r1kcvf7mrmty1ax0yan7.jpg",
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372031/stembotix/reports/kadi-report/basic-info-1777372028427/jc2jmvlholwjifetlvot.jpg",
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372030/stembotix/reports/kadi-report/basic-info-1777372028427/nalb4pyany4x0ym5xspr.jpg",
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372030/stembotix/reports/kadi-report/basic-info-1777372028427/y3qah5quufztqiobsy8q.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
       ],
       preparedBy: " ISTEM Collective Foundation",
       partnerLogo: [
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372016/stembotix/reports/kadi-report/basic-info-1777372015240/ctlafqahnxw5j4oj5hia.png",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
       ],
       backPageImages: [
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372035/stembotix/reports/kadi-report/basic-info-1777372034957/kqtmwskiyyktymjtpbo0.jpg",
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372035/stembotix/reports/kadi-report/basic-info-1777372034957/whoh2yur8qsfrnheagob.jpg",
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372035/stembotix/reports/kadi-report/basic-info-1777372034957/l3odzapa7crihbo44kom.jpg",
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372035/stembotix/reports/kadi-report/basic-info-1777372034957/stkajhjpw7cqloc65meh.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
       ],
     }),
 
@@ -338,7 +336,7 @@ export const handleProjectCSVDownload = () => {
       description:
         "The ISTEM Collective Foundation, with a proven track record of installing over 150 STEM labs and 5 AmRit Anganwadis, and training over 2,000 students and 500 teachers, has successfully implemented two transformative educational projects, fully sponsored by Haitian Huayuan Machinery (India) Pvt Ltd. These initiatives include the establishment of AI and Robotics Labs in two schools and the setup of AmRit Anganwadi centers. The projects were inaugurated on March 31, 2025, by Hon’ble MLA Shri Mukesh Bhai Patel (Mehsana Constituency) in the gracious presence of Shri Sunil Chaudhary, Director of Haitian Huayuan Machinery (India) Pvt Ltd, other company members, and the District Education Officer. Aligned with the National Education Policy 2020 (NEP2020), these projects promote hands-on STEM education and interactive early childhood learning. This report details the project implementations, including lab setups, training programs, educational tools, and outcomes, with placeholders for photographs to document the work for submission to Haitian Huayuan Machinery (India) Pvt Ltd.",
       summaryImg: [
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372048/stembotix/reports/kadi-report/summary1777372048136/uqmfxpw2brszdry7frzc.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
       ],
     }),
 
@@ -347,7 +345,7 @@ export const handleProjectCSVDownload = () => {
       {
         name: "SHRI MUKESH BHAI PATEL",
         image: [
-          "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372059/stembotix/reports/kadi-report/preface-1777372059665/fhx96y3rtk6y9nai4nw5.jpg",
+          "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
         ],
         designation: "HON’BLE MLA, MEHSANA CONSTITUENCY",
         testimonial:
@@ -356,7 +354,7 @@ export const handleProjectCSVDownload = () => {
       {
         name: "SHRI SUNIL CHAUDHARY, DIRECTOR",
         image: [
-          "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372066/stembotix/reports/kadi-report/preface-1777372066274/unjb70bdgvo8i5allysy.jpg",
+          "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
         ],
         designation: "HAITIAN HUAYUAN MACHINERY (INDIA) PVT LTD",
         testimonial:
@@ -365,7 +363,7 @@ export const handleProjectCSVDownload = () => {
       {
         name: "DISTRICT EDUCATION OFFICER",
         image: [
-          "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372072/stembotix/reports/kadi-report/preface-1777372072691/dtly8gbnturjgmw7wimv.jpg",
+          "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
         ],
         designation: "MEHSANA",
         testimonial:
@@ -376,7 +374,7 @@ export const handleProjectCSVDownload = () => {
     // PROJECT
     project: JSON.stringify({
       image: [
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372186/stembotix/reports/kadi-report/project-image-1777372183454/xd6lxpm7feol3l37jnh6.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
       ],
       title: "AI and Robotics Lab and AmRit Anganwadi Projects",
       amount: 2018302.08,
@@ -405,14 +403,14 @@ export const handleProjectCSVDownload = () => {
 
     // PHOTOGRAPHS
     photographs: JSON.stringify([
-      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372289/stembotix/reports/kadi-report/photographs1777372288519/xsimofz0z0ulmxtz34oz.jpg",
-      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372289/stembotix/reports/kadi-report/photographs1777372288519/kuz6gxy4sh8plczlqjfa.jpg",
-      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372288/stembotix/reports/kadi-report/photographs1777372288519/b8vyzqwcz4qwb50el2pn.jpg",
-      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372288/stembotix/reports/kadi-report/photographs1777372288519/ac0fsdunmbalue89phkx.jpg",
-      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372290/stembotix/reports/kadi-report/photographs1777372288519/toro7wpxxscpwcs7ni3m.jpg",
-      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372291/stembotix/reports/kadi-report/photographs1777372288519/lmxgzjbf9kwfuwssohwu.jpg",
-      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372289/stembotix/reports/kadi-report/photographs1777372288519/xjxhfip4mg6krbhwvcmk.jpg",
-      "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372289/stembotix/reports/kadi-report/photographs1777372288519/ewqykoophyktxzwbn2zl.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+      "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
     ]),
 
     // CONCLUSION
@@ -420,7 +418,7 @@ export const handleProjectCSVDownload = () => {
       description:
         "The successful implementation of the AI and Robotics Lab and AmRit Anganwadi projects, fully sponsored by Haitian Huayuan Machinery (India) Pvt Ltd, underscores the ISTEM Collective Foundation’s commitment to advancing education through innovative, technology-driven solutions. The inauguration on March 31, 2025, by Hon’ble MLA Shri Mukesh Bhai Patel, in the presence of Shri Sunil Chaudhary and other dignitaries, marked a significant milestone in Mehsana’s educational landscape. These projects have exceeded their objectives, providing students and young children with transformative learning experiences and skills for the future. The foundation looks forward to furthering its mission of promoting STEM education and early childhood development in collaboration with partners and stakeholders.",
       conclusionImg: [
-        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777372225/stembotix/reports/kadi-report/conclusion1777372223701/apvjrx3qljbtnmmmvpgy.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
       ],
     }),
 
@@ -573,8 +571,8 @@ This report highlights the project's objectives, implementation, key outcomes, a
       description:
         "The project works to strengthen learning in STEM by bringing richer lessons into classrooms and supporting schools as they build stronger science, technology, engineering, and math programs. It encourages fresh ideas and thoughtful problem-solving, giving students a space where they can explore, experiment, and learn through real experiences. Students gain direct exposure to tools and activities that spark curiosity, while schools receive modern STEM labs that help inspire interest in future STEM paths.",
       projectImg: [
-        "https://images.unsplash.com/photo-1574803442176-70d4b465c920",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROHxYft1f_Ln_y_scKnh8-g5rLMmce7JKyPQ&s",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
+        "https://dreamparknj.com/wp-content/uploads/2016/10/400x400-image.jpg",
       ],
     }),
 
@@ -702,7 +700,7 @@ export const handleFLPReportCSVDownload = () => {
       objective:
         "This report details the Financial Literacy Program, a joint initiative by Tata Capital Limited and Yuva Unstoppable, aimed at empowering students with essential financial knowledge and skills.",
       stemLogo: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777611917/stembotix/reports/flp-report/basic-info1777611915824/u2rr0ybbiw3pa6u1grvt.png",
       ],
     }),
 
@@ -711,7 +709,7 @@ export const handleFLPReportCSVDownload = () => {
       description: `The Financial Literacy Program is a large-scale hybrid initiative presented by Tata Capital Limited and delivered by Yuva Unstoppable, aimed at empowering 50,000 students with essential financial life skills. The program focuses on bridging the gap between theoretical knowledge and real-world financial practices, enabling students to make informed and responsible financial decisions. 
 Implemented across Gujarat and Maharashtra, the initiative promotes a culture of smart saving, disciplined spending, and financial independence. Aligned with the National Education Policy 2020 (NEP 2020), the program integrates life skills and financial literacy into the school ecosystem, preparing students for real-world financial challenges.`,
       summaryImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777611947/stembotix/reports/flp-report/summary1777611947136/kvzl7ukvwrlexctcxn2v.jpg",
       ],
     }),
 
@@ -723,7 +721,7 @@ The initiative also emphasizes risk awareness, educating students about financia
 The program incorporated digital learning integration by onboarding students onto the STEMbotix LMS and Dhangyan portal, providing them with continuous access to structured financial literacy content. This enabled students to engage in self-paced learning beyond classroom sessions, reinforcing their understanding of key concepts through digital modules and assessments. The use of these platforms enhanced overall engagement, supported consistent learning, and ensured better retention of financial knowledge over time. 
 Furthermore, the program aligns with the National Education Policy 2020 (NEP 2020) by integrating financial literacy and life skills into the learning process. It supports the development of responsible, informed, and future-ready individuals who can effectively navigate financial challenges and opportunities in their personal and professional live.`,
       objectiveImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777611975/stembotix/reports/flp-report/objectives1777611974776/crgfzabo8hxgjpccfiea.jpg",
       ],
     }),
 
@@ -736,7 +734,13 @@ A key component of the program was the use of pre- and postassessments to evalua
 The program also provided practical exposure to financial tools and systems, including demonstrations of UPI transactions, ATM usage, and basic banking processes. This hands-on approach enhanced students’ confidence in handling real-world financial activities.
 In addition to in-person sessions, students were onboarded onto the STEMbotix LMS and Dhangyan portal, providing them with access to structured digital learning content, assessments, and continuous learning resources. This blended approach ensured sustained engagement, self-paced learning, and better reinforcement of financial concepts beyond the classroom.`,
       implementationAndDeliveryImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612006/stembotix/reports/flp-report/implementation-and-delivery1777612006256/bdxeqoz1ybgihjvi31jg.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612007/stembotix/reports/flp-report/implementation-and-delivery1777612006256/qfrskqhhzrjazku9nhmw.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612007/stembotix/reports/flp-report/implementation-and-delivery1777612006256/gzhxlq1zaezoueqolxew.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612007/stembotix/reports/flp-report/implementation-and-delivery1777612006256/wg9gjtjtlu9vijhpxar1.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612007/stembotix/reports/flp-report/implementation-and-delivery1777612006256/nbbaaz6nyctsjzjkgnso.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612007/stembotix/reports/flp-report/implementation-and-delivery1777612006256/sqhxihyormqvrqzyc2lj.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612007/stembotix/reports/flp-report/implementation-and-delivery1777612006256/kbabb2wn47lya5wrppd7.jpg",
       ],
     }),
 
@@ -746,7 +750,7 @@ In addition to in-person sessions, students were onboarded onto the STEMbotix LM
 The program was extensively implemented in Maharashtra, where it impacted 36,000 students across 87 schools, making it the primary region of intervention. In Gujarat, the program reached 14,000+ students across 45 schools, further expanding its footprint and ensuring broader access to financial education.
 This extensive coverage across 132 schools enabled the program to cater to students from diverse socio-economic and educational backgrounds. By reaching both urban and semi-urban regions, the initiative ensured inclusivity and equal access to essential financial literacy skills.`,
       reachAndCoverageImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612036/stembotix/reports/flp-report/reach-and-coverage1777612035999/hfeg3dmfzmknxff0imhp.jpg",
       ],
     }),
 
@@ -756,7 +760,7 @@ This extensive coverage across 132 schools enabled the program to cater to stude
 The total program investment amounted to ₹42.49 lakh, distributed across two states based on the scale of implementation and number of beneficiaries. Maharashtra accounted for the larger share of the budget, with an allocation of ₹30.59 lakh, corresponding to its wider coverage of 36,000 students across 87 schools. Gujarat was allocated ₹11.90 lakh, supporting the implementation for over 14,000 students across 45 schools.
 The financial resources were utilized to support key components of the program, including the development of learning materials, facilitator training, execution of interactive sessions, assessment processes, and on-ground coordination. Additionally, funds were allocated towards logistics, program management, and monitoring mechanisms to ensure smooth and efficient implementation.`,
       financialOverviewImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612074/stembotix/reports/flp-report/financial-overview1777612073736/gfvngld6j4qocsgevdg5.jpg",
       ],
     }),
 
@@ -765,7 +769,8 @@ The financial resources were utilized to support key components of the program, 
       description: `Elemented to recognize and validate students’ participation and learning outcomes. Certificates were awarded to students upon successful completion of the program, serving as an acknowledgment of their engagement and understanding of key financial concepts.
 The certification was designed not only as a form of recognition but also as a motivational tool to encourage active participation and commitment throughout the program. It reinforced the importance of financial literacy as an essential life skill and provided students with a sense of achievement and confidence in their newly acquired knowledge.`,
       studentCertificationImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612097/stembotix/reports/flp-report/student-certification1777612096838/pt7efx3ugzmpwfbjuzp9.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612097/stembotix/reports/flp-report/student-certification1777612096838/clgdqlniznnripgylfed.jpg",
       ],
     }),
 
@@ -778,7 +783,8 @@ The program has also enhanced students’ practical understanding of financial s
 In addition, the initiative has contributed to the development of responsible financial behavior, encouraging students to adopt disciplined saving habits, plan their expenses, and set financial goals. The emphasis on financial discipline has helped in still long-term habits that support economic independence.
 The program has further strengthened risk awareness, educating students about financial fraud, cyber security, and safe digital practices. As a result, students are more cautious and informed when engaging with financial systems, reducing their vulnerability to potential risks.`,
       outcomesAndImpactImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612133/stembotix/reports/flp-report/outcomes-and-impact1777612133356/lyo6iux8anx2mlxfcm6z.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612133/stembotix/reports/flp-report/outcomes-and-impact1777612133356/a4j4ia5k6met7oyiay0f.jpg",
       ],
     }),
 
@@ -789,12 +795,12 @@ The program has further strengthened risk awareness, educating students about fi
       studentLearning:
         "The program has significantly enhanced students’ understanding of financial concepts through interactive and experiential learning approaches. Students demonstrated improved comprehension of saving, budgeting, digital payments, and basic investment principles, along with increased confidence in applying this knowledge in real-life situations.",
       studentLearningImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612155/stembotix/reports/flp-report/impact-analysis1777612155252/gpwjemk6mxxxhquf4x0i.jpg",
       ],
       behavioralChange:
         "A notable shift in financial behavior has been observed, with students adopting healthier financial habits such as saving regularly, planning expenses, and making informed spending decisions. The program has contributed to developing a sense of financial responsibility and longterm thinking among students.",
       behavioralChangeImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612161/stembotix/reports/flp-report/impact-analysis1777612161049/as2mw6p7kiepwcps7nza.jpg",
       ],
       digitalFinancialAwareness:
         "Students have gained familiarity with modern financial systems, including banking processes, PI, ATM usage, and online transactions. Additionally, awareness of cyber safety and fraud prevention has strengthened their ability to navigate digital financial platforms securely.",
@@ -804,12 +810,12 @@ The program has further strengthened risk awareness, educating students about fi
       digitalLearningAdoption:
         "The integration of the STEMbotix LMS and Dhangyan portal promoted digital learning practices, enabling students to access content anytime and enhancing engagement through technology-driven education.",
       digitalLearningAdoptionImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612177/stembotix/reports/flp-report/impact-analysis1777612177235/ijk0amwb6hkjpvmupqib.jpg",
       ],
       communityEngagement:
         "The program has extended its impact beyond classrooms, as students share their knowledge with families and communities, contributing to increased awareness and adoption of responsible financial practices at the grassroots level. The program has contributed to multiple dimensions of educational and behavioral development.",
       communityEngagementImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612183/stembotix/reports/flp-report/impact-analysis1777612183409/hdc3synyoe9dbweljw8t.jpg",
       ],
     }),
 
@@ -822,7 +828,7 @@ The integration of digital platforms such as the STEMbotix LMS and Dhangyan port
 Another key strength is the robust assessment framework, including pre and post-evaluations, which helps measure learning outcomes and track student progress effectively. This ensures that the program delivers measurable and meaningful impact.
 Additionally, the initiative benefits from a dedicated implementation and facilitation team, which ensures smooth execution, timely delivery, and continuous support to schools and students. The positive feedback from participants, educators, and stakeholders further highlights the program’s effectiveness and relevance.`,
       projectStrengthsImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612208/stembotix/reports/flp-report/project-strengths1777612208375/zlf7dnmonmntg1d4ohvr.jpg",
       ],
     }),
 
@@ -833,7 +839,7 @@ One of the primary challenges was managing diverse learning levels among student
 The program also encountered a language barrier in certain regions, where students were more comfortable with local languages. This challenge was effectively mitigated by trainers adapting their delivery and explaining concepts in the local language, ensuring better comprehension, engagement, and inclusivity.
 Ensuring consistent student engagement across large groups was another key challenge during program delivery. This was addressed by incorporating participatory methods, discussions, quizzes, and practical demonstrations to maintain interest and encourage active involvement.`,
       challengesAndMigrationImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612231/stembotix/reports/flp-report/challenges-and-migration1777612231348/vtibopzjeyvmt7tuc6xk.jpg",
       ],
     }),
 
@@ -845,7 +851,8 @@ Students were successfully onboarded onto the STEMbotix LMS and Dhangyan portal,
 Students developed a strong understanding of core financial concepts, including saving, budgeting, digital payments, and basic investment principles. The combination of theoretical learning and practical exposure enabled them to confidently apply these concepts in real-life situations.
 A significant outcome of the program has been the development of responsible financial habits, with students demonstrating improved discipline in saving, mindful spending, and financial planning. This behavioral shift is expected to have long-term positive effects on their financial well-being.`,
       keyOutcomesImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612257/stembotix/reports/flp-report/key-outcomes1777612257447/plyiwrm3i2ukx9gb6xz7.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612257/stembotix/reports/flp-report/key-outcomes1777612257447/fhr8wur2jbnc7fcbgu9y.jpg",
       ],
     }),
 
@@ -857,7 +864,7 @@ The inclusion of digital platforms such as the STEMbotix LMS and Dhangyan portal
 Aligned with the vision of the National Education Policy 2020 (NEP 2020), the program contributes to the development of financially literate, aware, and future-ready individuals. The strong partnership between Tata Capital Limited and Yuva Unstoppable, along with a structured delivery model, has ensured effective implementation and measurable impact.
 Overall, the program demonstrates strong potential for scalability and long-term sustainability, contributing meaningfully to building a financially responsible generation and supporting broader socioeconomic development.`,
       conclusionImg: [
-        "https://cdn.pixabay.com/photo/2015/04/19/08/32/flower-729510_1280.jpg",
+        "https://res.cloudinary.com/dy1vps6x9/image/upload/v1777612280/stembotix/reports/flp-report/conclusion1777612280583/gey3gif3frjggewqmi2v.jpg",
       ],
     }),
   };
@@ -870,6 +877,34 @@ Overall, the program demonstrates strong potential for scalability and long-term
   const link = document.createElement("a");
   link.href = url;
   link.download = "flp_report_template.csv";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+export const handleEventPostsCSVDownload = () => {
+  const row = {
+    id: "EventPosts-001",
+    college_name: "ABC College of Engineering",
+    address: "123 Main Street, Cityville",
+    event_date: "2024-10-15",
+    event_time: "10:00",
+    faculty_name: "Dr. John Doe",
+    student_name: "Jane Smith",
+    photos: JSON.stringify([
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROHxYft1f_Ln_y_scKnh8-g5rLMmce7JKyPQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROHxYft1f_Ln_y_scKnh8-g5rLMmce7JKyPQ&s",
+    ]),
+  };
+
+  const csv = generateCSV(row);
+
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "event_posts_template.csv";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

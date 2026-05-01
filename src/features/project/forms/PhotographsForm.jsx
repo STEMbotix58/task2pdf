@@ -6,22 +6,6 @@ import ButtonGroup from "@/shared/components/ui/ButtonGroup";
 import ImageUploadField from "@/shared/components/ui/ImageUploadField";
 import { uploadImagesToCloudinary } from "@/shared/services/uploadService";
 
-function generateDateTime() {
-  const now = new Date();
-
-  const pad = (n) => String(n).padStart(2, "0");
-
-  const day = pad(now.getDate());
-  const month = pad(now.getMonth() + 1);
-  const year = now.getFullYear();
-  const hour = pad(now.getHours());
-  const minute = pad(now.getMinutes());
-  const second = pad(now.getSeconds());
-
-  return `${day}-${month}-${year}-${hour}-${minute}-${second}`;
-}
-const folderName = generateDateTime();
-
 const PhotographsForm = ({
   prevStep,
   nextStep,

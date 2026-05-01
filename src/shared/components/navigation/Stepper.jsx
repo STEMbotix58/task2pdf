@@ -66,7 +66,7 @@ const Stepper = ({
     } finally {
       setTimeout(() => {
         navigate("/");
-      }, [300]);
+      }, 300);
     }
   };
 
@@ -87,7 +87,7 @@ const Stepper = ({
         />
       </Suspense>
 
-      {/* ✅ ONLY ONE PDF SYSTEM */}
+      {/* ONLY ONE PDF SYSTEM */}
       {PDFComponent && (
         <PDFDownloadLink
           id="pdf-download-btn"

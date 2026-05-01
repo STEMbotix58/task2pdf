@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useReportStore } from "@/features/report/model/reportStore";
+import { useEventPostsStore } from "@/features/event_posts/model/eventPostsStore";
 import FormContainer from "@/shared/components/layout/FormContainer";
 import FormHeader from "@/shared/components/layout/FormHeader";
 import ButtonGroup from "@/shared/components/ui/ButtonGroup";
 import ImageUploadField from "@/shared/components/ui/ImageUploadField";
 import { uploadImagesToCloudinary } from "@/shared/services/uploadService";
 
-const PhotographsForm = ({
+const PhotosForm = ({
   prevStep,
   nextStep,
   isFirstStep,
@@ -14,10 +14,10 @@ const PhotographsForm = ({
   generatePDF,
   isGenerating,
 }) => {
-  const storePhotographs = useReportStore((state) => state.photographs);
-  const setSection = useReportStore((state) => state.setSection);
+  const photos = useEventPostsStore((state) => state.photos);
+  const setSection = useEventPostsStore((state) => state.setSection);
 
-  const [formData, setFormData] = useState(() => [...(storePhotographs || [])]);
+  const [formData, setFormData] = useState(() => [...(photos || [])]);
   const [uploading, setUploading] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,14 +31,15 @@ const PhotographsForm = ({
       setUploading(true);
 
       // Upload images to Cloudinary
-      const folderName = "report/photographs" + Date.now();
+
+      const folderName = "event_posts/photos" + Date.now();
 
       const uploadedUrls = await uploadImagesToCloudinary(
         formData.map((item) => item.file || item),
         folderName,
       );
       // Save URLs instead of File objects
-      setSection("photographs", uploadedUrls);
+      setSection("photos", uploadedUrls);
 
       if (isLastStep) {
         generatePDF();
@@ -62,14 +63,13 @@ const PhotographsForm = ({
 
       <form onSubmit={handleSubmit} className="space-y-8">
         <ImageUploadField
-          label="Project Photographs"
           value={formData}
           onChange={setFormData}
-          required={storePhotographs.length > 0 ? false : true}
+          required={photos.length > 0 ? false : true}
           minSelection={1}
-          maxSelection={8}
-          id="photographs"
-          name="photographs"
+          maxSelection={40}
+          id="photos"
+          name="photos"
         />
 
         <ButtonGroup
@@ -84,4 +84,4 @@ const PhotographsForm = ({
   );
 };
 
-export default PhotographsForm;
+export default PhotosForm;

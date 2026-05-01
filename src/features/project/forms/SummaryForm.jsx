@@ -17,9 +17,9 @@ const SummaryForm = ({
   generatePDF,
   isGenerating,
 }) => {
-  const summary = useProjectStore((state) => state.summary);
+  const { description, summaryImg } = useProjectStore((state) => state.summary);
   const setSection = useProjectStore((state) => state.setSection);
-  const [formData, setFormData] = useState(summary);
+  const [formData, setFormData] = useState({ description, summaryImg });
   const [uploading, setUploading] = useState(false);
 
   const handleChange = (field, value) => {

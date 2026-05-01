@@ -1,6 +1,8 @@
 import supabase from "@/shared/utils/supabase";
 import { useReportStore } from "@/features/report/model/reportStore";
 import { useProjectStore } from "@/features/project/model/projectStore";
+import { useFLPStore } from "@/features/flp_report/model/flpReportStore";
+import { useStemLabStore } from "@/features/stemlab_report/model/stemLabReportStore";
 
 /* Save delivery form data to Supabase */
 export const saveDeliverySubmission = async (formData) => {
@@ -18,6 +20,7 @@ export const saveDeliverySubmission = async (formData) => {
           item_checklist: formData.itemChecklist || [],
           serial_numbers: formData.serialNumbers || {},
           verification: formData.verification || {},
+          pdf_url: formData.pdfUrl || null,
           created_at: new Date().toISOString(),
         },
       ])
@@ -62,6 +65,7 @@ export const saveProposalSubmission = async (formData) => {
           project_proposal: formData.projectProposal || {},
           spoc: formData.spoc || {},
           financial_proposal: formData.financialProposal || [],
+          pdf_url: formData.pdfUrl || null,
           created_at: new Date().toISOString(),
         },
       ])
@@ -134,6 +138,7 @@ export const saveReportSubmission = async (formData) => {
         sustainability: formData.sustainability || {},
         monitoring_evaluation: formData.monitoringEvaluation || {},
         photographs: photographs || [],
+        pdf_url: formData.pdfUrl || null,
         created_at: new Date().toISOString(),
       })
       .eq("id", reportId);
@@ -193,6 +198,7 @@ export const saveProjectSubmission = async (formData) => {
         qr_code_img: formData.qrCodeImg || {},
         qr_code_vid: formData.qrCodeVid || {},
         photographs: photographs || [],
+        pdf_url: formData.pdfUrl || null,
         created_at: new Date().toISOString(),
       })
       .eq("id", projectId);
@@ -235,10 +241,12 @@ export const saveSTEMLabReportSubmission = async (formData) => {
           project: formData.project || {},
           impact_analysis: formData.impactAnalysis || {},
           lab_setup_and_components: formData.labSetupAndComponents || {},
-          implementation_and_milestones: formData.implementationAndMilestones || {},
+          implementation_and_milestones:
+            formData.implementationAndMilestones || {},
           strengths: formData.strengths || {},
           challenges_and_mitigation: formData.challengesAndMitigation || {},
-          conclusion: formData.conclusion || "",          
+          conclusion: formData.conclusion || "",
+          pdf_url: formData.pdfUrl || null,
           created_at: new Date().toISOString(),
         },
       ])
@@ -292,6 +300,7 @@ export const saveFLPReportSubmission = async (formData) => {
           challenges_and_migration: formData.challengesAndMigration || {},
           key_outcomes: formData.keyOutcomes || {},
           conclusion: formData.conclusion || {},
+          pdf_url: formData.pdfUrl || null,
           created_at: new Date().toISOString(),
         },
       ])
@@ -322,7 +331,81 @@ export const saveFLPReportSubmission = async (formData) => {
   }
 };
 
+/* Save event posts form data to Supabase */
+export const saveEventPostsSubmission = async (formData) => {
+  try {
+    if (!supabase) {
+      throw new Error("Supabase client not initialized");
+    }
+    const { data, error } = await supabase
+      .from("event_posts")
+      .insert([
+        {
+          college_name: formData.collegeName || "",
+          address: formData.address || "",
+          event_date: formData.eventDate || "",
+          event_time: formData.eventTime || "",
+          student_name: formData.studentName || "",
+          faculty_name: formData.facultyName || "",
+          photos: formData.photos || [],
+          pdf_url: formData.pdfUrl || null,
+          created_at: new Date().toISOString(),
+        },
+      ])
+      .select("id")
+      .single();
+
+    if (error) {
+      console.error("Supabase insert error:", error);
+      throw new Error(`Database error: ${error.message}`);
+    }
+
+    if (!data?.id) {
+      throw new Error("No ID returned from database");
+    }
+
+    return {
+      success: true,
+      id: data.id,
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error saving event posts submission:", error);
+    return {
+      success: false,
+      id: null,
+      error: error.message || "Unknown error occurred",
+    };
+  }
+};
+
 /* Fetch all delivery submissions for admin */
+export const updatePdfUrl = async (table, id, pdfUrl) => {
+  try {
+    if (!supabase) {
+      throw new Error("Supabase client not initialized");
+    }
+
+    const { error } = await supabase
+      .from(table)
+      .update({ pdf_url: pdfUrl })
+      .eq("id", id);
+
+    if (error) {
+      console.error(`Supabase update error for ${table}.pdf_url:`, error);
+      throw new Error(`Failed to update PDF URL: ${error.message}`);
+    }
+
+    return { success: true, error: null };
+  } catch (error) {
+    console.error("Error updating PDF URL:", error);
+    return {
+      success: false,
+      error: error.message || "Unknown error occurred",
+    };
+  }
+};
+
 export const fetchAllDeliveries = async () => {
   try {
     if (!supabase) {
@@ -500,6 +583,37 @@ export const fetchAllFLPReports = async () => {
     };
   } catch (error) {
     console.error("Error fetching FLP Report:", error);
+    return {
+      success: false,
+      data: [],
+      error: error.message || "Unknown error occurred",
+    };
+  }
+};
+
+/* Fetch all Event Posts submissions for admin */
+export const fetchAllEventPosts = async () => {
+  try {
+    if (!supabase) {
+      throw new Error("Supabase client not initialized");
+    }
+    const { data, error } = await supabase
+      .from("event_posts")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("Supabase fetch error:", error);
+      throw new Error(`Database error: ${error.message}`);
+    }
+
+    return {
+      success: true,
+      data: data || [],
+      error: null,
+    };
+  } catch (error) {
+    console.error("Error fetching Event Posts:", error);
     return {
       success: false,
       data: [],

@@ -1,8 +1,13 @@
 import React, { lazy } from "react";
 import Stepper from "@/shared/components/navigation/Stepper";
-import { saveFLPReportSubmission } from "@/shared/services/databaseService";
+import {
+  saveFLPReportSubmission,
+  updatePdfUrl,
+} from "@/shared/services/databaseService";
 import { useFLPStore } from "./model/flpReportStore";
 import FLPReportDocumentPDF from "./pdf/FLPReportDocumentPDF";
+import { generatePdfBlob } from "@/shared/services/pdfService";
+import { uploadFileToCloudinary } from "@/shared/services/uploadService";
 
 const CSVUploadForm = lazy(() => import("./forms/CSVUploadForm"));
 const BasicInfoForm = lazy(() => import("./forms/BasicInfoForm"));
@@ -35,7 +40,34 @@ const FLPReportStepperWrapper = () => {
       throw new Error(result.error);
     }
 
-    console.log("✅ Financial Literacy Program Report submission saved:");
+    const flpReportData = useFLPStore.getState();
+
+    try {
+      const { default: FLPReportPDFComponent } =
+        await import("./pdf/FLPReportDocumentPDF");
+
+      const pdfBlob = await generatePdfBlob(FLPReportPDFComponent, {
+        data: flpReportData,
+      });
+
+      const pdfUrl = await uploadFileToCloudinary({
+        file: pdfBlob,
+        fileName: `flp_report-${result.id}.pdf`,
+        folderName: `flp_report/${result.id}`,
+        resourceType: "raw",
+      });
+
+      const updateResult = await updatePdfUrl("flp_report", result.id, pdfUrl);
+
+      if (!updateResult.success) {
+        throw new Error(updateResult.error);
+      }
+    } catch (error) {
+      console.error("PDF upload failed:", error);
+      throw new Error(
+        `Submission saved but PDF upload failed: ${error.message}`,
+      );
+    }
   };
 
   const steps = [

@@ -1,7 +1,13 @@
 import React, { lazy } from "react";
 import Stepper from "@/shared/components/navigation/Stepper";
+import {
+  saveSTEMLabReportSubmission,
+  updatePdfUrl,
+} from "@/shared/services/databaseService";
 import { useStemLabStore } from "./model/stemLabReportStore";
-import { saveSTEMLabReportSubmission } from "@/shared/services/databaseService";
+import { generatePdfBlob } from "@/shared/services/pdfService";
+import { uploadFileToCloudinary } from "@/shared/services/uploadService";
+import STEMLabReportDocumentPDF from "./pdf/StemLabReportDocumentPDF";
 
 const CSVUploadForm = lazy(() => import("./forms/CSVUploadForm"));
 const LabSetupComponentsForm = lazy(
@@ -21,9 +27,6 @@ const ChallengesAndMitigationForm = lazy(
 const ImpactAnalysisForm = lazy(() => import("./forms/ImpactAnalysisForm"));
 const ProjectForm = lazy(() => import("./forms/ProjectForm"));
 const ConclusionForm = lazy(() => import("./forms/ConclusionForm"));
-const STEMLabReportDocumentPDF = lazy(
-  () => import("./pdf/StemLabReportDocumentPDF"),
-);
 
 const STEMLabReportStepperWrapper = () => {
   const handleBeforeGenerate = async (formData) => {
@@ -33,7 +36,38 @@ const STEMLabReportStepperWrapper = () => {
       throw new Error(result.error);
     }
 
-    console.log("✅ STEMLab Report submission saved:");
+    const stemlabReportData = useStemLabStore.getState();
+
+    try {
+      const { default: STEMLabReportPDFComponent } =
+        await import("./pdf/StemLabReportDocumentPDF");
+
+      const pdfBlob = await generatePdfBlob(STEMLabReportPDFComponent, {
+        data: stemlabReportData,
+      });
+
+      const pdfUrl = await uploadFileToCloudinary({
+        file: pdfBlob,
+        fileName: `stemlab_report-${result.id}.pdf`,
+        folderName: `stemlab_report/${result.id}`,
+        resourceType: "raw",
+      });
+
+      const updateResult = await updatePdfUrl(
+        "stemlab_report",
+        result.id,
+        pdfUrl,
+      );
+
+      if (!updateResult.success) {
+        throw new Error(updateResult.error);
+      }
+    } catch (error) {
+      console.error("PDF upload failed:", error);
+      throw new Error(
+        `Submission saved but PDF upload failed: ${error.message}`,
+      );
+    }
   };
 
   const steps = [
