@@ -6,6 +6,7 @@ import {
   fetchAllProjects,
   fetchAllSTEMLabReports,
   fetchAllFLPReports,
+  fetchAllEventPosts,
 } from "@/shared/services/databaseService";
 
 const validateItemStructure = (item, type) => {
@@ -44,6 +45,10 @@ const validateItemStructure = (item, type) => {
 
   if (type === "delivery" && !item?.basic_info) {
     console.warn("[useAdminData] Delivery missing basic_info", item);
+  }
+
+  if (type === "event_post" && !item?.event_details) {
+    console.warn("[useAdminData] Event Post missing event_details", item);
   }
 };
 
@@ -144,6 +149,17 @@ export const useAdminData = (activeTab) => {
               normalizedData = normalizeItems(response.data, "report");
             }
             break;
+          case "event_posts":
+            {
+              const response = await fetchAllEventPosts();
+
+              if (!response.success) {
+                throw new Error(response.error);
+              }
+
+              normalizedData = normalizeItems(response.data, "event_post");
+            }
+            break;
           case "all":
             {
               const [
@@ -153,6 +169,7 @@ export const useAdminData = (activeTab) => {
                 reportsResponse,
                 proposalsResponse,
                 deliveriesResponse,
+                eventPostsResponse,
               ] = await Promise.all([
                 fetchAllSTEMLabReports(),
                 fetchAllFLPReports(),
@@ -160,6 +177,7 @@ export const useAdminData = (activeTab) => {
                 fetchAllReports(),
                 fetchAllProposals(),
                 fetchAllDeliveries(),
+                fetchAllEventPosts(),
               ]);
 
               const failedResponse = [
@@ -169,6 +187,7 @@ export const useAdminData = (activeTab) => {
                 reportsResponse,
                 proposalsResponse,
                 deliveriesResponse,
+                eventPostsResponse,
               ].find((response) => !response.success);
 
               if (failedResponse) {
@@ -182,6 +201,7 @@ export const useAdminData = (activeTab) => {
                 ...normalizeItems(reportsResponse.data, "report"),
                 ...normalizeItems(proposalsResponse.data, "proposal"),
                 ...normalizeItems(deliveriesResponse.data, "delivery"),
+                ...normalizeItems(eventPostsResponse.data, "event_post"),
               ].sort(
                 (a, b) =>
                   new Date(b?.created_at || 0).getTime() -

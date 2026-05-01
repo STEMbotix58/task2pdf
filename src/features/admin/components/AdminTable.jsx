@@ -102,6 +102,19 @@ const AdminTable = ({ items, activeTab }) => {
       };
     }
 
+    if (activeTab === "event_posts") {
+      formattedData = {
+        college_name: item.college_name,
+        address: item.address,
+        event_date: item.event_date,
+        event_time: item.event_time,
+        faculty_name: item.faculty_name,
+        student_name: item.student_name,
+        photos: item.photos,
+        created_at: item.created_at,
+      };
+    }
+
     exportRowToCSV(formattedData, `${activeTab}-${item.id.slice(0, 8)}.csv`);
   };
 
@@ -151,6 +164,8 @@ const AdminTable = ({ items, activeTab }) => {
         return ["Subject", "SPOC", "Date", "Created At", "Action"];
       case "deliveries":
         return ["Subject", "School Name", "Created At", "Action"];
+      case "event_posts":
+        return ["College Name", "Event Date", "Created At", "Action"];
       default:
         return [];
     }
@@ -363,6 +378,37 @@ const AdminTable = ({ items, activeTab }) => {
                     </td>
                     <td className="py-4 px-6 text-sm text-gray-500">
                       {item.school_delivery?.schoolName || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {formattedDate(new Date(item.created_at))}
+                    </td>
+                    <td className="py-4 px-6 flex gap-2">
+                      <button
+                        onClick={() => handleExport(item)}
+                        className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
+                        title="Export CSV"
+                      >
+                        <FiDownload size={16} />
+                      </button>
+                      {item.pdf_url && (
+                        <button
+                          onClick={() => downloadPdf(item)}
+                          className="p-2 flex gap-2 text-sm cursor-pointer rounded-lg hover:bg-green-50 text-green-600 transition"
+                          title="Download PDF"
+                        >
+                          <FaFilePdf size={16} />
+                        </button>
+                      )}
+                    </td>
+                  </>
+                )}
+                {activeTab === "event_posts" && (
+                  <>
+                    <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
+                      {item.college_name || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {formattedDate(new Date(item.event_date)) || "N/A"}
                     </td>
                     <td className="py-4 px-6 text-sm text-gray-500">
                       {formattedDate(new Date(item.created_at))}
