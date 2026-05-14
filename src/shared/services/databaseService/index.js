@@ -5,4 +5,5 @@ export * from "./projectService";
 export * from "./flpReportService";
 export * from "./stemReportService";
 export * from "./eventPostsService";
+export * from "./userManualService";
 export * from "./commonService";

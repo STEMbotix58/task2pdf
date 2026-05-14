@@ -9,6 +9,7 @@ import ProjectStepperWrapper from "@/features/project/ProjectStepperWrapper";
 import STEMLabReportStepperWrapper from "@/features/stemlab_report/STEMLabReportStepperWrapper";
 import FLPReportStepperWrapper from "@/features/flp_report/FLPReportStepperWrapper";
 import EventPostsStepperWrapper from "@/features/event_posts/EventPostsStepperWrapper";
+import UserManualStepperWrapper from "@/features/user_manual/UserManualStepperWrapper";
 import AdminPanel from "@/features/admin/AdminPanel";
 import Login from "@/shared/auth/Login";
 import Home from "@/pages/Home";
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
       {
         path: "/project",
         element: <ProjectStepperWrapper />,
+      },
+      {
+        path: "/user_manual",
+        element: <UserManualStepperWrapper />,
       },
     ],
   },

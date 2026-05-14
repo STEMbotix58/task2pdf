@@ -182,6 +182,31 @@ const Home = () => {
             </div>
           </div>
         </Link>
+
+        {/* User Manual OPTION */}
+        <Link
+          to="/user_manual"
+          className="group cursor-pointer bg-white border border-slate-200 rounded-2xl p-8 hover:border-indigo-500 hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300 relative overflow-hidden block"
+        >
+          <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110" />
+
+          <div className="relative z-10">
+            <div className="w-12 h-12 bg-indigo-600 rounded-xl mb-6 flex items-center justify-center shadow-lg shadow-indigo-200">
+              <FaRegFileWord color="white" size={24} />
+            </div>
+
+            <h2 className="text-2xl font-bold text-slate-800 mb-3">
+              User Manual
+            </h2>
+
+            <div className="mt-8 flex items-center text-indigo-600 font-bold text-sm">
+              Generate Manual{" "}
+              <span className="ml-2 group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </div>
+          </div>
+        </Link>
       </div>
     </>
   );

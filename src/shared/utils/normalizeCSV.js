@@ -140,3 +140,16 @@ export function normalizeEventPostsCSV(row) {
     photos: parseArray(row.photos),
   };
 }
+
+export function normalizeUserManualCSV(row) {
+  return {
+    coverPage: parseJSON(row.cover_page),
+    introduction: parseJSON(row.introduction),
+    whatsInTheKit: parseArray(row.whats_in_the_kit),
+    hardwareSetup: parseArray(row.hardware_setup),
+    programmingSetup: parseArray(row.programming_setup),
+    safetyInformation: parseJSON(row.safety_information),
+    troubleshootingFAQ: parseArray(row.troubleshooting_faq),
+    conclusion: parseJSON(row.conclusion),
+  };
+}
