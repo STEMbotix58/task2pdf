@@ -88,22 +88,32 @@ const AdminDashboard = ({ stats, recentActivity }) => {
           <div className="space-y-3">
             <Link
               className="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl bg-gray-50 hover:bg-indigo-50 hover:text-indigo-700 text-gray-700 text-sm font-medium transition-colors border border-transparent hover:border-indigo-100 group"
-              to={"/proposal"}
+              to={"/flp-report"}
             >
               <span className="bg-white p-1.5 rounded-lg shadow-sm text-gray-500 group-hover:text-indigo-600">
-                <FiPlus size={16} />
+                <FaProjectDiagram size={16} />
               </span>
-              Generate Proposal
+              Generate Report V1
             </Link>
 
             <Link
               className="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl bg-gray-50 hover:bg-indigo-50 hover:text-indigo-700 text-gray-700 text-sm font-medium transition-colors border border-transparent hover:border-indigo-100 group"
-              to={"/delivery"}
+              to={"/stemlab-report"}
+            >
+              <span className="bg-white p-1.5 rounded-lg shadow-sm text-gray-500 group-hover:text-indigo-600">
+                <FiPlus size={16} />
+              </span>
+              Generate Report V2
+            </Link>
+
+            <Link
+              className="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl bg-gray-50 hover:bg-indigo-50 hover:text-indigo-700 text-gray-700 text-sm font-medium transition-colors border border-transparent hover:border-indigo-100 group"
+              to={"/project"}
             >
               <span className="bg-white p-1.5 rounded-lg shadow-sm text-gray-500 group-hover:text-indigo-600">
                 <FiTruck size={16} />
               </span>
-              Generate Delivery
+              Generate Report V3
             </Link>
 
             <Link
@@ -113,17 +123,7 @@ const AdminDashboard = ({ stats, recentActivity }) => {
               <span className="bg-white p-1.5 rounded-lg shadow-sm text-gray-500 group-hover:text-indigo-600">
                 <FiPieChart size={16} />
               </span>
-              Generate Report
-            </Link>
-
-            <Link
-              className="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl bg-gray-50 hover:bg-indigo-50 hover:text-indigo-700 text-gray-700 text-sm font-medium transition-colors border border-transparent hover:border-indigo-100 group"
-              to={"/project"}
-            >
-              <span className="bg-white p-1.5 rounded-lg shadow-sm text-gray-500 group-hover:text-indigo-600">
-                <FaProjectDiagram size={16} />
-              </span>
-              Generate Project
+              Generate Report V4
             </Link>
 
             {/* <button className="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl bg-gray-50 hover:bg-indigo-50 hover:text-indigo-700 text-gray-700 text-sm font-medium transition-colors border border-transparent hover:border-indigo-100 group">
