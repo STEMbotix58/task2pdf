@@ -11,13 +11,13 @@ export const WhatsInTheKitPage = ({ data }) => {
 
   return (
     <PDFPageLayout>
-      <View style={styles.sectionContainer}>
+      <View style={styles.sectionContainer} id="kit-contents">
         <SectionTitle title="What's in the Kit" />
 
         {/* Modern Grid Layout */}
         <View style={styles.gridContainer}>
           {kitItems.map((item, idx) => (
-            <View key={idx} style={styles.itemCard}>
+            <View key={`kit-${idx}`} style={styles.itemCard} wrap={false}>
               {/* Image Thumbnail Area */}
               {item.image && item.image[0] && (
                 <View style={styles.imageWrapper}>

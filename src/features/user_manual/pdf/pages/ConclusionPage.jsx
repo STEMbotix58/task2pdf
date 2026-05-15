@@ -11,9 +11,12 @@ export const ConclusionPage = ({ data }) => {
     return null;
   }
 
+  const images = data?.conclusion?.image || [];
+  const isSingleImage = images.length === 1;
+
   return (
     <PDFPageLayout>
-      <View style={userManualStyles.sectionContainer}>
+      <View style={userManualStyles.sectionContainer} id="conclusion">
         <SectionTitle title="Conclusion" />
 
         {/* Content */}
@@ -24,13 +27,23 @@ export const ConclusionPage = ({ data }) => {
         )}
 
         {/* Images */}
-        {data?.conclusion?.images &&
-          data.conclusion.images.length > 0 &&
-          data.conclusion.images.map((image, idx) => (
-            <View key={idx} style={{ marginBottom: 12 }}>
-              <Image src={image} style={userManualStyles.sectionImage} />
-            </View>
-          ))}
+        <View style={userManualStyles.imagesContainer} wrap={false}>
+          {data?.conclusion?.images &&
+            data.conclusion.images.length > 0 &&
+            data.conclusion.images.map((image, idx) => (
+              <View
+                key={`${image}-${idx}`}
+                style={[
+                  userManualStyles.saftyImageWrapper,
+                  isSingleImage
+                    ? userManualStyles.fullWidthImage
+                    : userManualStyles.halfWidthImage,
+                ]}
+              >
+                <Image src={image} style={userManualStyles.saftyImage} />
+              </View>
+            ))}
+        </View>
       </View>
     </PDFPageLayout>
   );

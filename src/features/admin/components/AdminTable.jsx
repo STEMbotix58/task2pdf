@@ -115,7 +115,7 @@ const AdminTable = ({ items, activeTab }) => {
       };
     }
 
-    exportRowToCSV(formattedData, `${activeTab}-${item.id.slice(0, 8)}.csv`);
+    exportRowToCSV(formattedData, `${activeTab}-${item.id}.csv`);
   };
 
   const downloadPdf = async (item) => {
@@ -133,7 +133,7 @@ const AdminTable = ({ items, activeTab }) => {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `${activeTab}-${item.id.slice(0, 8)}.pdf`;
+      link.download = `${activeTab}-${item.id}.pdf`;
       document.body.appendChild(link);
       link.click();
       link.remove();

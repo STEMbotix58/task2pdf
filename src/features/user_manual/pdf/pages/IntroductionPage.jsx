@@ -15,7 +15,7 @@ export const IntroductionPage = ({ data }) => {
 
   return (
     <PDFPageLayout wrap={false}>
-      <View style={styles.container}>
+      <View style={styles.container} id="introduction">
         <SectionTitle title="Introduction" />
 
         {content && (
@@ -27,7 +27,16 @@ export const IntroductionPage = ({ data }) => {
         {imageCount > 0 && (
           <View style={styles.galleryWrapper}>
             {displayImages.map((image, idx) => (
-              <View key={idx} style={styles.imageFrame}>
+              <View
+                key={`${image}-${idx}`}
+                style={[
+                  styles.imageFrame,
+                  imageCount < 3 && {
+                    width: "48%",
+                    height: 200,
+                  },
+                ]}
+              >
                 <Image src={image} style={styles.img} />
               </View>
             ))}

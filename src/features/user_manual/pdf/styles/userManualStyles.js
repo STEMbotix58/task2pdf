@@ -83,6 +83,34 @@ export const userManualStyles = StyleSheet.create({
     maxHeight: 200,
   },
 
+  // Safty Image// Images Container
+  imagesContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    gap: 10,
+  },
+
+  saftyImageWrapper: {
+    marginBottom: 12,
+    height: 200,
+  },
+
+  fullWidthImage: {
+    width: "100%",
+  },
+
+  halfWidthImage: {
+    width: "48%",
+  },
+
+  // Image
+  saftyImage: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  },
+
   // FAQ items
   faqItem: {
     marginBottom: 10,

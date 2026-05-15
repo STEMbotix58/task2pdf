@@ -31,6 +31,8 @@ export const useAdminPanel = () => {
       reports: safeData.filter((item) => item?.type === "report").length,
       proposals: safeData.filter((item) => item?.type === "proposal").length,
       deliveries: safeData.filter((item) => item?.type === "delivery").length,
+      event_posts: safeData.filter((item) => item?.type === "event_posts")
+        .length,
     };
   }, [queryType, safeData]);
 
@@ -85,6 +87,14 @@ export const useAdminPanel = () => {
           title: item.basic_info?.subject || "Untitled Delivery",
           time: formatActivityTime(item.created_at),
           type: "delivery",
+        };
+      }
+
+      if (item?.type === "event_posts") {
+        return {
+          title: item.collegeName || "Untitled Even Posts",
+          time: formatActivityTime(item.created_at),
+          type: "event_posts",
         };
       }
 

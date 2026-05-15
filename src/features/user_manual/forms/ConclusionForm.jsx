@@ -17,8 +17,8 @@ const ConclusionForm = ({
 }) => {
   const conclusion = useUserManualStore((state) => state.conclusion);
   const setSection = useUserManualStore((state) => state.setSection);
-
   const [formData, setFormData] = useState(conclusion);
+  const [uploading, setUploading] = useState(false);
 
   const handleChange = (field, value) => {
     setFormData((prev) => ({
@@ -31,19 +31,21 @@ const ConclusionForm = ({
     if (!files || files.length === 0) return;
 
     try {
+      setUploading(true);
       const folderName = "user-manual/conclusion/" + Date.now();
       const urls = await uploadImagesToCloudinary(files, folderName);
       handleChange("images", urls);
     } catch (err) {
       console.error(err);
       alert("Image upload failed");
+    } finally {
+      setUploading(false);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSection("conclusion", formData);
-    nextStep();
   };
 
   return (
@@ -78,7 +80,10 @@ const ConclusionForm = ({
           <ButtonGroup
             prevStep={prevStep}
             nextStep={nextStep}
-            generatePDF={generatePDF}
+            generatePDF={() => {
+              setSection("conclusion", formData);
+              generatePDF();
+            }}
             isFirstStep={isFirstStep}
             isLastStep={isLastStep}
             isGenerating={isGenerating}

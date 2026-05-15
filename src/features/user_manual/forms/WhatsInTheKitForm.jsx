@@ -80,7 +80,7 @@ const WhatsInTheKitForm = ({
                 value={item.itemName}
                 onChange={(e) => updateItem(index, "itemName", e.target.value)}
                 placeholder="e.g., STEM Microcontroller"
-                maxLength={50}
+                maxLength={80}
                 required
               />
 

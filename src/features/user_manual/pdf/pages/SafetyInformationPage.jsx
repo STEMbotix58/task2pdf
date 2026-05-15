@@ -4,17 +4,17 @@ import SectionTitle from "@/shared/pdf/components/SectionTitle";
 import { userManualStyles } from "../styles/userManualStyles";
 
 export const SafetyInformationPage = ({ data }) => {
-  if (
-    !data?.safetyInformation?.content &&
-    (!data?.safetyInformation?.images ||
-      data.safetyInformation.images.length === 0)
-  ) {
+  const images = data?.safetyInformation?.images || [];
+
+  if (!data?.safetyInformation?.content && images.length === 0) {
     return null;
   }
 
+  const isSingleImage = images.length === 1;
+
   return (
     <PDFPageLayout>
-      <View style={userManualStyles.sectionContainer}>
+      <View style={userManualStyles.sectionContainer} id="safety-information">
         <SectionTitle title="Safety Information" />
 
         {/* Content */}
@@ -25,13 +25,23 @@ export const SafetyInformationPage = ({ data }) => {
         )}
 
         {/* Images */}
-        {data?.safetyInformation?.images &&
-          data.safetyInformation.images.length > 0 &&
-          data.safetyInformation.images.map((image, idx) => (
-            <View key={idx} style={{ marginBottom: 12 }}>
-              <Image src={image} style={userManualStyles.sectionImage} />
-            </View>
-          ))}
+        {images.length > 0 && (
+          <View style={userManualStyles.imagesContainer}>
+            {images.map((image, idx) => (
+              <View
+                key={`${image}-${idx}`}
+                style={[
+                  userManualStyles.saftyImageWrapper,
+                  isSingleImage
+                    ? userManualStyles.fullWidthImage
+                    : userManualStyles.halfWidthImage,
+                ]}
+              >
+                <Image src={image} style={userManualStyles.saftyImage} />
+              </View>
+            ))}
+          </View>
+        )}
       </View>
     </PDFPageLayout>
   );

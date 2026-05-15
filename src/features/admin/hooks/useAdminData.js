@@ -44,11 +44,11 @@ const validateItemStructure = (item, type) => {
   }
 
   if (type === "delivery" && !item?.basic_info) {
-    console.warn("[useAdminData] Delivery missing basic_info", item);
+    console.warn("[useAdminData] Delivery missing Basic Info", item);
   }
 
-  if (type === "event_post" && !item?.event_details) {
-    console.warn("[useAdminData] Event Post missing event_details", item);
+  if (type === "event_posts" && !item?.college_name) {
+    console.warn("[useAdminData] Event Post missing Event Details", item);
   }
 };
 
@@ -157,7 +157,7 @@ export const useAdminData = (activeTab) => {
                 throw new Error(response.error);
               }
 
-              normalizedData = normalizeItems(response.data, "event_post");
+              normalizedData = normalizeItems(response.data, "event_posts");
             }
             break;
           case "all":
@@ -201,7 +201,7 @@ export const useAdminData = (activeTab) => {
                 ...normalizeItems(reportsResponse.data, "report"),
                 ...normalizeItems(proposalsResponse.data, "proposal"),
                 ...normalizeItems(deliveriesResponse.data, "delivery"),
-                ...normalizeItems(eventPostsResponse.data, "event_post"),
+                ...normalizeItems(eventPostsResponse.data, "event_posts"),
               ].sort(
                 (a, b) =>
                   new Date(b?.created_at || 0).getTime() -

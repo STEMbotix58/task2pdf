@@ -14,18 +14,16 @@ export const ProgrammingSetupPage = ({ data }) => {
 
   return (
     <PDFPageLayout>
-      <View style={styles.sectionContainer}>
+      <View style={styles.sectionContainer} id="programming-setup">
         <SectionTitle title="Programming Setup" />
 
         {data.programmingSetup.map((step, idx) => (
-          <View
-            id={`programming-step-${idx}`}
-            key={idx}
-            style={styles.itemContainer}
-          >
+          <View key={`programmings-${idx}`} style={styles.itemContainer}>
             <View>
-              {/* Step Header formatted as "STEP X: Title" */}
-              <View style={styles.stepHeaderContainer}>
+              <View
+                style={styles.stepHeaderContainer}
+                id={`programming-step-${idx + 1}`}
+              >
                 <Text style={styles.itemTitle}>
                   STEP {step.stepNumber}: {step.title}
                 </Text>
@@ -48,7 +46,7 @@ export const ProgrammingSetupPage = ({ data }) => {
 
                     return (
                       <View
-                        key={imgIdx}
+                        key={`${img}-${imgIdx}`}
                         style={[
                           styles.imageWrapper,
                           { width: isSingleImage ? "100%" : "48%" },
@@ -80,9 +78,7 @@ export const ProgrammingSetupPage = ({ data }) => {
               {/* Post-Code Explanation */}
               {step.explanation && (
                 <View wrap={false}>
-                  <Text style={styles.explanationText}>
-                    💡 {step.explanation}
-                  </Text>
+                  <Text style={styles.explanationText}>{step.explanation}</Text>
                 </View>
               )}
             </View>

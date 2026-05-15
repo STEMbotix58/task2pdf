@@ -3,6 +3,7 @@ import { View, Text, Link } from "@react-pdf/renderer";
 
 import SectionTitle from "@/shared/pdf/components/SectionTitle";
 import PDFPageLayout from "@/shared/pdf/components/PDFPageLayout";
+import { tableOfContentsStyles as styles } from "../styles/tableOfContentsStyles";
 
 export const TableOfContentsPage = ({ data }) => {
   let currentPage = 3;
@@ -18,9 +19,6 @@ export const TableOfContentsPage = ({ data }) => {
 
   currentPage++;
 
-  // =========================
-  // WHAT'S IN THE KIT
-  // =========================
   if (data?.whatsInTheKit?.some((item) => item.itemName)) {
     tocItems.push({
       number: "2",
@@ -32,9 +30,6 @@ export const TableOfContentsPage = ({ data }) => {
     currentPage++;
   }
 
-  // =========================
-  // HARDWARE SETUP
-  // =========================
   if (data?.hardwareSetup?.some((item) => item.title)) {
     const parentNumber = "3";
 
@@ -60,9 +55,6 @@ export const TableOfContentsPage = ({ data }) => {
     });
   }
 
-  // =========================
-  // PROGRAMMING SETUP
-  // =========================
   if (data?.programmingSetup?.some((item) => item.title)) {
     const parentNumber = "4";
 
@@ -88,9 +80,6 @@ export const TableOfContentsPage = ({ data }) => {
     });
   }
 
-  // =========================
-  // SAFETY INFORMATION
-  // =========================
   if (data?.safetyInformation?.content) {
     tocItems.push({
       number: "5",
@@ -102,9 +91,6 @@ export const TableOfContentsPage = ({ data }) => {
     currentPage++;
   }
 
-  // =========================
-  // FAQ
-  // =========================
   if (data?.troubleshootingFAQ?.some((item) => item.question)) {
     const parentNumber = "6";
 
@@ -130,9 +116,6 @@ export const TableOfContentsPage = ({ data }) => {
     });
   }
 
-  // =========================
-  // CONCLUSION
-  // =========================
   if (data?.conclusion?.content) {
     tocItems.push({
       number: "7",
@@ -144,65 +127,27 @@ export const TableOfContentsPage = ({ data }) => {
 
   return (
     <PDFPageLayout>
-      <View style={{ marginTop: 10 }}>
+      <View style={styles.tocContainer}>
         <SectionTitle title="Table of Contents" />
 
-        <View style={{ marginTop: 20 }}>
-          {tocItems.map((item, index) => (
-            <View
-              key={index}
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginBottom: 10,
-                paddingLeft: item.isSubItem ? 18 : 0,
-              }}
+        {tocItems.map((item, index) => (
+          <View
+            key={index}
+            style={[styles.tocItem, item.isSubItem && { marginBottom: 8 }]}
+          >
+            {/* LEFT SIDE */}
+            <Link
+              src={`#${item.link}`}
+              style={item.isSubItem ? styles.tocSubText : styles.tocText}
             >
-              {/* LEFT SIDE */}
-              <Link
-                src={`#${item.link}`}
-                style={{
-                  flex: 1,
-                  textDecoration: "none",
-                }}
-              >
-                <Text
-                  style={{
-                    fontSize: item.isSubItem ? 10 : 11,
-                    fontWeight: item.isSubItem ? 400 : 600,
-                    color: "#0f172a",
-                  }}
-                >
-                  {item.number} {item.title}
-                </Text>
-              </Link>
+              {item.number} {item.title}
+            </Link>
 
-              {/* DOTS */}
-              <View
-                style={{
-                  flex: 1,
-                  borderBottomWidth: 1,
-                  borderBottomColor: "#cbd5e1",
-                  borderBottomStyle: "dotted",
-                  marginHorizontal: 8,
-                  marginBottom: 3,
-                }}
-              />
-
-              {/* PAGE NUMBER */}
-              <Text
-                style={{
-                  width: 30,
-                  textAlign: "right",
-                  fontSize: 10,
-                  color: "#64748b",
-                }}
-              >
-                {item.page}
-              </Text>
-            </View>
-          ))}
-        </View>
+            <View style={styles.dotLeader} />
+            {/* PAGE NUMBER */}
+            <Text style={styles.tocPage}>{item.page}</Text>
+          </View>
+        ))}
       </View>
     </PDFPageLayout>
   );

@@ -11,16 +11,19 @@ export const TroubleshootingFAQPage = ({ data }) => {
   const hasContent = data.troubleshootingFAQ.some((item) => item.question);
   if (!hasContent) return null;
 
+  const images = data?.troubleshootingFAQ?.image || [];
+  const isSingleImage = images.length === 1;
+
   return (
     <PDFPageLayout>
-      <View style={userManualStyles.sectionContainer}>
+      <View style={userManualStyles.sectionContainer} id="faq">
         <SectionTitle title="Troubleshooting & FAQ" />
 
         {data.troubleshootingFAQ.map((faq, idx) => (
-          <View id={`faq-${idx}`} key={idx} style={userManualStyles.faqItem}>
+          <View key={`faqs-${idx}`} style={userManualStyles.faqItem}>
             {/* Question */}
             {faq.question && (
-              <Text style={userManualStyles.faqQuestion}>
+              <Text style={userManualStyles.faqQuestion} id={`faq-${idx + 1}`}>
                 Q: {faq.question}
               </Text>
             )}
@@ -32,13 +35,23 @@ export const TroubleshootingFAQPage = ({ data }) => {
 
             {/* Images */}
             {faq.image && faq.image.length > 0 && (
-              <View style={{ marginTop: 6, marginBottom: 6 }}>
+              <View style={userManualStyles.imagesContainer} wrap={false}>
                 {faq.image.map((img, imgIdx) => (
-                  <Image
-                    key={imgIdx}
-                    src={img}
-                    style={[userManualStyles.sectionImage, { marginBottom: 6 }]}
-                  />
+                  <View
+                    key={`${img}-${imgIdx}`}
+                    style={[
+                      userManualStyles.saftyImageWrapper,
+                      isSingleImage
+                        ? userManualStyles.fullWidthImage
+                        : userManualStyles.halfWidthImage,
+                    ]}
+                  >
+                    <Image
+                      key={imgIdx}
+                      src={img}
+                      style={userManualStyles.saftyImage}
+                    />
+                  </View>
                 ))}
               </View>
             )}
