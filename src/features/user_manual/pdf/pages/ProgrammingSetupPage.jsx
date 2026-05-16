@@ -14,8 +14,8 @@ export const ProgrammingSetupPage = ({ data }) => {
 
   return (
     <PDFPageLayout>
-      <View style={styles.sectionContainer} id="programming-setup">
-        <SectionTitle title="Programming Setup" />
+      <View style={styles.sectionContainer}>
+        <SectionTitle title="Programming Setup" id="programming-setup" />
 
         {data.programmingSetup.map((step, idx) => (
           <View key={`programmings-${idx}`} style={styles.itemContainer}>
@@ -49,7 +49,7 @@ export const ProgrammingSetupPage = ({ data }) => {
                         key={`${img}-${imgIdx}`}
                         style={[
                           styles.imageWrapper,
-                          { width: isSingleImage ? "100%" : "48%" },
+                          isSingleImage && { width: "100%" },
                         ]}
                       >
                         <Image src={img} style={styles.sectionImage} />

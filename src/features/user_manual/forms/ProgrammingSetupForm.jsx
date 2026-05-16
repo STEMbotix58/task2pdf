@@ -123,7 +123,7 @@ const ProgrammingSetupForm = ({
                 onChange={(e) => updateItem(index, "title", e.target.value)}
                 placeholder="e.g., Install Arduino IDE"
                 maxLength={60}
-                required
+                required={false}
               />
 
               <TextareaInput
@@ -152,6 +152,7 @@ const ProgrammingSetupForm = ({
                 }
                 placeholder="e.g., Arduino C, Python, JavaScript"
                 maxLength={40}
+                required={false}
               />
 
               <TextareaInput

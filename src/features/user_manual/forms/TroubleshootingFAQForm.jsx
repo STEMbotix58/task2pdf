@@ -82,8 +82,8 @@ const TroubleshootingFAQForm = ({
                 value={item.question}
                 onChange={(e) => updateItem(index, "question", e.target.value)}
                 placeholder="e.g., Why is my device not turning on?"
-                maxLength={100}
-                required
+                maxLength={130}
+                required={false}
               />
 
               <TextareaInput
@@ -93,7 +93,6 @@ const TroubleshootingFAQForm = ({
                 onChange={(e) => updateItem(index, "answer", e.target.value)}
                 placeholder="Provide a detailed answer or troubleshooting steps..."
                 maxLength={1000}
-                required
               />
 
               <ImageUploadField

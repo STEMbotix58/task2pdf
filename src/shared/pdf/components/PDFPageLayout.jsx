@@ -1,3 +1,4 @@
+import "@/shared/pdf/pdfSetup";
 import { Image, Page } from "@react-pdf/renderer";
 import PDFHeader from "./PDFHeader";
 import PDFFooter from "./PDFFooter";

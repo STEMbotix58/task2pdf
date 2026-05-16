@@ -65,7 +65,6 @@ const SafetyInformationForm = ({
             onChange={(e) => handleChange("content", e.target.value)}
             placeholder="Include warnings, precautions, and safety guidelines..."
             maxLength={2500}
-            required
           />
 
           {/* Images */}

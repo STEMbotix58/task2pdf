@@ -51,6 +51,7 @@ export const programmingSetupPageStyles = StyleSheet.create({
   imageWrapper: {
     marginBottom: 12,
     height: 200,
+    width: "48%",
   },
   sectionImage: {
     width: "100%",

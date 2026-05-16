@@ -118,7 +118,7 @@ const HardwareSetupForm = ({
                 onChange={(e) => updateItem(index, "title", e.target.value)}
                 placeholder="e.g., Connect Power Supply"
                 maxLength={60}
-                required
+                required={false}
               />
 
               <TextareaInput
@@ -129,15 +129,14 @@ const HardwareSetupForm = ({
                   updateItem(index, "description", e.target.value)
                 }
                 placeholder="Step-by-step instructions..."
-                maxLength={800}
-                required
+                maxLength={1200}
               />
 
               <ImageUploadField
                 label="Step Image"
                 value={item.image || []}
                 onChange={(files) => handleImageChange(index, files)}
-                maxSelection={2}
+                maxSelection={5}
               />
 
               <TextareaInput

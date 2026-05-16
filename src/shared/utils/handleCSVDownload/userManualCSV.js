@@ -6,13 +6,11 @@ export const handleUserManualCSVDownload = () => {
 
     cover_page: JSON.stringify({
       title: "STEM Kit User Manual",
-      subtitle: "Getting Started Guide",
       logo: [
         "https://res.cloudinary.com/dy1vps6x9/image/upload/v1778821151/stembotix/reports/user-manual/cover-page/1778821150698/kfflm0drzsvm4jfbw6zt.jpg",
       ],
       date: "2024-01-01",
       version: "1.0",
-      companyName: "STEMbotix",
     }),
 
     introduction: JSON.stringify({
@@ -190,6 +188,13 @@ Once paired, the device will be ready to connect with the app.`,
         answer:
           "Press and hold the reset button for 5 seconds. The LED should blink indicating a successful reset.",
         image: [],
+      },
+    ]),
+
+    abbreviations: JSON.stringify([
+      {
+        shortForm: "BO",
+        fullForm: "Battery Operated",
       },
     ]),
 

@@ -68,18 +68,6 @@ const CoverPageForm = ({
             />
           </div>
 
-          {/* Subtitle */}
-          <div className="md:col-span-2">
-            <Input
-              label="Subtitle"
-              type="text"
-              id="subtitle"
-              value={formData.subtitle}
-              onChange={(e) => handleChange("subtitle", e.target.value)}
-              placeholder="e.g., Getting Started Guide"
-            />
-          </div>
-
           {/* Logo */}
           <div className="md:col-span-2">
             <ImageUploadField
@@ -97,6 +85,7 @@ const CoverPageForm = ({
             id="date"
             value={formData.date}
             onChange={(e) => handleChange("date", e.target.value)}
+            required
           />
 
           {/* Version */}
@@ -107,19 +96,8 @@ const CoverPageForm = ({
             value={formData.version}
             onChange={(e) => handleChange("version", e.target.value)}
             placeholder="e.g., 1.0"
+            required
           />
-
-          {/* Company Name */}
-          <div className="md:col-span-2">
-            <Input
-              label="Company Name"
-              type="text"
-              id="companyName"
-              value={formData.companyName}
-              onChange={(e) => handleChange("companyName", e.target.value)}
-              placeholder="e.g., STEMbotix"
-            />
-          </div>
         </div>
 
         <div className="mt-10">

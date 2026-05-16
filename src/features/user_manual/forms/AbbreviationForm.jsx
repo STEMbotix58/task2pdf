@@ -3,13 +3,10 @@ import { useUserManualStore } from "@/features/user_manual/model/userManualStore
 import FormContainer from "@/shared/components/layout/FormContainer";
 import FormHeader from "@/shared/components/layout/FormHeader";
 import Input from "@/shared/components/ui/Input";
-import TextareaInput from "@/shared/components/ui/TextareaInput";
-import ImageUploadField from "@/shared/components/ui/ImageUploadField";
 import Button from "@/shared/components/ui/Button";
 import ButtonGroup from "@/shared/components/ui/ButtonGroup";
-import { uploadImagesToCloudinary } from "@/shared/services/uploadService";
 
-const WhatsInTheKitForm = ({
+const AbbreviationForm = ({
   nextStep,
   prevStep,
   isFirstStep,
@@ -17,13 +14,11 @@ const WhatsInTheKitForm = ({
   generatePDF,
   isGenerating,
 }) => {
-  const whatsInTheKit = useUserManualStore((state) => state.whatsInTheKit);
+  const abbreviations = useUserManualStore((state) => state.abbreviations);
   const setSection = useUserManualStore((state) => state.setSection);
 
   const [items, setItems] = useState(
-    whatsInTheKit?.length
-      ? whatsInTheKit
-      : [{ itemName: "", description: "", image: [] }],
+    abbreviations?.length ? abbreviations : [{ shortForm: "", fullForm: "" }],
   );
 
   const updateItem = (index, field, value) => {
@@ -35,29 +30,16 @@ const WhatsInTheKitForm = ({
   };
 
   const addItem = () => {
-    setItems((prev) => [...prev, { itemName: "", description: "", image: [] }]);
+    setItems((prev) => [...prev, { shortForm: "", fullForm: "" }]);
   };
 
   const removeItem = (index) => {
     setItems((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const handleImageChange = async (index, files) => {
-    if (!files || files.length === 0) return;
-
-    try {
-      const folderName = "user-manual/kit-items/" + Date.now();
-      const urls = await uploadImagesToCloudinary(files, folderName);
-      updateItem(index, "image", urls);
-    } catch (err) {
-      console.error(err);
-      alert("Image upload failed");
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSection("whatsInTheKit", items);
+    setSection("abbreviations", items);
     nextStep();
   };
 
@@ -73,32 +55,24 @@ const WhatsInTheKitForm = ({
           {items.map((item, index) => (
             <div
               key={index}
-              className="mb-4 p-4 border-l-4 border-blue-500 bg-blue-50/30 rounded"
+              className="mb-4 p-4 border-l-4 border-b-purple-700 bg-blue-50/30 rounded"
             >
               <Input
-                label="Item Name"
-                value={item.itemName}
-                onChange={(e) => updateItem(index, "itemName", e.target.value)}
-                placeholder="e.g., STEM Microcontroller"
+                label="Short Form"
+                value={item.shortForm}
+                onChange={(e) => updateItem(index, "shortForm", e.target.value)}
+                placeholder="e.g., BO"
                 maxLength={80}
+                required
               />
 
-              <TextareaInput
-                label="Description"
-                rows={3}
-                value={item.description}
-                onChange={(e) =>
-                  updateItem(index, "description", e.target.value)
-                }
-                placeholder="Describe what this item is and its purpose..."
-                maxLength={500}
-              />
-
-              <ImageUploadField
-                label="Item Image"
-                value={item.image || []}
-                onChange={(files) => handleImageChange(index, files)}
-                maxSelection={1}
+              <Input
+                label="Full Form"
+                value={item.fullForm}
+                onChange={(e) => updateItem(index, "fullForm", e.target.value)}
+                placeholder="e.g., Battery Operated"
+                maxLength={80}
+                required
               />
 
               {items.length > 1 && (
@@ -138,4 +112,4 @@ const WhatsInTheKitForm = ({
   );
 };
 
-export default WhatsInTheKitForm;
+export default AbbreviationForm;

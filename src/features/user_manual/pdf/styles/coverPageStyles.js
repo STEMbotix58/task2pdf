@@ -14,37 +14,19 @@ export const coverPageStyles = StyleSheet.create({
     marginBottom: 20,
   },
   logo: {
-    width: 140,
+    width: 280,
     marginBottom: 8,
-  },
-  tagline: {
-    fontSize: 10,
-    letterSpacing: 2,
-    color: "#64748b",
-    textTransform: "uppercase",
   },
   titleGroup: {
     alignItems: "center",
     textAlign: "center",
     marginVertical: "auto",
   },
-  companyName: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#2563eb",
-    letterSpacing: 1,
-    marginBottom: 10,
-  },
   title: {
     fontSize: 38,
     fontWeight: "heavy",
     color: "#0f172a",
     marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 18,
-    color: "#475569",
-    fontFamily: "Helvetica-Oblique",
   },
   metaSection: {
     borderTop: 1,

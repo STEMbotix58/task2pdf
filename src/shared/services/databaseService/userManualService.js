@@ -35,6 +35,7 @@ export const saveUserManualSubmission = async (formData) => {
         programming_setup: manualState.programmingSetup || [],
         safety_information: manualState.safetyInformation || {},
         troubleshooting_faq: manualState.troubleshootingFAQ || [],
+        abbreviations: manualState.abbreviations || [],
         conclusion: manualState.conclusion || {},
         pdf_url: formData.pdfUrl || null,
         created_at: new Date().toISOString(),

@@ -14,8 +14,8 @@ export const HardwareSetupPage = ({ data }) => {
 
   return (
     <PDFPageLayout>
-      <View style={styles.sectionContainer} id="hardware-setup">
-        <SectionTitle title="Hardware Setup" />
+      <View style={styles.sectionContainer}>
+        <SectionTitle title="Hardware Setup" id="hardware-setup" />
 
         {data.hardwareSetup.map((step, idx) => (
           <View key={`hardwares-${idx}`} style={styles.itemContainer}>
@@ -47,7 +47,7 @@ export const HardwareSetupPage = ({ data }) => {
                         key={`${img}-${imgIdx}`}
                         style={[
                           styles.imageWrapper,
-                          { width: isSingleImage ? "100%" : "48%" },
+                          isSingleImage && { width: "100%" },
                         ]}
                       >
                         <Image src={img} style={styles.sectionImage} />
@@ -59,7 +59,7 @@ export const HardwareSetupPage = ({ data }) => {
 
               {step.notes && (
                 <View style={styles.noteBox} wrap={false}>
-                  <Text style={styles.noteText}>⚠ Note: {step.notes}</Text>
+                  <Text style={styles.noteText}>Note: {step.notes}</Text>
                 </View>
               )}
             </View>

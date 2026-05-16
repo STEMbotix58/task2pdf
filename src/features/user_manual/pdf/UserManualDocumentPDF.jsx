@@ -7,6 +7,7 @@ import { HardwareSetupPage } from "./pages/HardwareSetupPage";
 import { ProgrammingSetupPage } from "./pages/ProgrammingSetupPage";
 import { SafetyInformationPage } from "./pages/SafetyInformationPage";
 import { TroubleshootingFAQPage } from "./pages/TroubleshootingFAQPage";
+import { AbbreviationPage } from "./pages/AbbreviationPage";
 import { ConclusionPage } from "./pages/ConclusionPage";
 
 const UserManualDocumentPDF = ({ data }) => {
@@ -21,6 +22,7 @@ const UserManualDocumentPDF = ({ data }) => {
       <SafetyInformationPage data={data} />
       <TroubleshootingFAQPage data={data} />
       <ConclusionPage data={data} />
+      <AbbreviationPage data={data} />
     </Document>
   );
 };

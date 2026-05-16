@@ -12,18 +12,11 @@ export const CoverPage = ({ data }) => {
           {coverPage?.logo?.[0] && (
             <Image src={coverPage.logo[0]} style={styles.logo} />
           )}
-          <Text style={styles.tagline}>Learn • Make • Innovate</Text>
         </View>
 
         <View style={styles.titleGroup}>
-          <Text style={styles.companyName}>
-            {coverPage?.companyName || "STEMBOTIX"}
-          </Text>
-          <Text style={styles.title}>
+          <Text style={styles.title} wrap={false}>
             {coverPage?.title || "STEM Kit User Manual"}
-          </Text>
-          <Text style={styles.subtitle}>
-            {coverPage?.subtitle || "Getting Started Guide"}
           </Text>
         </View>
 

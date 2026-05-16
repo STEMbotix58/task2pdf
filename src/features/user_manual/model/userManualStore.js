@@ -4,11 +4,9 @@ export const useUserManualStore = create((set) => ({
   // Cover Page
   coverPage: {
     title: "",
-    subtitle: "",
     logo: [],
     date: "",
     version: "",
-    companyName: "",
   },
 
   // Introduction
@@ -58,6 +56,14 @@ export const useUserManualStore = create((set) => ({
     content: "",
     images: [],
   },
+
+  // Abbreviations
+  abbreviations: [
+    {
+      shortForm: "",
+      fullForm: "",
+    },
+  ],
 
   // Generic field updater for any section
   setSection: (section, data) =>

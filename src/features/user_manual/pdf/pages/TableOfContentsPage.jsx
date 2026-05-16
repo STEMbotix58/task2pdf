@@ -7,11 +7,12 @@ import { tableOfContentsStyles as styles } from "../styles/tableOfContentsStyles
 
 export const TableOfContentsPage = ({ data }) => {
   let currentPage = 3;
+  let indexNum = 1;
 
   const tocItems = [];
 
   tocItems.push({
-    number: "1",
+    number: indexNum++,
     title: "Introduction",
     page: currentPage,
     link: "introduction",
@@ -21,7 +22,7 @@ export const TableOfContentsPage = ({ data }) => {
 
   if (data?.whatsInTheKit?.some((item) => item.itemName)) {
     tocItems.push({
-      number: "2",
+      number: indexNum++,
       title: "What's in the Kit",
       page: currentPage,
       link: "kit-contents",
@@ -31,7 +32,7 @@ export const TableOfContentsPage = ({ data }) => {
   }
 
   if (data?.hardwareSetup?.some((item) => item.title)) {
-    const parentNumber = "3";
+    const parentNumber = indexNum++;
 
     tocItems.push({
       number: parentNumber,
@@ -56,7 +57,7 @@ export const TableOfContentsPage = ({ data }) => {
   }
 
   if (data?.programmingSetup?.some((item) => item.title)) {
-    const parentNumber = "4";
+    const parentNumber = indexNum++;
 
     tocItems.push({
       number: parentNumber,
@@ -82,7 +83,7 @@ export const TableOfContentsPage = ({ data }) => {
 
   if (data?.safetyInformation?.content) {
     tocItems.push({
-      number: "5",
+      number: indexNum++,
       title: "Safety Information",
       page: currentPage,
       link: "safety-information",
@@ -92,7 +93,7 @@ export const TableOfContentsPage = ({ data }) => {
   }
 
   if (data?.troubleshootingFAQ?.some((item) => item.question)) {
-    const parentNumber = "6";
+    const parentNumber = indexNum++;
 
     tocItems.push({
       number: parentNumber,
@@ -118,10 +119,19 @@ export const TableOfContentsPage = ({ data }) => {
 
   if (data?.conclusion?.content) {
     tocItems.push({
-      number: "7",
+      number: indexNum++,
       title: "Conclusion",
       page: currentPage,
       link: "conclusion",
+    });
+  }
+
+  if (data?.abbreviations?.some((item) => item.shortForm)) {
+    tocItems.push({
+      number: indexNum++,
+      title: "Abbreviations",
+      page: currentPage,
+      link: "abbreviations",
     });
   }
 
@@ -145,7 +155,7 @@ export const TableOfContentsPage = ({ data }) => {
 
             <View style={styles.dotLeader} />
             {/* PAGE NUMBER */}
-            <Text style={styles.tocPage}>{item.page}</Text>
+            {/* <Text style={styles.tocPage}>{item.page}</Text> */}
           </View>
         ))}
       </View>

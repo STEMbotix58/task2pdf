@@ -20,6 +20,7 @@ const SafetyInformationForm = lazy(
 const TroubleshootingFAQForm = lazy(
   () => import("./forms/TroubleshootingFAQForm"),
 );
+const AbbreviationForm = lazy(() => import("./forms/AbbreviationForm"));
 const ConclusionForm = lazy(() => import("./forms/ConclusionForm"));
 const UserManualDocumentPDF = lazy(() => import("./pdf/UserManualDocumentPDF"));
 
@@ -70,6 +71,7 @@ const UserManualStepperWrapper = () => {
     { component: ProgrammingSetupForm },
     { component: SafetyInformationForm },
     { component: TroubleshootingFAQForm },
+    { component: AbbreviationForm },
     { component: ConclusionForm },
   ];
 

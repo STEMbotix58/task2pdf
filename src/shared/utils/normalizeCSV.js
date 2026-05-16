@@ -150,6 +150,7 @@ export function normalizeUserManualCSV(row) {
     programmingSetup: parseArray(row.programming_setup),
     safetyInformation: parseJSON(row.safety_information),
     troubleshootingFAQ: parseArray(row.troubleshooting_faq),
+    abbreviations: parseArray(row.abbreviations),
     conclusion: parseJSON(row.conclusion),
   };
 }
