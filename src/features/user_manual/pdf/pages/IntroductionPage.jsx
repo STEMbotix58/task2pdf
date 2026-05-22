@@ -25,7 +25,14 @@ export const IntroductionPage = ({ data }) => {
         )}
 
         {imageCount > 0 && (
-          <View style={styles.galleryWrapper}>
+          <View
+            style={[
+              styles.galleryWrapper,
+              imageCount === 1 && {
+                justifyContent: "center",
+              },
+            ]}
+          >
             {displayImages.map((image, idx) => (
               <View
                 key={`${image}-${idx}`}

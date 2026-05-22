@@ -12,9 +12,10 @@ export const coverPageStyles = StyleSheet.create({
   brandSection: {
     alignItems: "center",
     marginBottom: 20,
+    marginTop: 100,
   },
   logo: {
-    width: 280,
+    width: 350,
     marginBottom: 8,
   },
   titleGroup: {
