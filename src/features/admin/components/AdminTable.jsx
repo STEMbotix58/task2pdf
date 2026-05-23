@@ -115,6 +115,21 @@ const AdminTable = ({ items, activeTab }) => {
       };
     }
 
+    if (activeTab === "user_manual") {
+      formattedData = {
+        cover_page: item.cover_page,
+        introduction: item.address,
+        whats_in_the_kit: item.whats_in_the_kit,
+        hardware_setup: item.hardware_setup,
+        programming_setup: item.programming_setup,
+        safety_information: item.safety_information,
+        troubleshooting_faq: item.troubleshooting_faq,
+        abbreviations: item.abbreviations,
+        conclusion: item.conclusion,
+        created_at: item.created_at,
+      };
+    }
+
     exportRowToCSV(formattedData, `${activeTab}-${item.id}.csv`);
   };
 
@@ -166,6 +181,8 @@ const AdminTable = ({ items, activeTab }) => {
         return ["Subject", "School Name", "Created At", "Action"];
       case "event_posts":
         return ["College Name", "Event Date", "Created At", "Action"];
+      case "user_manual":
+        return ["Title" , "Introduction", "Created At", "Action"]
       default:
         return [];
     }
@@ -265,7 +282,6 @@ const AdminTable = ({ items, activeTab }) => {
                           className="p-2 flex gap-2 text-sm rounded-lg hover:bg-green-50 text-green-600 transition"
                           title="Download PDF"
                         >
-                          <FiDownload size={16} />
                           <FaFilePdf size={16} />
                         </button>
                       )}
@@ -409,6 +425,37 @@ const AdminTable = ({ items, activeTab }) => {
                     </td>
                     <td className="py-4 px-6 text-sm text-gray-500">
                       {formattedDate(new Date(item.event_date)) || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {formattedDate(new Date(item.created_at))}
+                    </td>
+                    <td className="py-4 px-6 flex gap-2">
+                      <button
+                        onClick={() => handleExport(item)}
+                        className="p-2 flex gap-2 text-sm rounded-lg hover:bg-indigo-50 text-indigo-600 transition"
+                        title="Export CSV"
+                      >
+                        <FiDownload size={16} />
+                      </button>
+                      {item.pdf_url && (
+                        <button
+                          onClick={() => downloadPdf(item)}
+                          className="p-2 flex gap-2 text-sm cursor-pointer rounded-lg hover:bg-green-50 text-green-600 transition"
+                          title="Download PDF"
+                        >
+                          <FaFilePdf size={16} />
+                        </button>
+                      )}
+                    </td>
+                  </>
+                )}
+                {activeTab === "user_manual" && (
+                  <>
+                    <td className="max-w-100 py-4 px-6 text-sm font-semibold text-gray-900">
+                      {item.cover_page?.title || "N/A"}
+                    </td>
+                    <td className="py-4 px-6 text-sm text-gray-500">
+                      {`${item.introduction?.content.slice(0,200)}...` || "N/A"}
                     </td>
                     <td className="py-4 px-6 text-sm text-gray-500">
                       {formattedDate(new Date(item.created_at))}

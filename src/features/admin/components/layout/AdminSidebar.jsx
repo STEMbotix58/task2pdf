@@ -23,6 +23,7 @@ const AdminSidebar = ({ activeTab, setActiveTab }) => {
     { name: "Proposals", key: "proposals", icon: <FiUsers /> },
     { name: "Deliveries", key: "deliveries", icon: <FiCheckSquare /> },
     { name: "Event Posts", key: "event_posts", icon: <FiFileText /> },
+    { name: "User Manual", key: "user_manual", icon: <FiBriefcase />}
   ];
 
   return (
